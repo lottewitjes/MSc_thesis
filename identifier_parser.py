@@ -27,7 +27,7 @@ def parser_ids(id1_id2_file):
     for line in thefile:
         elements = line.split()
         if len(elements) != 1:
-            dic[elements[0]] = elements[1]
+            dic[elements[1]] = elements[0]
     return dic
 
 def parser_file_to_be_changed(file_to_be_changed):
