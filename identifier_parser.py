@@ -20,36 +20,40 @@ __author__ = "Lotte Witjes"
 __version__ = "1.0"
 __email__ = "lottewites@outlook.com"
 
-def replace_id(id_to_be_replaced):
 
-
-
-def parser(file_to_be_parsed):
-    thefile = open(file_to_be_parsed, "r")
+def parser_ids(id1_id2_file):
+    thefile = open(id1_id2_file, "r")
     dic = {}
     for line in thefile:
         elements = line.split()
-        if elements[0] in dic:
-            dic[elements[0]].append(elements[1:])
-        else:
-            dic[elements[0]] = elements[1:]
+        if len(elements) != 1:
+            dic[elements[0]] = elements[1]
     return dic
 
-def write_changed_file(list_to_be_changed, id1_id2_list, output_name):
-    thefile = open(output_name, "w")
-    for key in list_to_be_changed:
-        if key in id1_id2_list and id1_id2_list[key] != [""]:
-            if len(id1_id2_list[key]) != 1:
-                id = "-".join(id1_id2_list[key] 
-                line = "{}    {}    {}    {}    {}    {}".format(id,  list_to_be_changed[key][0], list_to_be_changed[key][1], list_to_be_changed[key][2]
+def parser_file_to_be_changed(file_to_be_changed):
+    thefile = open(file_to_be_changed, "r")
+    thelist = []
+    for line in thefile:
+        elements = line.split()
+        thelist.append(elements)
+    return thelist
 
+def write_changed_file(list_to_be_changed, id1_id2_dic, output_name):
+    thefile = open(output_name, "w")
+    for alist in list_to_be_changed:
+        if alist[0] in id1_id2_dic:
+            line = "{}  {}  {}  {}  {}  {}".format(id1_id2_dic[alist[0]], alist[1], alist[2], alist[3], alist[4], alist[5])
+        else:
+            line = "{}  {}  {}  {}  {}  {}".format(alist[0], alist[1], alist[2], alist[3], alist[4], alist[5])
+        thefile.write(line + "\n")
+    thefile.close()
 
 if __name__ == "__main__":
     file_to_be_changed = argv[1]
     id1_id2_file = argv[2]
     output_name = "{}_parsed".format(file_to_be_changed)
 
-    list_to_be_changed = parser(file_to_be_changed)
-    id1_id2_list = parser(id1_id2_file)
+    id1_id2_dic = parser_ids(id1_id2_file)
+    list_to_be_changed = parser_file_to_be_changed(file_to_be_changed)
 
-    #write_changed_file = write_change_file(list_to_be_changed, id1_id2_list, output_name)
+    write_changed_file(list_to_be_changed, id1_id2_dic, output_name)
