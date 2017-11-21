@@ -1,4 +1,4 @@
-#!/usr/bin/evn/python
+#! /usr/bin/evn python
 """A Python script that overlaps xQTL with BGCs found with plantiSMASH.
 
 python overlap_xQTL_BGC.py <BGC_dir> <eQTL_file> <mQTL_file>
@@ -50,6 +50,9 @@ def BGC_parser(BGC_dir):
             thedic[cluster_id] = [type, chr, from_bp, to_bp, genes]
     return thedic
 
+def find_cis_xQTL(BGC_dic, xQTL_list):
+    
+
 if __name__ == "__main__":
     #Get files from command line
     BGC_dir = argv[1]
@@ -58,6 +61,8 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
-    print BGC_dic
-    #eQTL_list = xQTL_parser(eQTL_file)
-    #mQTL_list = xQTL_parser(mQTL_file)
+    eQTL_list = xQTL_parser(eQTL_file)
+    mQTL_list = xQTL_parser(mQTL_file)
+
+    #Find cis-xQTLs overlapping with BGC based on physical location
+    print find_cis_xQTL(BGC_dic, mQTL_list)

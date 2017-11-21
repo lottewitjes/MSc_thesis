@@ -1,4 +1,4 @@
-#!/usr/bin/evn/python
+#! /usr/bin/evn python
 
 """A Python script that runs plantiSMASH. You should run this script in the directory of plantiSMASH.
 

@@ -1,4 +1,4 @@
-#!/usr/bin/evn/python
+#! /usr/bin/evn python
 
 """A Python scripts that changes identifiers in one file based on another file.
 
