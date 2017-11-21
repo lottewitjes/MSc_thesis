@@ -22,17 +22,30 @@ __email__ = "lottewitjes@outlook.com"
 __date__ = "21 Nov 2017"
 __version__ = "1.0"
 
-def xQTL_parser():
+def xQTL_parser(xQTL_file):
     thefile = open(xQTL_file, "r")
+    thelist = []
+    for line in thefile:
+        elements = line.split()
+        thelist.append(elements)
+    return thelist
 
-def BGC_parser():
+def BGC_parser(BGC_file):
     thefile = open(BGC_file, "r")
+    thedic = {}
+    for line in thefile:
+        elements = line.split()
+        thedic[elements[0]] = [elements[1], elements[2], elements[3], elements[4], elements[5], elements[6], elements[7], elements[8], elements[9]]
+    return thedic
 
 if __name__ == "__main__":
-BGC_file = argv[1]
-eQTL_file = argv[2]
-mQTL_file = argv[3]
+    BGC_file = argv[1]
+    eQTL_file = argv[2]
+    mQTL_file = argv[3]
 
-BGC_list = BGC_parser(BGC_file)
-eQTL_list = xQTL_parser(eQTL_file)
-mQTL_list = xQTL_parser(mQTL_file) 
+    #GC_list = BGC_parser(BGC_file)
+    #print BGC_list
+    eQTL_list = xQTL_parser(eQTL_file)
+    #print eQTL_list
+    mQTL_list = xQTL_parser(mQTL_file) 
+    print mQTL_list
