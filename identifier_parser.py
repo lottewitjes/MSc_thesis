@@ -18,7 +18,7 @@ import os.path
 
 __author__ = "Lotte Witjes"
 __version__ = "1.0"
-__email__ = "lottewites@outlook.com"
+__email__ = "lottewitjes@outlook.com"
 
 
 def parser_ids(id1_id2_file):
