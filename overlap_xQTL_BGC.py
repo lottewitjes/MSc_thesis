@@ -16,6 +16,7 @@ from __future__ import division
 from sys import argv
 import subprocess
 import os.path
+import re
 
 __author__ = "Lotte Witjes"
 __email__ = "lottewitjes@outlook.com"
@@ -25,6 +26,7 @@ __version__ = "1.0"
 def xQTL_parser(xQTL_file):
     thefile = open(xQTL_file, "r")
     thelist = []
+    next(thefile) #skip the header
     for line in thefile:
         elements = line.split()
         thelist.append(elements)
@@ -33,19 +35,24 @@ def xQTL_parser(xQTL_file):
 def BGC_parser(BGC_file):
     thefile = open(BGC_file, "r")
     thedic = {}
+    next(thefile) #skip the header
     for line in thefile:
-        elements = line.split()
-        thedic[elements[0]] = [elements[1], elements[2], elements[3], elements[4], elements[5], elements[6], elements[7], elements[8], elements[9]]
+        elements = line.split("\t")
+        chr, cluster_id = elements[0].split("_c")
+        type = elements[1]
+        from_bp, to_bp = elements[3].split(";")
+        genes = elements[4].split(";")
+        genes = [re.sub(r"-.*", "", gene) for gene in genes]
+        thedic[cluster_id] = [type, chr, from_bp, to_bp, genes]
     return thedic
 
 if __name__ == "__main__":
+    #Get files from command line
     BGC_file = argv[1]
     eQTL_file = argv[2]
     mQTL_file = argv[3]
 
-    #GC_list = BGC_parser(BGC_file)
-    #print BGC_list
+    #Parse the files
+    BGC_dic = BGC_parser(BGC_file)
     eQTL_list = xQTL_parser(eQTL_file)
-    #print eQTL_list
-    mQTL_list = xQTL_parser(mQTL_file) 
-    print mQTL_list
+    mQTL_list = xQTL_parser(mQTL_file)
