@@ -90,6 +90,23 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
                 continue
     return thedic
 
+def find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list):
+    """A function that finds overlapping trans-xQTLs based on the genes in the BGCs. A trans-xQTL is then defined as overlapping eQTL and/or mQTL with their peaks outside the chromosomal location of the BGC.
+
+    Keyword arguments:
+        BGC_dic - a dictionary with clusterID as key and type, chr, from, to, genes as values.
+        eQTL_list - a list of lists containing the values from eQTL_file.
+        mQTL_list - a list of lists containing the values from mQTL_file.
+    Returns:
+        thedic - a dictionary containing clusterID as keys and a list of lists containing overlapping xQTLs per gene in the BGC
+    """
+    thedic = {}
+    return thedic
+
+def find_overlapping_xQTL(eQTL_list, mQTL_list):
+    """
+    """
+
 if __name__ == "__main__":
     #Get files from command line
     BGC_dir = argv[1]
@@ -102,4 +119,8 @@ if __name__ == "__main__":
     mQTL_list = xQTL_parser(mQTL_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location
-    print find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+
+    #Find overlapping trans-xQTLs based on genes present in BGC
+
+    #Find overlapping xQTLs based on their inf_mb, sup_mb
