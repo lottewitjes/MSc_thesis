@@ -17,8 +17,9 @@ import subprocess
 import os.path
 
 __author__ = "Lotte Witjes"
-__version__ = "1.0"
 __email__ = "lottewitjes@outlook.com"
+__version__ = "1.0"
+__date__ = "17 Nov 2017"
 
 
 def parser_ids(id1_id2_file):
