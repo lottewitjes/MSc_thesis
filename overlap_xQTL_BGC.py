@@ -24,7 +24,8 @@ __date__ = "21 Nov 2017"
 __version__ = "1.0"
 
 def xQTL_parser(xQTL_file):
-    """A function that parses a file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score in to a list of lists.
+    """A function that parses a file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score in to a list
+       of lists.
 
     Keyword arguments:
         xQTL_file - a .tsv file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score.
@@ -40,7 +41,8 @@ def xQTL_parser(xQTL_file):
     return thelist
 
 def BGC_parser(BGC_dir):
-    """A function that parses .tsv files (e.g. 1_BGC.txt) in a given directory with clusterID, type, chr, from in bp, to in bp, [genes in cluster] into a dictionary with clusterID as key and the rest as its value.
+    """A function that parses .tsv files (e.g. 1_BGC.txt) in a given directory with clusterID, type, chr, from in
+       bp, to in bp, [genes in cluster] into a dictionary with clusterID as key and the rest as its value.
 
     Keyword arguments:
         BGC_dir - the path of the directory containing the BGCs files per chromosome (e.g. 1_BGC.txt).
@@ -65,14 +67,16 @@ def BGC_parser(BGC_dir):
     return thedic
 
 def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
-    """A function that finds cis-xQTLs based on the chromosomal region of the BGCs. A cis-xQTL is then defined as an eQTL or mQTL with their peaks within the chromosomal location of the BGC.
+    """A function that finds cis-xQTLs based on the chromosomal region of the BGCs. A cis-xQTL is then defined as
+       an eQTL or mQTL with their peaks within the chromosomal location of the BGC.
 
     Keyword arguments:
         BGC_dic - a dictionary with clusterID as key and type, chr, from, to, genes as values.
         eQTL_list - a list of lists containing the values from eQTL_file.
         mQTL_list - a list of lists containing the values from mQTL_file.
     Returns:
-        thedic - a dictionary containing clusterID as keys and their overlapping xQTL (geneID and/or metaboliteID) as values.
+        thedic - a dictionary containing clusterID as keys and their overlapping xQTL (geneID and/or metaboliteID)
+        as values.
     """
     thedic = {}
     for key in BGC_dic:
@@ -91,21 +95,35 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
     return thedic
 
 def find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list):
-    """A function that finds overlapping trans-xQTLs based on the genes in the BGCs. A trans-xQTL is then defined as overlapping eQTL and/or mQTL with their peaks outside the chromosomal location of the BGC.
+    """A function that finds overlapping trans-xQTLs based on the genes in the BGCs. A trans-xQTL is then defined
+       as overlapping eQTL and/or mQTL with their peaks outside the chromosomal location of the BGC.
 
     Keyword arguments:
         BGC_dic - a dictionary with clusterID as key and type, chr, from, to, genes as values.
         eQTL_list - a list of lists containing the values from eQTL_file.
         mQTL_list - a list of lists containing the values from mQTL_file.
     Returns:
-        thedic - a dictionary containing clusterID as keys and a list of lists containing overlapping xQTLs per gene in the BGC
+        thedic - a dictionary containing clusterID as keys and a list of lists containing overlapping xQTLs per
+        gene in the BGC.
     """
     thedic = {}
     return thedic
 
 def find_overlapping_xQTL(eQTL_list, mQTL_list):
+    """A function that finds overlapping xQTLs based on their inf_mb and sup_mb. It returns them in a dictionary.
+       It is considered overlap whenever one inf_mb/sup_mb falls within the region of the query.
+
+    Keyword arguments:
+        eQTL_list - a list of lists containing the values from eQTL_file
+        mQTL_list - a list of lists containing the values from mQTL_file
+    Returns:
+        thedic - a dictionary with gene/metabolite ID of xQTL as key and the gene/metabolite ID of overlapping
+        xQTL.
     """
-    """
+    thedic = {}
+    for i in mQTL_list:
+        for j in mQTL_list:
+    return thedic
 
 if __name__ == "__main__":
     #Get files from command line
@@ -122,5 +140,7 @@ if __name__ == "__main__":
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
+    #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their inf_mb, sup_mb
+
