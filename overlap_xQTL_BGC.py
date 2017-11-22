@@ -74,7 +74,21 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
     Returns:
         thedic - a dictionary containing clusterID as keys and their overlapping xQTL (geneID and/or metaboliteID) as values.
     """
-
+    thedic = {}
+    for key in BGC_dic:
+        thedic[key] = []
+        BGC_region = [BGC_dic[key][1], BGC_dic[key][2], BGC_dic[key][3]]
+        for eQTL in eQTL_list:
+            if eQTL[1] == BGC_region[0] and ((eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]):
+                thedic[key].append(eQTL[0])
+            else:
+                continue
+        for mQTL in mQTL_list:
+            if mQTL[1] == BGC_region[0] and ((mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]):
+                thedic[key].append(mQTL[0])
+            else:
+                continue
+    return thedic
 
 if __name__ == "__main__":
     #Get files from command line
@@ -84,9 +98,8 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
-    print BGC_dic
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location
-    #print find_cis_xQTL(BGC_dic, mQTL_list)
+    print find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
