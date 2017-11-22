@@ -19,6 +19,7 @@ import os.path
 
 __author__ = "Lotte Witjes"
 __email__ = "lottewitjes@outlook.com"
+__date__ = "16 Nov 2017"
 __version__ = "1.0"
 
 def run_plantismash(gff3_plant_genome, fasta_plant_genome, output_directory):
@@ -43,10 +44,12 @@ def run_plantismash(gff3_plant_genome, fasta_plant_genome, output_directory):
             sys.exit()
 
 if __name__ == "__main__":
+    #Get files from command line
     gff3_plant_genome = sys.argv[1]
     fasta_plant_genome = sys.argv[2]
     output_directory = sys.argv[3]
 
+    #Run plantiSMASH
     run_plantismash(gff3_plant_genome, fasta_plant_genome, output_directory)
 
 
