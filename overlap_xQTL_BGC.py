@@ -5,8 +5,8 @@ python overlap_xQTL_BGC.py <BGC_dir> <eQTL_file> <mQTL_file>
 
 Keyword arguments:
     BGC_dir --> A directory containing x_BGC.txt output files from plantiSMASH
-    eQTL_file --> A file containing the eQTLs
-    mQTL_file --> A file containing the mQTLs
+    eQTL_file --> A .tsv file containing the eQTLs (gene, chr, peak_mb, inf_mb, sup_mb, lod_score)
+    mQTL_file --> A .tsv file containing the mQTLs (metabolite, chr, peak_mb, inf_mb, sup_mb, lod_score)
 
 Returns:
     A file with xQTL per BGC
@@ -24,6 +24,13 @@ __date__ = "21 Nov 2017"
 __version__ = "1.0"
 
 def xQTL_parser(xQTL_file):
+    """A function that parses a file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score in to a list of lists.
+
+    Keyword arguments:
+        xQTL_file - a .tsv file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score.
+    Returns:
+        thelist - a list of lists containing the values from xQTL_file.
+    """
     thefile = open(xQTL_file, "r")
     thelist = []
     next(thefile) #skip the header
@@ -33,6 +40,13 @@ def xQTL_parser(xQTL_file):
     return thelist
 
 def BGC_parser(BGC_dir):
+    """A function that parses .tsv files (e.g. 1_BGC.txt) in a given directory with clusterID, type, chr, from in bp, to in bp, [genes in cluster] into a dictionary with clusterID as key and the rest as its value.
+
+    Keyword arguments:
+        BGC_dir - the path of the directory containing the BGCs files per chromosome (e.g. 1_BGC.txt).
+    Returns:
+        thedic - a dictionary with clusterID as key and the rest as values.
+    """
     filelist = os.listdir(BGC_dir)
     filelist = [file for file in filelist if "BGC" in file]
     thedic = {}
@@ -50,8 +64,16 @@ def BGC_parser(BGC_dir):
             thedic[cluster_id] = [type, chr, from_bp, to_bp, genes]
     return thedic
 
-def find_cis_xQTL(BGC_dic, xQTL_list):
-    
+def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
+    """A function that finds cis-xQTLs based on the chromosomal region of the BGCs. A cis-xQTL is then defined as an eQTL or mQTL with their peaks within the chromosomal location of the BGC.
+
+    Keyword arguments:
+        BGC_dic - a dictionary with clusterID as key and type, chr, from, to, genes as values.
+        eQTL_list - a list of lists containing the values from eQTL_file.
+        mQTL_list - a list of lists containing the values from mQTL_file.
+    Returns:
+        thedic - a dictionary containing clusterID as keys and their overlapping xQTL (geneID and/or metaboliteID) as values.
+    """
 
 if __name__ == "__main__":
     #Get files from command line
