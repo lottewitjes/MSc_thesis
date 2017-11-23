@@ -17,7 +17,7 @@ def parse_mQTL_file(mQTL_file):
         thelist = []
         next(thefile) #skip the header
         for line in thefile:
-            elements = line.split("\t")
+            elements = line.split()
             thelist.append(elements)
         return thelist
 
@@ -26,7 +26,7 @@ def parse_metaboliteID_file(metaboliteID_file):
         thedic = {}
         next(thefile) #skip the header
         for line in thefile:
-            elements = line.split("\t")
+            elements = line.split()
             print elements
             thedic[elements[0]] = elements[1:]
         return thedic
@@ -34,11 +34,11 @@ def parse_metaboliteID_file(metaboliteID_file):
 def write_file(output_name, id_dic, mQTL_list):
     with open(output_name, "w") as thefile:
         for mQTL in mQTL_list:
-            if id_dic[mQTL[0]][1] != "NaN":
-                id = id_dic[mQTL[0]][1]
+            if id_dic[mQTL[0]][0] != "NaN":
+                id = id_dic[mQTL[0]][0]
                 line = "{}  {}  {}  {}  {}  {}".format(id, mQTL[1], mQTL[2], mQTL[3], mQTL[4], mQTL[5])
-            elif id_dic[mQTL[0]][1] == "NaN":
-                id = "{}_{}_{}".format(mQTL[0], id_dic[mQTL[0]][2], id_dic[mQTL[0]][3])
+            elif id_dic[mQTL[0]][0] == "NaN":
+                id = "{}_{}_{}".format(mQTL[0], id_dic[mQTL[0]][1], id_dic[mQTL[0]][2])
                 line = "{}  {}  {}  {}  {}  {}".format(id, mQTL[1], mQTL[2], mQTL[3], mQTL[4], mQTL[5])
             thefile.write(line + "\n")
 
