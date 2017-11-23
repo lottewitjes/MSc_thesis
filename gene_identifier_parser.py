@@ -2,7 +2,7 @@
 
 """A Python scripts that changes gene identifiers in an eQTL file based on another file.
 
-python identifier_parser.py <eQTL_file> <geneID_file>
+python gene_identifier_parser.py <eQTL_file> <geneID_file>
 
 Keyword arguments:
 - eQTL_file
