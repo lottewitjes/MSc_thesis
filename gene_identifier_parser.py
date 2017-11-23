@@ -54,7 +54,7 @@ def parser_eQTL_file(eQTL_file):
         return thelist
 
 def write_file(output_name, id_dic, eQTL_list):
-    """A function to write a new file with values from list_to_be_changed but with altered IDs according to id1_id2_dic.
+    """A function to write a new file with values from eQTL_file but with altered IDs according to id_dic.
 
     Keyword arguments:
         eQTL_list- a list of lists containing the values in the file_to_be_changed as a list per row.
