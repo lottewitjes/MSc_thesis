@@ -128,10 +128,46 @@ def find_overlapping_xQTL(eQTL_list, mQTL_list):
         thedic - a dictionary with gene/metabolite ID of xQTL as key and the gene/metabolite ID of overlapping
         xQTL.
     """
-    thedic = {}
-    for i in mQTL_list:
-        for j in mQTL_list:
-            return thedic
+    dic_eQTL_eQTL = {}
+    for i in range(len(eQTL_list)):
+        for j in range(len(eQTL_list)):
+            dic_eQTL_eQTL[eQTL_list[i][0]] = []
+            if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][2]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) <= (eQTL_list[j][4])):
+                dic_eQTL_eQTL[eQTL_list[i][0]].append(eQTL_list[j][0])
+            elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][3]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) <= (eQTL_list[j][4])):
+                dic_eQTL_eQTL[eQTL_list[i][0]].append(eQTL_list[j][0])
+            elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][4]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) <= (eQTL_list[j][4])):
+                dic_eQTL_eQTL[eQTL_list[i][0]].append(eQTL_list[j][0])
+            else:
+                continue
+
+    dic_mQTL_mQTL = {}
+    for i in range(len(mQTL_list)):
+        for j in range(len(mQTL_list)):
+            dic_mQTL_mQTL[mQTL_list[i][0]] = []
+            if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][2]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) <= (mQTL_list[j][4])):
+                dic_mQTL_mQTL[mQTL_list[i][0]].append(mQTL_list[j][0])
+            elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][3]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) <= (mQTL_list[j][4])):
+                dic_mQTL_mQTL[mQTL_list[i][0]].append(mQTL_list[j][0])
+            elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][4]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) <= (mQTL_list[j][4])):
+                dic_mQTL_mQTL[mQTL_list[i][0]].append(mQTL_list[j][0])
+            else:
+                continue
+
+    dic_mQTL_eQTL = {}
+    for i in range(len(mQTL_list)):
+        for j in range(len(eQTL_list)):
+            dic_mQTL_eQTL[mQTL_list[i][0]] = []
+            if mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][2]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) <= (eQTL_list[j][4])):
+                dic_mQTL_eQTL[mQTL_list[i][0]].append(eQTL_list[j][0])
+            elif mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][3]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) <= (eQTL_list[j][4])):
+                dic_mQTL_eQTL[mQTL_list[i][0]].append(eQTL_list[j][0])
+            elif mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][4]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) <= (eQTL_list[j][4])):
+                dic_mQTL_eQTL[mQTL_list[i][0]].append(eQTL_list[j][0])
+            else:
+                continue
+
+    return dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL
 
 if __name__ == "__main__":
     #Get files from command line
@@ -144,12 +180,22 @@ if __name__ == "__main__":
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
 
-    #Find cis-xQTLs overlapping with BGC based on physical location
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    print cis_xQTL_dic
+    #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
+    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    #print cis_xQTL_dic
+    #count = 0
+    #total = 0
+    #for key in cis_xQTL_dic:
+    #    if cis_xQTL_dic[key] != []:
+    #        count += 1
+    #        total += 1
+    #    else:
+    #        total += 1
+    #print "{} of the {} BGCs have cis-xQTLs".format(count, total)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
-    #Find overlapping xQTLs based on their inf_mb, sup_mb
+    #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
+    print find_overlapping_xQTL(eQTL_list, mQTL_list)
 
