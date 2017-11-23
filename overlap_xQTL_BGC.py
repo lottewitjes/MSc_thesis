@@ -85,10 +85,18 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         for eQTL in eQTL_list:
             if eQTL[1] == BGC_region[0] and ((eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]):
                 thedic[key].append(eQTL[0])
+            elif eQTL[1] == BGC_region[0] and ((eQTL[3]*1000000) >= BGC_region[1] and (eQTL[3]*1000000) <= BGC_region[2]):
+                thedic[key].append(eQTL[0])
+            elif eQTL[1] == BGC_region[0] and ((eQTL[4]*1000000) >= BGC_region[1] and (eQTL[4]*1000000) <= BGC_region[2]):
+                thedic[key].append(eQTL[0])
             else:
                 continue
         for mQTL in mQTL_list:
             if mQTL[1] == BGC_region[0] and ((mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]):
+                thedic[key].append(mQTL[0])
+            elif mQTL[1] == BGC_region[0] and ((mQTL[3]*1000000) >= BGC_region[1] and (mQTL[3]*1000000) <= BGC_region[2]):
+                thedic[key].append(mQTL[0])
+            elif mQTL[1] == BGC_region[0] and ((mQTL[4]*1000000) >= BGC_region[1] and (mQTL[4]*1000000) <= BGC_region[2]):
                 thedic[key].append(mQTL[0])
             else:
                 continue
@@ -123,7 +131,7 @@ def find_overlapping_xQTL(eQTL_list, mQTL_list):
     thedic = {}
     for i in mQTL_list:
         for j in mQTL_list:
-    return thedic
+            return thedic
 
 if __name__ == "__main__":
     #Get files from command line
@@ -138,6 +146,7 @@ if __name__ == "__main__":
 
     #Find cis-xQTLs overlapping with BGC based on physical location
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    print cis_xQTL_dic
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
