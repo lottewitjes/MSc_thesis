@@ -169,6 +169,17 @@ def find_overlapping_xQTL(eQTL_list, mQTL_list):
 
     return dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL
 
+def count(thedic):
+    count = 0
+    total = 0
+    for key in thedic:
+        if thedic[key] != []:
+            count += 1
+            total += 1
+        else:
+            total +=1
+    print "{}/{} have overlap in the following dictionary: {}".format(count, total, thedic)
+
 if __name__ == "__main__":
     #Get files from command line
     BGC_dir = argv[1]
@@ -182,20 +193,13 @@ if __name__ == "__main__":
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    #print cis_xQTL_dic
-    #count = 0
-    #total = 0
-    #for key in cis_xQTL_dic:
-    #    if cis_xQTL_dic[key] != []:
-    #        count += 1
-    #        total += 1
-    #    else:
-    #        total += 1
-    #print "{} of the {} BGCs have cis-xQTLs".format(count, total)
+    #count(cis_xQTL_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    print find_overlapping_xQTL(eQTL_list, mQTL_list)
-
+    dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
+    count(dic_eQTL_eQTL)
+    count(dic_mQTL_mQTL)
+    count(dic_mQTL_eQTL)
