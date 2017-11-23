@@ -170,6 +170,13 @@ def find_overlapping_xQTL(eQTL_list, mQTL_list):
     return dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL
 
 def count(thedic):
+    """A function to count the number of keys in a dictionary with values.
+
+    Keyword arguments:
+        thedic - a dictionary
+    Returns:
+        a string saying e.g. 5/50 have overlap in the following dictionary: thedic
+    """
     count = 0
     total = 0
     for key in thedic:
@@ -180,11 +187,19 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in the following dictionary: {}".format(count, total, thedic)
 
+def write_file(cis_xQTL_dic, cis_xQTL_output_name):
+    with open(cis_xQTL_output_name, "w") as thefile:
+        for key in cis_xQTL_dic:
+            elements = [key] + cis_xQTL_dic[key]
+            line =  "\t".join(elements)
+            thefile.write(line + "\n")
+
 if __name__ == "__main__":
     #Get files from command line
     BGC_dir = argv[1]
     eQTL_file = argv[2]
     mQTL_file = argv[3]
+    cis_xQTL_output_name = "cis_xQTLs.txt"
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
@@ -192,14 +207,15 @@ if __name__ == "__main__":
     mQTL_list = xQTL_parser(mQTL_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    #count(cis_xQTL_dic)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    count(cis_xQTL_dic)
+    write_file(cis_xQTL_dic, cis_xQTL_output_name)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
-    count(dic_eQTL_eQTL)
-    count(dic_mQTL_mQTL)
-    count(dic_mQTL_eQTL)
+    #dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
+    #count(dic_eQTL_eQTL)
+    #count(dic_mQTL_mQTL)
+    #count(dic_mQTL_eQTL)
