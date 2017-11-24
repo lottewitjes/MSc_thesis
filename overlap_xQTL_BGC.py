@@ -194,23 +194,33 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
-def write_file(thedic, output_dir, output_name, locus_annotation_dic):
+def write_file(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    for key in sorted(thedic):
-        if thedic[key][3] != []:
+    for key in sorted(overlap_dic):
+        if overlap_dic[key][3] != []:
             filename = "{}_{}.txt".format(output_name, key)
             with open(filename, "w") as thefile:
-                elements = [str(key)] + cis_xQTL_dic[key][0:3]
+                elements = [str(key)] + [BGC_dic[key][0]] + overlap_dic[key][0:3]
                 line =  "\t".join(elements)
                 thefile.write(line + "\n")
-                for xQTL in cis_xQTL_dic[key][3]:
-                    if xQTL in locus_annotation_dic:
-                        line_elements = [xQTL, locus_annotation_dic[xQTL]]
-                        line = "\t".join(line_elements)
-                        thefile.write(line + "\n")
+                for xQTL in overlap_dic[key][3]:
+                    if xQTL in BGC_dic[key][4]:
+                        cluster_status = "in_cluster"
+                        if xQTL in locus_annotation_dic:
+                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL]]
+                            line = "\t".join(line_elements)
+                            thefile.write(line + "\n")
+                        else:
+                            thefile.write(xQTL + "\t" + "in_cluster" + "\n")
                     else:
-                        thefile.write(xQTL + "\n")
+                        cluster_status = "not_in_cluster"
+                        if xQTL in locus_annotation_dic:
+                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL]]
+                            line = "\t".join(line_elements)
+                            thefile.write(line + "\n")
+                        else:
+                            thefile.write(xQTL + "\t" + "not_in_cluster" + "\n")
 
 def gff3_parser(gff3_file):
     thedic = {}
@@ -245,6 +255,7 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
+    print BGC_dic
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
     locus_annotation_dic = gff3_parser(gff3_file)
@@ -253,7 +264,7 @@ if __name__ == "__main__":
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
     print "Performing a count on the cis_xQTL_dic dictionary..."
     count(cis_xQTL_dic)
-    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic)
+    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
