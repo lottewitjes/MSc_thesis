@@ -221,6 +221,8 @@ def write_file(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_d
                             thefile.write(line + "\n")
                         else:
                             thefile.write(xQTL + "\t" + "not_in_cluster" + "\n")
+        else:
+            continue
 
 def gff3_parser(gff3_file):
     thedic = {}
