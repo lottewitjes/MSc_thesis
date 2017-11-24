@@ -7,9 +7,14 @@ Keyword arguments:
     BGC_dir --> A directory containing x_BGC.txt output files from plantiSMASH
     eQTL_file --> A .tsv file containing the eQTLs (gene, chr, peak_mb, inf_mb, sup_mb, lod_score)
     mQTL_file --> A .tsv file containing the mQTLs (metabolite, chr, peak_mb, inf_mb, sup_mb, lod_score)
+    output_dir --> The path to the directory where to write the results files to
 
 Returns:
-    A file with xQTL per BGC
+    A .tsv file with cis-xQTL per BGC
+    A .tsv file with trans-xQTL per BGC
+    A .tsv file with overlapping eQTL
+    A .tsv file with overlapping mQTL
+    A .tsv file with overlapping mQTL and eQTL
 """
 
 from __future__ import division
@@ -63,7 +68,7 @@ def BGC_parser(BGC_dir):
             from_bp, to_bp = elements[3].split(";")
             genes = elements[4].split(";")
             genes = [re.sub(r"-.*", "", gene) for gene in genes]
-            thedic[cluster_id] = [type, chr, from_bp, to_bp, genes]
+            thedic[int(cluster_id)] = [type, chr, from_bp, to_bp, genes]
     return thedic
 
 def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
@@ -185,21 +190,28 @@ def count(thedic):
             total += 1
         else:
             total +=1
-    print "{}/{} have overlap in the following dictionary: {}".format(count, total, thedic)
+    print "{}/{} have overlap in this dictionary".format(count, total)
 
-def write_file(cis_xQTL_dic, cis_xQTL_output_name):
+def write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     with open(cis_xQTL_output_name, "w") as thefile:
-        for key in cis_xQTL_dic:
-            elements = [key] + cis_xQTL_dic[key]
+        for key in sorted(cis_xQTL_dic):
+            elements = [str(key)] + cis_xQTL_dic[key]
             line =  "\t".join(elements)
             thefile.write(line + "\n")
 
 if __name__ == "__main__":
-    #Get files from command line
+    #Get files from command line + name results files
     BGC_dir = argv[1]
     eQTL_file = argv[2]
     mQTL_file = argv[3]
-    cis_xQTL_output_name = "cis_xQTLs.txt"
+    output_dir = argv[4]
+    cis_xQTL_output_name = "{}/cis_xQTLs_BGC.txt".format(output_dir)
+    trans_xQTL_output_name = "{}/trans_xQTLs_BGC.txt".format(output_dir)
+    eQTL_eQTL_output_name = "{}/eQTL_eQTL.txt".format(output_dir)
+    mQTL_mQTL_output_name = "{}/mQTL_mQTL.txt".format(output_dir)
+    mQTL_eQTL_output_name = "{}/mQTL_eQTL.txt".format(output_dir)
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
@@ -208,14 +220,21 @@ if __name__ == "__main__":
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    print "Performing a count on the cis_xQTL_dic dictionary..."
     count(cis_xQTL_dic)
-    write_file(cis_xQTL_dic, cis_xQTL_output_name)
+    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
     #dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
+    #print "Performing a count on the dic_eQTL_eQTL dictionary..."
     #count(dic_eQTL_eQTL)
+    #write_file(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    #print "Performing a count on the dic_mQTL_mQTL dictionary..."
     #count(dic_mQTL_mQTL)
+    #write_file(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    #print "Performing a count on the dic_mQTL_eQTL dictionary..."
     #count(dic_mQTL_eQTL)
+    #write_file(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
