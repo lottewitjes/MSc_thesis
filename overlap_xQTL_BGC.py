@@ -85,26 +85,28 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
     """
     thedic = {}
     for key in BGC_dic:
-        thedic[key] = []
         BGC_region = [BGC_dic[key][1], BGC_dic[key][2], BGC_dic[key][3]]
+        thedic[key] = BGC_region
+        cis_xQTL_list = []
         for eQTL in eQTL_list:
             if eQTL[1] == BGC_region[0] and ((eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]):
-                thedic[key].append(eQTL[0])
+                cis_xQTL_list.append(eQTL[0])
             elif eQTL[1] == BGC_region[0] and ((eQTL[3]*1000000) >= BGC_region[1] and (eQTL[3]*1000000) <= BGC_region[2]):
-                thedic[key].append(eQTL[0])
+                cis_xQTL_list.append(eQTL[0])
             elif eQTL[1] == BGC_region[0] and ((eQTL[4]*1000000) >= BGC_region[1] and (eQTL[4]*1000000) <= BGC_region[2]):
-                thedic[key].append(eQTL[0])
+                cis_xQTL_list.append(eQTL[0])
             else:
                 continue
         for mQTL in mQTL_list:
             if mQTL[1] == BGC_region[0] and ((mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]):
-                thedic[key].append(mQTL[0])
+                cis_xQTL_list.append(mQTL[0])
             elif mQTL[1] == BGC_region[0] and ((mQTL[3]*1000000) >= BGC_region[1] and (mQTL[3]*1000000) <= BGC_region[2]):
-                thedic[key].append(mQTL[0])
+                cis_xQTL_list.append(mQTL[0])
             elif mQTL[1] == BGC_region[0] and ((mQTL[4]*1000000) >= BGC_region[1] and (mQTL[4]*1000000) <= BGC_region[2]):
-                thedic[key].append(mQTL[0])
+                cis_xQTL_list.append(mQTL[0])
             else:
                 continue
+        thedic[key].append(cis_xQTL_list)
     return thedic
 
 def find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list):
@@ -185,29 +187,57 @@ def count(thedic):
     count = 0
     total = 0
     for key in thedic:
-        if thedic[key] != []:
+        if thedic[key][3] != []:
             count += 1
             total += 1
         else:
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
-def write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name):
+def write_file(thedic, output_dir, output_name, locus_annotation_dic):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    with open(cis_xQTL_output_name, "w") as thefile:
-        for key in sorted(cis_xQTL_dic):
-            elements = [str(key)] + cis_xQTL_dic[key]
-            line =  "\t".join(elements)
-            thefile.write(line + "\n")
+    for key in sorted(thedic):
+        if thedic[key][3] != []:
+            filename = "{}_{}.txt".format(output_name, key)
+            with open(filename, "w") as thefile:
+                elements = [str(key)] + cis_xQTL_dic[key][0:3]
+                line =  "\t".join(elements)
+                thefile.write(line + "\n")
+                for xQTL in cis_xQTL_dic[key][3]:
+                    if xQTL in locus_annotation_dic:
+                        line_elements = [xQTL, locus_annotation_dic[xQTL]]
+                        line = "\t".join(line_elements)
+                        thefile.write(line + "\n")
+                    else:
+                        thefile.write(xQTL + "\n")
+
+def gff3_parser(gff3_file):
+    thedic = {}
+    with open(gff3_file, "r") as thefile:
+        for line in thefile:
+            if line.startswith("#"):
+                continue
+            else:
+                elements = line.split("\t")
+                if elements[2] == "gene" and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
+                    description = elements[-1].split(";")
+                    locus = description[0].split("ID=")[1]
+                    annotation = description[2].strip().split("Note=")[1].split("%20")
+                    annotation = [element.replace("%2C", ",") for element in annotation]
+                    annotation = [element.replace("%2F", "/") for element in annotation]
+                    annotation = " ".join(annotation)
+                    thedic[locus] = annotation
+        return thedic
 
 if __name__ == "__main__":
     #Get files from command line + name results files
     BGC_dir = argv[1]
     eQTL_file = argv[2]
     mQTL_file = argv[3]
-    output_dir = argv[4]
-    cis_xQTL_output_name = "{}/cis_xQTLs_BGC.txt".format(output_dir)
+    gff3_file = argv[4]
+    output_dir = argv[5]
+    cis_xQTL_output_name = "{}/cis_xQTLs_BGC".format(output_dir)
     trans_xQTL_output_name = "{}/trans_xQTLs_BGC.txt".format(output_dir)
     eQTL_eQTL_output_name = "{}/eQTL_eQTL.txt".format(output_dir)
     mQTL_mQTL_output_name = "{}/mQTL_mQTL.txt".format(output_dir)
@@ -217,12 +247,13 @@ if __name__ == "__main__":
     BGC_dic = BGC_parser(BGC_dir)
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
+    locus_annotation_dic = gff3_parser(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
     print "Performing a count on the cis_xQTL_dic dictionary..."
     count(cis_xQTL_dic)
-    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name)
+    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
