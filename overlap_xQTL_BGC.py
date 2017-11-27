@@ -194,7 +194,18 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
-def write_file(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic):
+def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic):
+    """A function to write the output of find_cis_xQTLs() to files per BGC showing overlap.
+
+    Keyword arguments:
+        overlap_dic - a dictionary with all overlapping xQTLs per BGC, clusterID is the key
+        output_dir - the directory where the output files are made in
+        output_name - the name of the output files
+        locus_annotation_dic - a dictionary containing locusIDs and accompanying annotation
+        BGC_dic - a dictionary with all BGCs found by plantiSMASH, clusterID is the key
+    Returns:
+        cis_xQTLs_BGC_X.txt - a .tsv file containing overlapping xQTLs per cluster
+    """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     for key in sorted(overlap_dic):
@@ -224,7 +235,14 @@ def write_file(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_d
         else:
             continue
 
-def gff3_parser(gff3_file):
+def gff3_parser_annotation(gff3_file):
+    """A function to parse a GFF3 file and make a dictionary containing locusID and annotation.
+
+    Keyword arguments:
+        gff3_file - an annotation file in GFF3 format
+    Returns:
+        thedic - a dictionary containing locusID and accompanying annotation
+    """
     thedic = {}
     with open(gff3_file, "r") as thefile:
         for line in thefile:
@@ -257,16 +275,15 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
-    print BGC_dic
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
-    locus_annotation_dic = gff3_parser(gff3_file)
+    locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
     print "Performing a count on the cis_xQTL_dic dictionary..."
     count(cis_xQTL_dic)
-    write_file(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
