@@ -176,6 +176,24 @@ def find_overlapping_xQTL(eQTL_list, mQTL_list):
 
     return dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL
 
+def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
+    """A function to write the output of find_overlapping_xQTL() to files per dictionary.
+
+    Keyword arguments:
+        dic_overlap_xQTLs -
+    Returns:
+        overlapping_xQTL_xQTL.txt -
+    """
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    with open(output_name, "w") as thefile:
+        for key in sorted(dic_overlap_xQTLs):
+            if dic_overlap_xQTLs[key] != []:
+                line = [key] + dic_overlap_xQTLs[key]
+                thefile.write("\t".join(line), "\n")
+            else:
+                continue
+
 def count(thedic):
     """A function to count the number of keys in a dictionary with values.
 
@@ -280,22 +298,22 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    print "Performing a count on the cis_xQTL_dic dictionary..."
-    count(cis_xQTL_dic)
-    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    #print "Performing a count on the cis_xQTL_dic dictionary..."
+    #count(cis_xQTL_dic)
+    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    #dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
-    #print "Performing a count on the dic_eQTL_eQTL dictionary..."
-    #count(dic_eQTL_eQTL)
-    #write_file(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
-    #print "Performing a count on the dic_mQTL_mQTL dictionary..."
-    #count(dic_mQTL_mQTL)
-    #write_file(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
-    #print "Performing a count on the dic_mQTL_eQTL dictionary..."
-    #count(dic_mQTL_eQTL)
-    #write_file(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
+    print "Performing a count on the dic_eQTL_eQTL dictionary..."
+    count(dic_eQTL_eQTL)
+    write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    print "Performing a count on the dic_mQTL_mQTL dictionary..."
+    count(dic_mQTL_mQTL)
+    write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    print "Performing a count on the dic_mQTL_eQTL dictionary..."
+    count(dic_mQTL_eQTL)
+    write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
