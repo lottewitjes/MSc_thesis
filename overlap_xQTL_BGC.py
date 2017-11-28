@@ -234,22 +234,25 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                 line =  "\t".join(elements)
                 thefile.write(line + "\n")
                 for xQTL in overlap_dic[key][3]:
-                    if xQTL in BGC_dic[key][4]:
-                        cluster_status = "in_cluster"
-                        if xQTL in locus_annotation_dic:
-                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL]]
-                            line = "\t".join(line_elements)
-                            thefile.write(line + "\n")
+                    if xQTL.startswith("LOC") and xQTL in locus_annotation_dic:
+                        if locus_annotation_dic[xQTL][0] >= overlap_dic[key][1] and locus_annotation_dic[xQTL][1] <= overlap_dic[key][2]:
+                            cluster_status = "in_cluster"
+                            if xQTL in locus_annotation_dic:
+                                line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                                line = "\t".join(line_elements)
+                                thefile.write(line + "\n")
+                            else:
+                                thefile.write(xQTL + "\t" + "in_cluster" + "\n")
                         else:
-                            thefile.write(xQTL + "\t" + "in_cluster" + "\n")
+                            cluster_status = "not_in_cluster"
+                            if xQTL in locus_annotation_dic:
+                                line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                                line = "\t".join(line_elements)
+                                thefile.write(line + "\n")
+                            else:
+                                thefile.write(xQTL + "\t" + "not_in_cluster" + "\n")
                     else:
-                        cluster_status = "not_in_cluster"
-                        if xQTL in locus_annotation_dic:
-                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL]]
-                            line = "\t".join(line_elements)
-                            thefile.write(line + "\n")
-                        else:
-                            thefile.write(xQTL + "\t" + "not_in_cluster" + "\n")
+                        thefile.write(xQTL + "\n")
         else:
             continue
 
@@ -269,13 +272,14 @@ def gff3_parser_annotation(gff3_file):
             else:
                 elements = line.split("\t")
                 if elements[2] == "gene" and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
+                    from_bp, to_bp = elements[3], elements[4]
                     description = elements[-1].split(";")
                     locus = description[0].split("ID=")[1]
                     annotation = description[2].strip().split("Note=")[1].split("%20")
                     annotation = [element.replace("%2C", ",") for element in annotation]
                     annotation = [element.replace("%2F", "/") for element in annotation]
                     annotation = " ".join(annotation)
-                    thedic[locus] = annotation
+                    thedic[locus] = [from_bp, to_bp, annotation]
         return thedic
 
 if __name__ == "__main__":
@@ -296,24 +300,25 @@ if __name__ == "__main__":
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
+    #print locus_annotation_dic
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    #print "Performing a count on the cis_xQTL_dic dictionary..."
-    #count(cis_xQTL_dic)
-    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    print "Performing a count on the cis_xQTL_dic dictionary..."
+    count(cis_xQTL_dic)
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
-    print "Performing a count on the dic_eQTL_eQTL dictionary..."
-    count(dic_eQTL_eQTL)
-    write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
-    print "Performing a count on the dic_mQTL_mQTL dictionary..."
-    count(dic_mQTL_mQTL)
-    write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
-    print "Performing a count on the dic_mQTL_eQTL dictionary..."
-    count(dic_mQTL_eQTL)
-    write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    #dic_eQTL_eQTL, dic_mQTL_mQTL, dic_mQTL_eQTL = find_overlapping_xQTL(eQTL_list, mQTL_list)
+    #print "Performing a count on the dic_eQTL_eQTL dictionary..."
+    #count(dic_eQTL_eQTL)
+    #write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    #print "Performing a count on the dic_mQTL_mQTL dictionary..."
+    #count(dic_mQTL_mQTL)
+    #write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    #print "Performing a count on the dic_mQTL_eQTL dictionary..."
+    #count(dic_mQTL_eQTL)
+    #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
