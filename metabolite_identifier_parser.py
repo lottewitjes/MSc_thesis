@@ -50,7 +50,6 @@ def parse_metaboliteID_file(metaboliteID_file):
         next(thefile) #skip the header
         for line in thefile:
             elements = line.split()
-            print elements
             thedic[elements[0]] = elements[1:]
         return thedic
 
