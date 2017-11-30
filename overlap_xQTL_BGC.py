@@ -41,7 +41,8 @@ def xQTL_parser(xQTL_file):
     thelist = []
     next(thefile) #skip the header
     for line in thefile:
-        elements = line.split()
+        gene_metabolite, chr, peak_mb, inf_mb, sup_mb, lod_score = line.split()
+        elements = [gene_metabolite, int(chr), float(peak_mb), float(inf_mb), float(sup_mb), float(lod_score)]
         thelist.append(elements)
     return thelist
 
@@ -68,7 +69,7 @@ def BGC_parser(BGC_dir):
             from_bp, to_bp = elements[3].split(";")
             genes = elements[4].split(";")
             genes = [re.sub(r"-.*", "", gene) for gene in genes]
-            thedic[int(cluster_id)] = [type, chr, from_bp, to_bp, genes]
+            thedic[int(cluster_id)] = [type, int(chr), float(from_bp), float(to_bp), genes]
     return thedic
 
 def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
@@ -89,20 +90,20 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         thedic[key] = BGC_region
         cis_xQTL_list = []
         for eQTL in eQTL_list:
-            if eQTL[1] == BGC_region[0] and ((eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]):
+            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and ((eQTL[3]*1000000) >= BGC_region[1] and (eQTL[3]*1000000) <= BGC_region[2]):
+            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) >= BGC_region[1] and (eQTL[3]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and ((eQTL[4]*1000000) >= BGC_region[1] and (eQTL[4]*1000000) <= BGC_region[2]):
+            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) >= BGC_region[1] and (eQTL[4]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
             else:
                 continue
         for mQTL in mQTL_list:
-            if mQTL[1] == BGC_region[0] and ((mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]):
+            if mQTL[1] == BGC_region[0] and (mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and ((mQTL[3]*1000000) >= BGC_region[1] and (mQTL[3]*1000000) <= BGC_region[2]):
+            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) >= BGC_region[1] and (mQTL[3]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and ((mQTL[4]*1000000) >= BGC_region[1] and (mQTL[4]*1000000) <= BGC_region[2]):
+            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) >= BGC_region[1] and (mQTL[4]*1000000) <= BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
             else:
                 continue
@@ -236,7 +237,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
         if overlap_dic[key][3] != []:
             filename = "{}_{}.txt".format(output_name, key)
             with open(filename, "w") as thefile:
-                elements = [str(key)] + [BGC_dic[key][0]] + overlap_dic[key][0:3]
+                elements = [str(key)] + [BGC_dic[key][0]] + [str(overlap_dic[key][0])] + [str(overlap_dic[key][1])] + [str(overlap_dic[key][2])]
                 line =  "\t".join(elements)
                 thefile.write(line + "\n")
                 for xQTL in overlap_dic[key][3]:
@@ -303,10 +304,10 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    #print "Performing a count on the cis_xQTL_dic dictionary..."
-    #count(cis_xQTL_dic)
-    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    print "Performing a count on the cis_xQTL_dic dictionary..."
+    count(cis_xQTL_dic)
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
@@ -317,11 +318,11 @@ if __name__ == "__main__":
     #count(dic_eQTL_eQTL)
     #write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
 
-    dic_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
-    print dic_mQTL_mQTL
-    print "Performing a count on the dic_mQTL_mQTL dictionary..."
-    count(dic_mQTL_mQTL)
-    write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    #dic_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
+    #print dic_mQTL_mQTL
+    #print "Performing a count on the dic_mQTL_mQTL dictionary..."
+    #count(dic_mQTL_mQTL)
+    #write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
 
     #dic_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
     #print dic_mQTL_eQTL
