@@ -90,20 +90,20 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         thedic[key] = BGC_region
         cis_xQTL_list = []
         for eQTL in eQTL_list:
-            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) >= BGC_region[1] and (eQTL[2]*1000000) <= BGC_region[2]:
+            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) > BGC_region[1] and (eQTL[2]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) >= BGC_region[1] and (eQTL[3]*1000000) <= BGC_region[2]:
+            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) > BGC_region[1] and (eQTL[3]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) >= BGC_region[1] and (eQTL[4]*1000000) <= BGC_region[2]:
+            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) > BGC_region[1] and (eQTL[4]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(eQTL[0])
             else:
                 continue
         for mQTL in mQTL_list:
-            if mQTL[1] == BGC_region[0] and (mQTL[2]*1000000) >= BGC_region[1] and (mQTL[2]*1000000) <= BGC_region[2]:
+            if mQTL[1] == BGC_region[0] and (mQTL[2]*1000000) > BGC_region[1] and (mQTL[2]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) >= BGC_region[1] and (mQTL[3]*1000000) <= BGC_region[2]:
+            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) > BGC_region[1] and (mQTL[3]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) >= BGC_region[1] and (mQTL[4]*1000000) <= BGC_region[2]:
+            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) > BGC_region[1] and (mQTL[4]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
             else:
                 continue
@@ -141,43 +141,62 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
         thedic = {}
         for i in range(len(eQTL_list)):
             for j in range(len(eQTL_list)):
-                thedic[eQTL_list[i][0]] = []
-                if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][2]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) <= (eQTL_list[j][4])):
-                    thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][3]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) <= (eQTL_list[j][4])):
-                    thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[i][4]*1000000) >= (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) <= (eQTL_list[j][4])):
-                    thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                if eQTL_list[i][0] not in thedic:
+                    thedic[eQTL_list[i][0]] = []
+                    if eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
                 else:
-                    continue
+                    if eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+
 
     elif analysis == "mQTL_mQTL":
         thedic = {}
         for i in range(len(mQTL_list)):
             for j in range(len(mQTL_list)):
-                thedic[mQTL_list[i][0]] = []
-                if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][2]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) <= (mQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][3]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) <= (mQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[i][4]*1000000) >= (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) <= (mQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                if mQTL_list[i][0] not in thedic:
+                    thedic[mQTL_list[i][0]] = []
+                    if mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
                 else:
-                    continue
+                    if mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
 
     elif analysis == "mQTL_eQTL":
         thedic = {}
         for i in range(len(mQTL_list)):
             for j in range(len(eQTL_list)):
-                thedic[mQTL_list[i][0]] = []
-                if mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][2]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) <= (eQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                elif mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][3]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) <= (eQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                elif mQTL_list[i][1] == eQTL_list[j][1] and ((mQTL_list[i][4]*1000000) >= (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) <= (eQTL_list[j][4])):
-                    thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                if mQTL_list[i][0] not in thedic:
+                    thedic[mQTL_list[i][0]] = []
+                    if mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
                 else:
-                    continue
+                    if mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
     else:
         print "This analysis is invalid."
 
@@ -195,11 +214,8 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
         os.makedirs(output_dir)
     with open(output_name, "w") as thefile:
         for key in dic_overlap_xQTLs:
-            if dic_overlap_xQTLs[key] != []:
-                line = [key] + dic_overlap_xQTLs[key]
-                thefile.write("\t".join(line), "\n")
-            else:
-                continue
+                line = "\t".join(dic_overlap_xQTLs[key])
+                thefile.write(line + "\n")
 
 def count(thedic):
     """A function to count the number of keys in a dictionary with values.
@@ -300,7 +316,6 @@ if __name__ == "__main__":
     BGC_dic = BGC_parser(BGC_dir)
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
-    #print mQTL_list
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
@@ -314,18 +329,10 @@ if __name__ == "__main__":
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
     #dic_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    #print "Performing a count on the dic_eQTL_eQTL dictionary..."
-    #count(dic_eQTL_eQTL)
     #write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
 
     #dic_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
-    #print dic_mQTL_mQTL
-    #print "Performing a count on the dic_mQTL_mQTL dictionary..."
-    #count(dic_mQTL_mQTL)
     #write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
 
     #dic_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
-    #print dic_mQTL_eQTL
-    #print "Performing a count on the dic_mQTL_eQTL dictionary..."
-    #count(dic_mQTL_eQTL)
     #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
