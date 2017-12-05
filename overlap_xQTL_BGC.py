@@ -123,6 +123,15 @@ def find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list):
         thedic - a dictionary containing clusterID as keys and a list of lists containing overlapping xQTLs per
         gene in the BGC.
     """
+    common_dic = {}
+    set_eQTLs = set([gene[0] for gene in eQTL_list])
+    for key in BGC_dic:
+        set_genes = set(BGC_dic[key][4])
+        common = set_genes.intersection(set_eQTLs)
+        if common == set([]):
+            continue
+        else:
+            common_dic[key] = list(common)
     thedic = {}
     return thedic
 
@@ -318,13 +327,14 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    print "Performing a count on the cis_xQTL_dic dictionary..."
-    count(cis_xQTL_dic)
-    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    #print "Performing a count on the cis_xQTL_dic dictionary..."
+    #count(cis_xQTL_dic)
+    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
-    #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    print trans_xQTL_dic
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
     #dic_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
