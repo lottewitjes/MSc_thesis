@@ -65,6 +65,7 @@ def BGC_parser(BGC_dir):
         for line in thefile:
             elements = line.split("\t")
             chr, cluster_id = elements[0].split("_c")
+            chr = chr[3:]
             type = elements[1]
             from_bp, to_bp = elements[3].split(";")
             genes = elements[4].split(";")
@@ -258,7 +259,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                 thefile.write(line + "\n")
                 for xQTL in overlap_dic[key][3]:
                     if xQTL.startswith("LOC") and xQTL in locus_annotation_dic:
-                        if locus_annotation_dic[xQTL][0] >= overlap_dic[key][1] and locus_annotation_dic[xQTL][1] <= overlap_dic[key][2]:
+                        if float(locus_annotation_dic[xQTL][0]) >= float(overlap_dic[key][1]) and float(locus_annotation_dic[xQTL][1]) <= float(overlap_dic[key][2]):
                             cluster_status = "in_cluster"
                             line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
@@ -270,8 +271,6 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                             thefile.write(line + "\n")
                     else:
                         thefile.write(xQTL + "\n")
-        else:
-            continue
 
 def gff3_parser_annotation(gff3_file):
     """A function to parse a GFF3 file and make a dictionary containing locusID and annotation.
