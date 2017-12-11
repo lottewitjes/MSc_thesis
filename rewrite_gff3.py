@@ -59,15 +59,17 @@ def write_gff3(original_gff3_list, result_gff3_file, locus_alias_dic):
         for alist in original_gff3_list:
             if alist[2] == "gene":
                 ID = str("ID=" + alist[-3])
-                name = str("Name=" + alist[-1])
-                description = ";".join([ID,name])
+                name = str("Name=" + alist[-3])
+                note = str("Note=" + alist[-1])
+                description = ";".join([ID,name,note])
                 alist = alist[0:-3] + [description]
                 line = "\t".join(alist)
                 thefile.write(line + "\n")
             elif alist[2] == "mRNA":
                 ID = str("ID=" + alist[-2])
+                name = str("Name=" + alist[-2])
                 parent = str("Parent=" + alist[-1])
-                description = ";".join([ID,parent])
+                description = ";".join([ID,name,parent])
                 alist = alist[0:-2] + [description]
                 line = "\t".join(alist)
                 thefile.write(line + "\n")
