@@ -91,20 +91,20 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         thedic[key] = BGC_region
         cis_xQTL_list = []
         for eQTL in eQTL_list:
-            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) > BGC_region[1] and (eQTL[2]*1000000) < BGC_region[2]:
+            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) > BGC_region[1] and (eQTL[2]*1000000) < BGC_region[2]: #test if peak is within BGC boundaries
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) > BGC_region[1] and (eQTL[3]*1000000) < BGC_region[2]:
+            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) > BGC_region[1] and (eQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1]))): #test if inf is within BGC start and BGC end-30%
                 cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) > BGC_region[1] and (eQTL[4]*1000000) < BGC_region[2]:
+            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) > (BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) and (eQTL[4]*1000000) < BGC_region[2]: #test if sub is within BGC end and BGC start+30%
                 cis_xQTL_list.append(eQTL[0])
             else:
                 continue
         for mQTL in mQTL_list:
             if mQTL[1] == BGC_region[0] and (mQTL[2]*1000000) > BGC_region[1] and (mQTL[2]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) > BGC_region[1] and (mQTL[3]*1000000) < BGC_region[2]:
+            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) > BGC_region[1] and (mQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1]))):
                 cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) > BGC_region[1] and (mQTL[4]*1000000) < BGC_region[2]:
+            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) > (BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) and (mQTL[4]*1000000) < BGC_region[2]:
                 cis_xQTL_list.append(mQTL[0])
             else:
                 continue
@@ -327,7 +327,6 @@ if __name__ == "__main__":
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
-    print locus_annotation_dic
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
