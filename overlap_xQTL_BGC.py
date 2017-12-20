@@ -28,6 +28,9 @@ __email__ = "lottewitjes@outlook.com"
 __date__ = "21 Nov 2017"
 __version__ = "1.0"
 
+
+#Parser functions
+#################################################################################################################################################################
 def xQTL_parser(xQTL_file):
     """A function that parses a file with gene/metabolite, chr, peak_mb, inf_mb, sup_mb and lod_score in to a list
        of lists.
@@ -73,6 +76,36 @@ def BGC_parser(BGC_dir):
             thedic[int(cluster_id)] = [type, int(chr), float(from_bp), float(to_bp), genes]
     return thedic
 
+def gff3_parser_annotation(gff3_file):
+    """A function to parse a GFF3 file and make a dictionary containing locusID and annotation.
+
+    Keyword arguments:
+        gff3_file - an annotation file in GFF3 format
+    Returns:
+        thedic - a dictionary containing locusID and accompanying annotation
+    """
+    thedic = {}
+    with open(gff3_file, "r") as thefile:
+        for line in thefile:
+            if line.startswith("#"):
+                continue
+            else:
+                elements = line.split("\t")
+                if elements[2] == "gene" and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
+                    from_bp, to_bp = elements[3], elements[4]
+                    description = elements[-1].split(";")
+                    locus = description[2].split("Alias=")[1]
+                    locus = locus.strip()
+                    annotation = description[1].strip().split("Name=")[1].split("%20")
+                    annotation = [element.replace("%2C", ",") for element in annotation]
+                    annotation = [element.replace("%2", "-") for element in annotation]
+                    annotation = [element.replace("%2F", "/") for element in annotation]
+                    annotation = " ".join(annotation)
+                    thedic[locus] = [from_bp, to_bp, annotation]
+        return thedic
+
+#Find overlap functions
+#################################################################################################################################################################
 def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
     """A function that finds cis-xQTLs based on the chromosomal region of the BGCs. A cis-xQTL is then defined as
        an eQTL or mQTL with their peaks within the chromosomal location of the BGC.
@@ -212,6 +245,8 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
 
     return thedic
 
+#Write output files functions
+#################################################################################################################################################################
 def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
     """A function to write the output of find_overlapping_xQTL() to files per dictionary.
 
@@ -226,24 +261,6 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
         for key in dic_overlap_xQTLs:
                 line = "\t".join(dic_overlap_xQTLs[key])
                 thefile.write(line + "\n")
-
-def count(thedic):
-    """A function to count the number of keys in a dictionary with values.
-
-    Keyword arguments:
-        thedic - a dictionary
-    Returns:
-        a string saying e.g. 5/50 have overlap in the following dictionary: thedic
-    """
-    count = 0
-    total = 0
-    for key in thedic:
-        if thedic[key][3] != []:
-            count += 1
-            total += 1
-        else:
-            total +=1
-    print "{}/{} have overlap in this dictionary".format(count, total)
 
 def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic):
     """A function to write the output of find_cis_xQTLs() to files per BGC showing overlap.
@@ -281,33 +298,25 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                     else:
                         thefile.write(xQTL + "\n")
 
-def gff3_parser_annotation(gff3_file):
-    """A function to parse a GFF3 file and make a dictionary containing locusID and annotation.
+#Statistics functions
+#################################################################################################################################################################
+def count(thedic):
+    """A function to count the number of keys in a dictionary with values.
 
     Keyword arguments:
-        gff3_file - an annotation file in GFF3 format
+        thedic - a dictionary
     Returns:
-        thedic - a dictionary containing locusID and accompanying annotation
+        a string saying e.g. 5/50 have overlap in the following dictionary: thedic
     """
-    thedic = {}
-    with open(gff3_file, "r") as thefile:
-        for line in thefile:
-            if line.startswith("#"):
-                continue
-            else:
-                elements = line.split("\t")
-                if elements[2] == "gene" and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
-                    from_bp, to_bp = elements[3], elements[4]
-                    description = elements[-1].split(";")
-                    locus = description[2].split("Alias=")[1]
-                    locus = locus.strip()
-                    annotation = description[1].strip().split("Name=")[1].split("%20")
-                    annotation = [element.replace("%2C", ",") for element in annotation]
-                    annotation = [element.replace("%2", "-") for element in annotation]
-                    annotation = [element.replace("%2F", "/") for element in annotation]
-                    annotation = " ".join(annotation)
-                    thedic[locus] = [from_bp, to_bp, annotation]
-        return thedic
+    count = 0
+    total = 0
+    for key in thedic:
+        if thedic[key][3] != []:
+            count += 1
+            total += 1
+        else:
+            total +=1
+    print "{}/{} have overlap in this dictionary".format(count, total)
 
 if __name__ == "__main__":
     #Get files from command line + name results files
