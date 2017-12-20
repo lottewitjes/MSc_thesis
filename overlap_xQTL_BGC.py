@@ -261,7 +261,7 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
                 line = "\t".join(dic_overlap_xQTLs[key])
                 thefile.write(line + "\n")
 
-def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic):
+def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic, overlap_count_dic):
     """A function to write the output of find_cis_xQTLs() to files per BGC showing overlap.
 
     Keyword arguments:
@@ -286,16 +286,27 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                     if xQTL.startswith("LOC") and xQTL in locus_annotation_dic:
                         if float(locus_annotation_dic[xQTL][0]) >= float(overlap_dic[key][1]) and float(locus_annotation_dic[xQTL][1]) <= float(overlap_dic[key][2]):
                             cluster_status = "in_cluster"
-                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                            for QTL_count in overlap_count_dic[key]:
+                                if QTL_count[0] == xQTL:
+                                    p_value = str(QTL_count[1])
+                            line_elements = [xQTL, cluster_status, p_value, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
                         else:
                             cluster_status = "not_in_cluster"
-                            line_elements = [xQTL, cluster_status, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                            for QTL_count in overlap_count_dic[key]:
+                                if QTL_count[0] == xQTL:
+                                    p_value = str(QTL_count[1])
+                            line_elements = [xQTL, cluster_status, p_value, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
                     else:
-                        thefile.write(xQTL + "\n")
+                        for QTL_count in overlap_count_dic[key]:
+                            if QTL_count[0] == xQTL:
+                                p_value = str(QTL_count[1])
+                        line_elements = [xQTL, p_value]
+                        line = "\t".join(line_elements)
+                        thefile.write(line + "\n")
 
 #Statistics functions
 #################################################################################################################################################################
@@ -341,6 +352,30 @@ def shuffle_BGC_data_chr(BGC_dic):
         shuffled_BGC_dic[key] = shuffled_values
     return shuffled_BGC_dic
 
+def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, permutations):
+    overlap_count_dic = {}
+    for key in cis_xQTL_dic:
+        overlap_count_dic[key] = []
+        for QTL in cis_xQTL_dic[key][3]:
+            overlap_count_dic[key].append([QTL, 0])
+    for i in range(permutations):
+        shuffled_BGC = shuffle_BGC_data_chr(BGC_dic)
+        shuffled_eQTL = shuffle_xQTL_data_chr(eQTL_list)
+        shuffled_mQTL = shuffle_xQTL_data_chr(mQTL_list)
+        shuffled_cis_xQTL_dic = find_cis_xQTL(shuffled_BGC, shuffled_eQTL, shuffled_mQTL)
+        for key in cis_xQTL_dic:
+            real_overlap = set(cis_xQTL_dic[key][3])
+            random_overlap = set(shuffled_cis_xQTL_dic[key][3])
+            same_list = list(real_overlap & random_overlap)
+            for QTL in same_list:
+                for QTL_count in overlap_count_dic[key]:
+                    if QTL == QTL_count[0]:
+                        QTL_count[1] += 1
+    for key in overlap_count_dic:
+        for overlap in overlap_count_dic[key]:
+            overlap[1] = overlap[1]/permutations
+    return overlap_count_dic
+
 if __name__ == "__main__":
     #Get files from command line + name results files
     BGC_dir = argv[1]
@@ -361,9 +396,8 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
     #count(cis_xQTL_dic)
-    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
@@ -383,4 +417,6 @@ if __name__ == "__main__":
     shuffled_mQTL_list_chr = shuffle_xQTL_data_chr(mQTL_list)
     shuffled_eQTL_list_chr = shuffle_xQTL_data_chr(eQTL_list)
     shuffled_BGC_dic_chr = shuffle_BGC_data_chr(BGC_dic)
-    print shuffled_BGC_dic_chr
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000)
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
+
