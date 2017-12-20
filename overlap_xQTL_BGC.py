@@ -334,7 +334,7 @@ def shuffle_xQTL_data_chr(xQTL_list):
         shuffled_xQTL = xQTL
         chr = xQTL[1]
         allowed_values = list(range(1, 12+1))
-        allowed_values.remove(chr)
+        #allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_xQTL[1] = shuffled_chr
         shuffled_xQTL_list.append(shuffled_xQTL)
@@ -346,7 +346,7 @@ def shuffle_BGC_data_chr(BGC_dic):
         shuffled_values = BGC_dic[key]
         chr = BGC_dic[key][1]
         allowed_values = list(range(1, 12+1))
-        allowed_values.remove(chr)
+        #allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_values[1] = shuffled_chr
         shuffled_BGC_dic[key] = shuffled_values
@@ -417,6 +417,6 @@ if __name__ == "__main__":
     shuffled_mQTL_list_chr = shuffle_xQTL_data_chr(mQTL_list)
     shuffled_eQTL_list_chr = shuffle_xQTL_data_chr(eQTL_list)
     shuffled_BGC_dic_chr = shuffle_BGC_data_chr(BGC_dic)
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000)
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 5000)
     write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
