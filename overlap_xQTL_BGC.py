@@ -22,12 +22,12 @@ from sys import argv
 import subprocess
 import os.path
 import re
+import random
 
 __author__ = "Lotte Witjes"
 __email__ = "lottewitjes@outlook.com"
 __date__ = "21 Nov 2017"
 __version__ = "1.0"
-
 
 #Parser functions
 #################################################################################################################################################################
@@ -242,7 +242,6 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
                         thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
     else:
         print "This analysis is invalid."
-
     return thedic
 
 #Write output files functions
@@ -251,9 +250,9 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
     """A function to write the output of find_overlapping_xQTL() to files per dictionary.
 
     Keyword arguments:
-        dic_overlap_xQTLs -
+        dic_overlap_xQTLs - dictionary with an xQTL as key and overlapping xQTLs as values
     Returns:
-        overlapping_xQTL_xQTL.txt -
+        overlapping_xQTL_xQTL.txt - a .txt tab-separated file containing the information from the dic_overlap_xQTLs
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -318,6 +317,30 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
+def shuffle_xQTL_data_chr(xQTL_list):
+    shuffled_xQTL_list = []
+    for xQTL in xQTL_list:
+        shuffled_xQTL = xQTL
+        chr = xQTL[1]
+        allowed_values = list(range(1, 12+1))
+        allowed_values.remove(chr)
+        shuffled_chr = random.choice(allowed_values)
+        shuffled_xQTL[1] = shuffled_chr
+        shuffled_xQTL_list.append(shuffled_xQTL)
+    return shuffled_xQTL_list
+
+def shuffle_BGC_data_chr(BGC_dic):
+    shuffled_BGC_dic = {}
+    for key in BGC_dic:
+        shuffled_values = BGC_dic[key]
+        chr = BGC_dic[key][1]
+        allowed_values = list(range(1, 12+1))
+        allowed_values.remove(chr)
+        shuffled_chr = random.choice(allowed_values)
+        shuffled_values[1] = shuffled_chr
+        shuffled_BGC_dic[key] = shuffled_values
+    return shuffled_BGC_dic
+
 if __name__ == "__main__":
     #Get files from command line + name results files
     BGC_dir = argv[1]
@@ -338,10 +361,9 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    print "Performing a count on the cis_xQTL_dic dictionary..."
-    count(cis_xQTL_dic)
-    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
+    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    #count(cis_xQTL_dic)
+    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
@@ -356,3 +378,9 @@ if __name__ == "__main__":
 
     #dic_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
     #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+
+    #Randomization test
+    shuffled_mQTL_list_chr = shuffle_xQTL_data_chr(mQTL_list)
+    shuffled_eQTL_list_chr = shuffle_xQTL_data_chr(eQTL_list)
+    shuffled_BGC_dic_chr = shuffle_BGC_data_chr(BGC_dic)
+    print shuffled_BGC_dic_chr
