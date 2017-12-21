@@ -311,6 +311,15 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
 
 #Statistics functions
 #################################################################################################################################################################
+def statistics_xQLT(xQTL_list):
+    """A function to return simple statistics of the distribution of the input xQTL data.
+
+    Keyword arguments:
+        xQTL_list -
+    Returns:
+    """
+    
+
 def count(thedic):
     """A function to count the number of keys in a dictionary with values.
 
