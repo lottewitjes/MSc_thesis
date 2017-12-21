@@ -329,6 +329,15 @@ def count(thedic):
     print "{}/{} have overlap in this dictionary".format(count, total)
 
 def shuffle_xQTL_data_chr(xQTL_list):
+    """A function to shuffle the chromosomes of a xQTL dataset to achieve randomness.
+
+    Keyword arguments:
+        xQTL_list - a list of lists containing the rows of the original xQTL input file with gene/metabolite name
+                    chromosome, inferior and superior interval location, peak location and LOD score.
+    Returns:
+        shuffled_xQTL_list - the same as the input list, however the chromosome data are shuffled assigning a
+                             a random chromosome to each xQTL.
+    """
     shuffled_xQTL_list = []
     for xQTL in xQTL_list:
         shuffled_xQTL = xQTL
@@ -341,6 +350,14 @@ def shuffle_xQTL_data_chr(xQTL_list):
     return shuffled_xQTL_list
 
 def shuffle_BGC_data_chr(BGC_dic):
+    """A function to shuffle the chromosomes of a BGC dataset to achieve randomness.
+
+    Keyword arguments:
+        BGC_dic - a dictionary containing information per BGC with clusterID as key.
+    Returns:
+        shuffled_BGC_dic - the same as the input dictionary, however the chromosome data are shuffled assigning a
+                           a random chromosome to each xQTL.
+    """
     shuffled_BGC_dic = {}
     for key in BGC_dic:
         shuffled_values = BGC_dic[key]
@@ -353,6 +370,17 @@ def shuffle_BGC_data_chr(BGC_dic):
     return shuffled_BGC_dic
 
 def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, permutations):
+    """A function to do a randomization test for finding random cis-xQTL overlapping with BGCs.
+
+    Keyword arguments:
+        BGC_dic - a dictionary containing information per BGC with clusterID as key and randomly assigned chromosomes.
+        eQTL_list - a list of lists containing the original rows of the eQTL input file but with randomly assigned chromosomes.
+        mQTL_list - a list of lists containing the original rows of the mQTL input file but with randomly assigned chromosomes.
+        cis_xQTL_dic - the real cis-xQTL overlap with BGCs that was found with the original datasets.
+        permutations - the number of randomizations that should be performed.
+    Returns:
+        overlap_count_dic - a dictionary with clusterID as key and a list of lists as value containing overlapping xQTLs accompanied with their P-value, calculated as number of times overlap was found/number of permutations.
+    """
     overlap_count_dic = {}
     for key in cis_xQTL_dic:
         overlap_count_dic[key] = []
