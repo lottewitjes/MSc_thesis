@@ -362,7 +362,7 @@ def shuffle_xQTL_data_chr(xQTL_list):
         shuffled_xQTL = xQTL
         chr = xQTL[1]
         allowed_values = list(range(1, 12+1))
-        #allowed_values.remove(chr)
+        allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_xQTL[1] = shuffled_chr
         shuffled_xQTL_list.append(shuffled_xQTL)
@@ -382,7 +382,7 @@ def shuffle_BGC_data_chr(BGC_dic):
         shuffled_values = BGC_dic[key]
         chr = BGC_dic[key][1]
         allowed_values = list(range(1, 12+1))
-        #allowed_values.remove(chr)
+        allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_values[1] = shuffled_chr
         shuffled_BGC_dic[key] = shuffled_values
@@ -443,7 +443,7 @@ if __name__ == "__main__":
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    #cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
     #count(cis_xQTL_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
@@ -461,13 +461,10 @@ if __name__ == "__main__":
     #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
-    print statistics_xQTL(eQTL_list)
-    print statistics_xQTL(mQTL_list)
+    #print statistics_xQTL(eQTL_list)
+    #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    #shuffled_mQTL_list_chr = shuffle_xQTL_data_chr(mQTL_list)
-    #shuffled_eQTL_list_chr = shuffle_xQTL_data_chr(eQTL_list)
-    #shuffled_BGC_dic_chr = shuffle_BGC_data_chr(BGC_dic)
-    #overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 5000)
-    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10000)
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
