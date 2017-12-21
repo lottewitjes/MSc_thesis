@@ -1,20 +1,21 @@
 #! /usr/bin/evn python
 """A Python script that overlaps xQTL with BGCs found with plantiSMASH.
 
-python overlap_xQTL_BGC.py <BGC_dir> <eQTL_file> <mQTL_file>
+python overlap_xQTL_BGC.py <BGC_dir> <eQTL_file> <mQTL_file> <gff3_file> <output_dir>
 
 Keyword arguments:
-    BGC_dir --> A directory containing x_BGC.txt output files from plantiSMASH
-    eQTL_file --> A .tsv file containing the eQTLs (gene, chr, peak_mb, inf_mb, sup_mb, lod_score)
-    mQTL_file --> A .tsv file containing the mQTLs (metabolite, chr, peak_mb, inf_mb, sup_mb, lod_score)
-    output_dir --> The path to the directory where to write the results files to
+    BGC_dir - A directory containing x_BGC.txt output files from plantiSMASH
+    eQTL_file - A .tsv file containing the eQTLs (gene, chr, peak_mb, inf_mb, sup_mb, lod_score)
+    mQTL_file - A .tsv file containing the mQTLs (metabolite, chr, peak_mb, inf_mb, sup_mb, lod_score)
+    gff3_file - A .gff3 file containing the genome annotation of the species to be analyzed
+    output_dir - The path to the directory where to write the results files to
 
 Returns:
-    A .tsv file with cis-xQTL per BGC
-    A .tsv file with trans-xQTL per BGC
-    A .tsv file with overlapping eQTL
-    A .tsv file with overlapping mQTL
-    A .tsv file with overlapping mQTL and eQTL
+    cis_xQTL_BGC_XX.txt - A tab separated .txt file with cis-xQTL per BGC
+    trans_xQTL_BGC_XX.txt -A tab separated .txt file with trans-xQTL per BGC
+    eQTL_eQTL.txt - A tab separated .txt file with overlapping eQTL
+    mQTL_mQTL.txt -A tab separated .txt file with overlapping mQTL
+    mQTL_eQTL.txt A tab separated .txt file with overlapping mQTL and eQTL
 """
 
 from __future__ import division
@@ -271,7 +272,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
         locus_annotation_dic - a dictionary containing locusIDs and accompanying annotation
         BGC_dic - a dictionary with all BGCs found by plantiSMASH, clusterID is the key
     Returns:
-        cis_xQTLs_BGC_X.txt - a .tsv file containing overlapping xQTLs per cluster
+        cis_xQTLs_BGC_XX.txt - a .tsv file containing overlapping xQTLs per cluster
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
