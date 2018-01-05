@@ -348,44 +348,62 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
-def shuffle_xQTL_data_chr(xQTL_list):
-    """A function to shuffle the chromosomes of a xQTL dataset to achieve randomness.
+def shuffle_xQTL_data(xQTL_list):
+    """A function to shuffle the genomic regions of a xQTL dataset to achieve randomness.
 
     Keyword arguments:
         xQTL_list - a list of lists containing the rows of the original xQTL input file with gene/metabolite name
                     chromosome, inferior and superior interval location, peak location and LOD score.
     Returns:
-        shuffled_xQTL_list - the same as the input list, however the chromosome data are shuffled assigning a
-                             a random chromosome to each xQTL.
+        shuffled_xQTL_list - the same as the input list, however the genomic data are shuffled assigning a
+                             a random genomic region to each xQTL.
     """
     shuffled_xQTL_list = []
     for xQTL in xQTL_list:
         shuffled_xQTL = xQTL
+        #shuffle chromosome number
         chr = xQTL[1]
         allowed_values = list(range(1, 12+1))
         allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_xQTL[1] = shuffled_chr
+        #shuffle genomic region
+        inf_bp = xQTL[3]*1000000
+        sup_bp = xQTL[4]*1000000
+        xQTL_size = sup_bp - inf_bp
+        shuffled_inf_bp = -1
+        while shuffled_inf_bp < 0:
+            shuffled_sup_bp = random.randrange(1,43270923+1)
+            shuffled_inf_bp = shuffled_sup_bp - xQTL_size
+        shuffled_peak_bp = (shuffled_inf_bp + shuffled_sup_bp) / 2
+        shuffled_xQTL[2] = shuffled_peak_bp / 1000000
+        shuffled_xQTL[3] = shuffled_inf_bp / 1000000
+        shuffled_xQTL[4] = shuffled_sup_bp / 1000000
         shuffled_xQTL_list.append(shuffled_xQTL)
     return shuffled_xQTL_list
 
-def shuffle_BGC_data_chr(BGC_dic):
-    """A function to shuffle the chromosomes of a BGC dataset to achieve randomness.
+def shuffle_BGC_data(BGC_dic):
+    """A function to shuffle the genomic regions of a BGC dataset to achieve randomness.
 
     Keyword arguments:
         BGC_dic - a dictionary containing information per BGC with clusterID as key.
     Returns:
-        shuffled_BGC_dic - the same as the input dictionary, however the chromosome data are shuffled assigning a
-                           a random chromosome to each xQTL.
+        shuffled_BGC_dic - the same as the input dictionary, however the genomic data are shuffled assigning a
+                           a random genomic region to each BGC.
     """
     shuffled_BGC_dic = {}
     for key in BGC_dic:
         shuffled_values = BGC_dic[key]
+        #shuffle chromosome number
         chr = BGC_dic[key][1]
         allowed_values = list(range(1, 12+1))
         allowed_values.remove(chr)
         shuffled_chr = random.choice(allowed_values)
         shuffled_values[1] = shuffled_chr
+        #shuffle genomic region
+        from_bp = BGC_dic[key][2]
+        to_bp = BGC_dic[key][3]
+        BGC_size = to_bp - from_bp
         shuffled_BGC_dic[key] = shuffled_values
     return shuffled_BGC_dic
 
@@ -407,9 +425,9 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
         for QTL in cis_xQTL_dic[key][3]:
             overlap_count_dic[key].append([QTL, 0])
     for i in range(permutations):
-        shuffled_BGC = shuffle_BGC_data_chr(BGC_dic)
-        shuffled_eQTL = shuffle_xQTL_data_chr(eQTL_list)
-        shuffled_mQTL = shuffle_xQTL_data_chr(mQTL_list)
+        shuffled_BGC = shuffle_BGC_data(BGC_dic)
+        shuffled_eQTL = shuffle_xQTL_data(eQTL_list)
+        shuffled_mQTL = shuffle_xQTL_data(mQTL_list)
         shuffled_cis_xQTL_dic = find_cis_xQTL(shuffled_BGC, shuffled_eQTL, shuffled_mQTL)
         for key in cis_xQTL_dic:
             real_overlap = set(cis_xQTL_dic[key][3])
@@ -462,10 +480,11 @@ if __name__ == "__main__":
     #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
-    print statistics_xQTL(eQTL_list)
-    print statistics_xQTL(mQTL_list)
+    #print statistics_xQTL(eQTL_list)
+    #print statistics_xQTL(mQTL_list)
 
     #Randomization test
+    print shuffle_xQTL_data(mQTL_list)
     #overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10000)
     #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
