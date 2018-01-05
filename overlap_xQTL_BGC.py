@@ -449,7 +449,10 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
     for key in overlap_count_dic:
         for overlap in overlap_count_dic[key]:
             overlap[1] = overlap[1] / permutations
-            overlap[2] = overlap[1] * permutations #apply Bonferroni adjustment to p-values
+            p_adjust = overlap[1] * permutations #apply Bonferroni adjustment to p-values
+            if p_adjust > 1:
+                p_adjust = 1
+            overlap[2] = p_adjust
     return overlap_count_dic
 
 if __name__ == "__main__":
@@ -494,6 +497,6 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 100)
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000)
     write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
