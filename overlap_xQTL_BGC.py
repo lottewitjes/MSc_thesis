@@ -404,6 +404,12 @@ def shuffle_BGC_data(BGC_dic):
         from_bp = BGC_dic[key][2]
         to_bp = BGC_dic[key][3]
         BGC_size = to_bp - from_bp
+        shuffled_from_bp = -1
+        while shuffled_from_bp < 0:
+            shuffled_to_bp = random.randrange(1, 43270923+1)
+            shuffled_from_bp = shuffled_to_bp - BGC_size
+        shuffled_values[2] = shuffled_from_bp
+        shuffled_values[3] = shuffled_to_bp
         shuffled_BGC_dic[key] = shuffled_values
     return shuffled_BGC_dic
 
@@ -484,7 +490,7 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    print shuffle_xQTL_data(mQTL_list)
+    print shuffle_BGC_data(BGC_dic)
     #overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10000)
     #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
