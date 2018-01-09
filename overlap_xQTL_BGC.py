@@ -290,7 +290,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                             for QTL_count in overlap_count_dic[key]:
                                 if QTL_count[0] == xQTL:
                                     p_value = "{:.4}".format(QTL_count[1])
-                                    p_adjust = "{:.4}".format(QTL_count[2])
+                                    p_adjust = "{:.4}".format(float(QTL_count[2]))
                             line_elements = [xQTL, cluster_status, p_value, p_adjust, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
@@ -299,7 +299,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                             for QTL_count in overlap_count_dic[key]:
                                 if QTL_count[0] == xQTL:
                                     p_value = "{:.4}".format(QTL_count[1])
-                                    p_adjust = "{:.4}".format(QTL_count[2])
+                                    p_adjust = "{:.4}".format(float(QTL_count[2]))
                             line_elements = [xQTL, cluster_status, p_value, p_adjust, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
@@ -307,7 +307,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                         for QTL_count in overlap_count_dic[key]:
                             if QTL_count[0] == xQTL:
                                 p_value = "{:.4}".format(QTL_count[1])
-                                p_adjust = "{:.4}".format(QTL_count[2])
+                                p_adjust = "{:.4}".format(float(QTL_count[2]))
                         line_elements = [xQTL, p_value, p_adjust]
                         line = "\t".join(line_elements)
                         thefile.write(line + "\n")
@@ -361,6 +361,7 @@ def shuffle_xQTL_data(xQTL_list):
         shuffled_xQTL_list - the same as the input list, however the genomic data are shuffled assigning a
                              a random genomic region to each xQTL.
     """
+    random.seed(10)
     shuffled_xQTL_list = []
     for xQTL in xQTL_list:
         shuffled_xQTL = xQTL
@@ -394,6 +395,7 @@ def shuffle_BGC_data(BGC_dic):
         shuffled_BGC_dic - the same as the input dictionary, however the genomic data are shuffled assigning a
                            a random genomic region to each BGC.
     """
+    random.seed(10)
     shuffled_BGC_dic = {}
     for key in BGC_dic:
         shuffled_values = BGC_dic[key]
@@ -416,7 +418,7 @@ def shuffle_BGC_data(BGC_dic):
         shuffled_BGC_dic[key] = shuffled_values
     return shuffled_BGC_dic
 
-def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, permutations):
+def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, permutations, method):
     """A function to do a randomization test for finding random cis-xQTL overlapping with BGCs.
 
     Keyword arguments:
@@ -447,12 +449,19 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
                     if QTL == QTL_count[0]:
                         QTL_count[1] += 1
     for key in overlap_count_dic:
-        for overlap in overlap_count_dic[key]:
+         for overlap in overlap_count_dic[key]:
             overlap[1] = overlap[1] / permutations
-            p_adjust = overlap[1] * permutations #apply Bonferroni adjustment to p-values
-            if p_adjust > 1:
-                p_adjust = 1
-            overlap[2] = p_adjust
+            if method = "Bonferroni":
+                p_adjust = overlap[1] * permutations #apply Bonferroni adjustment to p-values
+                if p_adjust > 1:
+                    p_adjust = 1
+                else:
+                    continue
+                overlap[2] = p_adjust
+            elif method = "BH":
+                continue
+            else:
+                print "This method is not (yet) available."
     return overlap_count_dic
 
 if __name__ == "__main__":
@@ -497,6 +506,7 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000)
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10, "Bonferroni")
+    #print overlap_count_dic
     write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
