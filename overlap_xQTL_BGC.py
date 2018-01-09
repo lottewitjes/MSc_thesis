@@ -297,7 +297,7 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                                 if QTL_count[0] == xQTL:
                                     p_value = "{:.4}".format(QTL_count[1])
                                     p_adjust = "{:.4}".format(float(QTL_count[2]))
-                            lod_score = [eQTL[5] for eQTL in eQTL_list if eQTL[0] == xQTL][0]
+                            lod_score = [eQTL[5] for eQTL in eQTL_list if eQTL[0] == xQTL and eQTL[1] == BGC_dic[key][1]][0]
                             lod_score = "{:.4}".format(lod_score)
                             line_elements = [xQTL, cluster_status, p_value, p_adjust, lod_score, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
                             line = "\t".join(line_elements)
