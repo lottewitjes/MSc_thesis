@@ -361,7 +361,7 @@ def shuffle_xQTL_data(xQTL_list):
         shuffled_xQTL_list - the same as the input list, however the genomic data are shuffled assigning a
                              a random genomic region to each xQTL.
     """
-    random.seed(10)
+    #random.seed(10)
     shuffled_xQTL_list = []
     for xQTL in xQTL_list:
         shuffled_xQTL = xQTL
@@ -395,7 +395,7 @@ def shuffle_BGC_data(BGC_dic):
         shuffled_BGC_dic - the same as the input dictionary, however the genomic data are shuffled assigning a
                            a random genomic region to each BGC.
     """
-    random.seed(10)
+    #random.seed(10)
     shuffled_BGC_dic = {}
     for key in BGC_dic:
         shuffled_values = BGC_dic[key]
@@ -451,17 +451,37 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
     for key in overlap_count_dic:
          for overlap in overlap_count_dic[key]:
             overlap[1] = overlap[1] / permutations
-            if method = "Bonferroni":
-                p_adjust = overlap[1] * permutations #apply Bonferroni adjustment to p-values
-                if p_adjust > 1:
-                    p_adjust = 1
-                else:
-                    continue
-                overlap[2] = p_adjust
-            elif method = "BH":
-                continue
+    if method == "Bonferroni":
+        p_adjust = overlap[1] * permutations
+        if p_adjust > 1:
+            p_adjust = 1
+        overlap[2] = p_adjust
+    elif method == "BH":
+        overlap_count_list = []
+        for key in overlap_count_dic:
+            for value in overlap_count_dic[key]:
+                alist = [key]
+                alist.extend(value)
+                overlap_count_list.append(alist)
+        overlap_count_list.sort(key=lambda x:x[2])
+        max_p_value = overlap_count_list[-1][2]
+        rank = 1
+        for overlap in overlap_count_list:
+            q_value = (permutations*overlap[2])/rank
+            q_value = min([q_value, max_p_value])
+            overlap[3] = q_value
+            rank += 1
+        overlap_count_dic = {}
+        for overlap in overlap_count_list:
+            if overlap[0] in overlap_count_dic:
+                alist = overlap[1:]
+                overlap_count_dic[overlap[0]].append(alist)
             else:
-                print "This method is not (yet) available."
+                overlap_count_dic[overlap[0]] = []
+                alist = overlap[1:]
+                overlap_count_dic[overlap[0]].append(alist)
+    else:
+        print "This method is not (yet) available."
     return overlap_count_dic
 
 if __name__ == "__main__":
@@ -506,7 +526,7 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10, "Bonferroni")
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000, "BH")
     #print overlap_count_dic
     write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic)
 
