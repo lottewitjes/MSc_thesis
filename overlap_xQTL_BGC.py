@@ -125,21 +125,21 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         thedic[key] = BGC_region
         cis_xQTL_list = []
         for eQTL in eQTL_list:
-            if eQTL[1] == BGC_region[0] and (eQTL[2]*1000000) > BGC_region[1] and (eQTL[2]*1000000) < BGC_region[2]: #test if peak is within BGC boundaries
-                cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[3]*1000000) > BGC_region[1] and (eQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1]))): #test if inf is within BGC start and BGC end-30%
-                cis_xQTL_list.append(eQTL[0])
-            elif eQTL[1] == BGC_region[0] and (eQTL[4]*1000000) > (BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) and (eQTL[4]*1000000) < BGC_region[2]: #test if sub is within BGC end and BGC start+30%
-                cis_xQTL_list.append(eQTL[0])
+            if eQTL[1] == BGC_region[0] and (BGC_region[1] < (eQTL[2]*1000000) < BGC_region[2]): #test if peak is within BGC boundaries
+                cis_xQTL_list.append((eQTL[0], eQTL[5]))
+            elif eQTL[1] == BGC_region[0] and (BGC_region[1] < (eQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30%
+                cis_xQTL_list.append((eQTL[0], eQTL[5]))
+            elif eQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) < (eQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30%
+                cis_xQTL_list.append((eQTL[0], eQTL[5]))
             else:
                 continue
         for mQTL in mQTL_list:
-            if mQTL[1] == BGC_region[0] and (mQTL[2]*1000000) > BGC_region[1] and (mQTL[2]*1000000) < BGC_region[2]:
-                cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[3]*1000000) > BGC_region[1] and (mQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1]))):
-                cis_xQTL_list.append(mQTL[0])
-            elif mQTL[1] == BGC_region[0] and (mQTL[4]*1000000) > (BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) and (mQTL[4]*1000000) < BGC_region[2]:
-                cis_xQTL_list.append(mQTL[0])
+            if mQTL[1] == BGC_region[0] and (BGC_region[1] < (mQTL[2]*1000000) < BGC_region[2]): #test if peak is within BGC boundaries
+                cis_xQTL_list.append((mQTL[0], mQTL[5]))
+            elif mQTL[1] == BGC_region[0] and (BGC_region[1] < (mQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30%
+                cis_xQTL_list.append((mQTL[0], mQTL[5]))
+            elif mQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) < (mQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30%
+                cis_xQTL_list.append((mQTL[0], mQTL[5]))
             else:
                 continue
         thedic[key].append(cis_xQTL_list)
@@ -187,20 +187,19 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
             for j in range(len(eQTL_list)):
                 if eQTL_list[i][0] not in thedic:
                     thedic[eQTL_list[i][0]] = []
-                    if eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                    if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
                 else:
-                    if eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
+                    if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and (eQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
                         thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-
 
     elif analysis == "mQTL_mQTL":
         thedic = {}
@@ -208,18 +207,18 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
             for j in range(len(mQTL_list)):
                 if mQTL_list[i][0] not in thedic:
                     thedic[mQTL_list[i][0]] = []
-                    if mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000):
+                    if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000):
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000):
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
                 else:
-                    if mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000):
+                    if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000):
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (mQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000):
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000)):
                         thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
 
     elif analysis == "mQTL_eQTL":
@@ -297,7 +296,7 @@ def shuffle_xQTL_data(xQTL_list):
     #random.seed(10)
     shuffled_xQTL_list = []
     for xQTL in xQTL_list:
-        shuffled_xQTL = xQTL
+        shuffled_xQTL = xQTL[:]
         #shuffle chromosome number
         chr = xQTL[1]
         allowed_values = list(range(1, 12+1))
@@ -331,7 +330,7 @@ def shuffle_BGC_data(BGC_dic):
     #random.seed(10)
     shuffled_BGC_dic = {}
     for key in BGC_dic:
-        shuffled_values = BGC_dic[key]
+        shuffled_values = BGC_dic[key][:]
         #shuffle chromosome number
         chr = BGC_dic[key][1]
         allowed_values = list(range(1, 12+1))
@@ -367,15 +366,15 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
     for key in cis_xQTL_dic:
         overlap_count_dic[key] = []
         for QTL in cis_xQTL_dic[key][3]:
-            overlap_count_dic[key].append([QTL, 0, 0])
+            overlap_count_dic[key].append([QTL[0], 0, 0])
     for i in range(permutations):
         shuffled_BGC = shuffle_BGC_data(BGC_dic)
         shuffled_eQTL = shuffle_xQTL_data(eQTL_list)
         shuffled_mQTL = shuffle_xQTL_data(mQTL_list)
         shuffled_cis_xQTL_dic = find_cis_xQTL(shuffled_BGC, shuffled_eQTL, shuffled_mQTL)
         for key in cis_xQTL_dic:
-            real_overlap = set(cis_xQTL_dic[key][3])
-            random_overlap = set(shuffled_cis_xQTL_dic[key][3])
+            real_overlap = set(QTL[0] for QTL in cis_xQTL_dic[key][3])
+            random_overlap = set(QTL[0] for QTL in shuffled_cis_xQTL_dic[key][3])
             same_list = list(real_overlap & random_overlap)
             for QTL in same_list:
                 for QTL_count in overlap_count_dic[key]:
@@ -449,7 +448,6 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     for key in overlap_dic:
-        print key
         if overlap_dic[key][3] != []:
             filename = "{}_{}.txt".format(output_name, key)
             with open(filename, "w") as thefile:
@@ -459,38 +457,41 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                 elements = [str(key)] + [BGC_dic[key][0]] + [str(overlap_dic[key][0])] + [str(int(overlap_dic[key][1]))] + [str(int(overlap_dic[key][2]))]
                 line =  "\t".join(elements)
                 thefile.write(line + "\n")
+                elements = ["xQTL", "p-value", "adjusted p-value", "LOD-score", "locus annotation", "locus start bp", "locus end bp", "eQTL status"]
+                line = "\t".join(elements)
+                thefile.write(line + "\n")
                 for xQTL in overlap_dic[key][3]:
-                    if xQTL.startswith("LOC") and xQTL in locus_annotation_dic:
-                        if float(locus_annotation_dic[xQTL][0]) >= float(overlap_dic[key][1]) and float(locus_annotation_dic[xQTL][1]) <= float(overlap_dic[key][2]):
-                            cluster_status = "in_cluster"
-                            #lod_score = [eQTL[5] for eQTL in eQTL_list if eQTL[0] == xQTL]
-                            #print xQTL, lod_score
+                    if xQTL[0].startswith("LOC") and xQTL[0] in locus_annotation_dic:
+                        if float(locus_annotation_dic[xQTL[0]][0]) >= float(overlap_dic[key][1]) and float(locus_annotation_dic[xQTL[0]][1]) <= float(overlap_dic[key][2]):
+                            lod_score = xQTL[1]
+                            lod_score = "{:.4}".format(lod_score)
+                            cluster_status = "local"
                             for QTL_count in overlap_count_dic[key]:
-                                if QTL_count[0] == xQTL:
+                                if QTL_count[0] == xQTL[0]:
                                     p_value = "{:.4}".format(QTL_count[1])
                                     p_adjust = "{:.4}".format(float(QTL_count[2]))
-                            line_elements = [xQTL, cluster_status, p_value, p_adjust, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                            line_elements = [xQTL[0], p_value, p_adjust, lod_score, locus_annotation_dic[xQTL[0]][2], locus_annotation_dic[xQTL[0]][0], locus_annotation_dic[xQTL[0]][1], cluster_status]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
                         else:
-                            cluster_status = "not_in_cluster"
-                            #lod_score = [eQTL[5] for eQTL in eQTL_list if eQTL[0] == xQTL]
-                            #print xQTL, lod_score
+                            lod_score = xQTL[1]
+                            lod_score = "{:.4}".format(lod_score)
+                            cluster_status = "distant"
                             for QTL_count in overlap_count_dic[key]:
-                                if QTL_count[0] == xQTL:
+                                if QTL_count[0] == xQTL[0]:
                                     p_value = "{:.4}".format(QTL_count[1])
                                     p_adjust = "{:.4}".format(float(QTL_count[2]))
-                            line_elements = [xQTL, cluster_status, p_value, p_adjust, locus_annotation_dic[xQTL][2], locus_annotation_dic[xQTL][0], locus_annotation_dic[xQTL][1]]
+                            line_elements = [xQTL[0], p_value, p_adjust, lod_score, locus_annotation_dic[xQTL[0]][2], locus_annotation_dic[xQTL[0]][0], locus_annotation_dic[xQTL[0]][1], cluster_status]
                             line = "\t".join(line_elements)
                             thefile.write(line + "\n")
                     else:
-                        #lod_score = [mQTL[5] for mQTL in mQTL_list if (str(mQTL[0]) == str(xQTL) and int(mQTL[1]) == int(BGC_dic[key][1]) and int(BGC_dic[key][2]) <= int(mQTL[2]*1000000) <= int(BGC_dic[key][3]))]
-                        #print xQTL, lod_score, BGC_dic[key][2], BGC_dic[key][3]
+                        lod_score = xQTL[1]
+                        lod_score = "{:.4}".format(lod_score)
                         for QTL_count in overlap_count_dic[key]:
-                            if QTL_count[0] == xQTL:
+                            if QTL_count[0] == xQTL[0]:
                                 p_value = "{:.4}".format(QTL_count[1])
                                 p_adjust = "{:.4}".format(float(QTL_count[2]))
-                        line_elements = [xQTL, p_value, p_adjust]
+                        line_elements = [xQTL[0], p_value, p_adjust, lod_score]
                         line = "\t".join(line_elements)
                         thefile.write(line + "\n")
 
@@ -515,7 +516,7 @@ if __name__ == "__main__":
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
     cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list)
-    print cis_xQTL_dic
+    #print cis_xQTL_dic
     #count(cis_xQTL_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
@@ -537,9 +538,6 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 10, "BH")
-    BGC_dic = BGC_parser(BGC_dir)
-    eQTL_list = xQTL_parser(eQTL_file)
-    mQTL_list = xQTL_parser(mQTL_file)
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, 1000, "BH")
     write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic, eQTL_list, mQTL_list)
 
