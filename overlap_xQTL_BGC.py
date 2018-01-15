@@ -263,6 +263,16 @@ def statistics_xQTL(xQTL_list):
             statistics_xQTL_dic[xQTL[1]][1] += (xQTL[4]-xQTL[3])
     for key in statistics_xQTL_dic:
         statistics_xQTL_dic[key].append(statistics_xQTL_dic[key][1]/statistics_xQTL_dic[key][0])
+    elements = ["chromosome", "#xQTLs", "total xQTL size", "average xQTL size"]
+    line = "\t".join(elements)
+    print line
+    for key in statistics_xQTL_dic:
+        number_xQTLs = str(statistics_xQTL_dic[key][0])
+        total_xQTL_size = str(statistics_xQTL_dic[key][1])
+        average_xQTL_size = str(statistics_xQTL_dic[key][2])
+        elements = [str(key), number_xQTLs, total_xQTL_size, average_xQTL_size]
+        line = "\t".join(elements)
+        print line
     return statistics_xQTL_dic
 
 def count(thedic):
@@ -383,12 +393,17 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
     for key in overlap_count_dic:
          for overlap in overlap_count_dic[key]:
             overlap[1] = overlap[1] / permutations
-    if method == "Bonferroni":
-        p_adjust = overlap[1] * permutations
-        if p_adjust > 1:
-            p_adjust = 1
-        overlap[2] = p_adjust
-    elif method == "BH":
+            if method == "Bonferroni":
+                if overlap[0].startswith("LOC"):
+                    p_adjust = overlap[1] * len(eQTL_list)
+                else:
+                    p_adjust = overlap[1] * len(mQTL_list)
+                if p_adjust > 1:
+                    p_adjust = 1
+                overlap[2] = p_adjust
+            else:
+                continue
+    if method == "BH":
         overlap_count_list = []
         for key in overlap_count_dic:
             for value in overlap_count_dic[key]:
@@ -399,7 +414,11 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
         max_p_value = overlap_count_list[-1][2]
         rank = 1
         for overlap in overlap_count_list:
-            q_value = (permutations*overlap[2])/rank
+            print overlap[1]
+            if overlap[1].startswith("LOC"):
+                q_value = (len(eQTL_list)*overlap[2])/rank
+            else:
+                q_value = (len(mQTL_list)*overlap[2])/rank
             q_value = min([q_value, max_p_value])
             overlap[3] = q_value
             rank += 1
@@ -412,8 +431,6 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, cis_xQTL_dic, perm
                 overlap_count_dic[overlap[0]] = []
                 alist = overlap[1:]
                 overlap_count_dic[overlap[0]].append(alist)
-    else:
-        print "This method is not (yet) available."
     return overlap_count_dic
 
 #Write output files functions
@@ -456,8 +473,8 @@ def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_
                 thefile.write(line + "\n")
                 elements = [str(key)] + [BGC_dic[key][0]] + [str(overlap_dic[key][0])] + [str(int(overlap_dic[key][1]))] + [str(int(overlap_dic[key][2]))]
                 line =  "\t".join(elements)
-                thefile.write(line + "\n")
-                elements = ["xQTL", "p-value", "adjusted p-value", "LOD-score", "locus annotation", "locus start bp", "locus end bp", "eQTL status"]
+                thefile.write(line + "\n" + "\n")
+                elements = ["xQTL", "p-value", "adjusted p-value", "LOD-score", "locus annotation", "locus start bp", "locus end bp", "locus status"]
                 line = "\t".join(elements)
                 thefile.write(line + "\n")
                 for xQTL in overlap_dic[key][3]:
@@ -511,7 +528,9 @@ if __name__ == "__main__":
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
     eQTL_list = xQTL_parser(eQTL_file)
+    print len(eQTL_list)
     mQTL_list = xQTL_parser(mQTL_file)
+    print len(mQTL_list)
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
