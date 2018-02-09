@@ -1,11 +1,11 @@
 #! /usr/bin/evn python
 
-"""A Python script that changes Affymetrix probe IDs into BGI gene IDs in a SOFT file.
+"""A Python script that changes Affymetrix probe IDs into BGI gene IDs in a matrix.
 
-python affy_bgi_id_parser.py <soft_file> <id_file>
+python affy_bgi_id_parser.py <martrix_file> <id_file>
 
 Keyword arguments:
-    soft_file - a gene expression file in SOFT format
+    matrix_file - a gene expression file in matrix
     id_file - a tab-separated file with IDs
 Returns:
     parsed_soft.soft - a gene expression file in SOFT format with parsed IDs
@@ -49,15 +49,25 @@ def parser_soft_file(soft_file, id_dic):
     with open(soft_file, "r") as thefile:
         alist = []
         for line in thefile:
+            #print line
             if line.startswith("!") or line.startswith("^") or line.startswith("#"):
-                alist.append(line)
+                continue
             else:
                 elements = line.split()
+                elements[0] = elements[0].strip('"')
                 if elements[0] in id_dic:
                     elements[0] = id_dic[elements[0]]
+                    #if len(elements) > 4:
+                        #elements[1] = elements[0]
+                    alist.append(elements)
+                #elif elements[0] not in id_dic and len(elements) > 4:
+                    #elements[1] = elements[0]
+                    #alist.append(elements)
+                elif elements[0] == "ID_REF":
                     alist.append(elements)
                 else:
-                    alist.append(elements)
+                    continue
+                    #alist.append(elements)
         return alist
 
 def write_parsed_soft_file(soft_list, output_name):

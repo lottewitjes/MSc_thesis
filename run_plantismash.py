@@ -33,7 +33,7 @@ def run_plantismash(gff3_plant_genome, fasta_plant_genome, expression_file, outp
     Returns:
     - filled output_directory containing plantiSMASH results
     """
-    cmd = "python run_antismash.py --taxon plants --gff3 {} --coexpress --coexpress-soft_file {} --clusterblast --knownclusterblast --min-domain-number 1 --cdh-cutoff 0.6 --outputfolder {} {}".format(gff3_plant_genome, expression_file, output_directory, fasta_plant_genome)
+    cmd = "python run_antismash.py --taxon plants --gff3 {} --coexpress --coexpress-csv_file {} --clusterblast --knownclusterblast --min-domain-number 1 --cdh-cutoff 0.6 --outputfolder {} {}".format(gff3_plant_genome, expression_file, output_directory, fasta_plant_genome)
     if os.path.exists(output_directory):
         pass
     else:
