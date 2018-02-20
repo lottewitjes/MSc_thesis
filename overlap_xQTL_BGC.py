@@ -70,8 +70,8 @@ def BGC_parser(BGC_dir):
         for line in thefile:
             elements = line.split("\t")
             chr, cluster_id = elements[0].split("_c")
-            chr = chr[3:] #os
-            #chr = chr[-1] #at
+            #chr = chr[3:] #os
+            chr = chr[-1] #at
             type = elements[1]
             from_bp, to_bp = elements[3].split(";")
             genes = elements[4].split(";")
@@ -97,16 +97,16 @@ def gff3_parser_annotation(gff3_file):
                 if (elements[2] == "gene" or elements[2] == "pseudogene") and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
                     from_bp, to_bp = elements[3], elements[4]
                     description = elements[-1].split(";")
-                    locus = description[2].split("Alias=")[1] #os
-                    #locus = description[1].split(",")[0] #at
-                    #locus = re.findall("Dbxref=(.+):(.+)", locus)[0][1] #at
+                    #locus = description[2].split("Alias=")[1] #os
+                    locus = description[1].split(",")[0] #at
+                    locus = re.findall("Dbxref=(.+):(.+)", locus)[0][1] #at
                     locus = locus.strip()
-                    #annotation = re.findall("Name=(.+)", description[2])[0] #at
-                    annotation = description[1].strip().split("Name=")[1].split("%20") #os
-                    annotation = [element.replace("%2C", ",") for element in annotation] #os
-                    annotation = [element.replace("%2", "-") for element in annotation] #os
-                    annotation = [element.replace("%2F", "/") for element in annotation] #os
-                    annotation = " ".join(annotation) #os
+                    annotation = re.findall("Name=(.+)", description[2])[0] #at
+                    #annotation = description[1].strip().split("Name=")[1].split("%20") #os
+                    #annotation = [element.replace("%2C", ",") for element in annotation] #os
+                    #annotation = [element.replace("%2", "-") for element in annotation] #os
+                    #annotation = [element.replace("%2F", "/") for element in annotation] #os
+                    #annotation = " ".join(annotation) #os
                     thedic[locus] = [from_bp, to_bp, annotation]
         return thedic
 
@@ -143,18 +143,18 @@ def find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list):
         for eQTL in eQTL_list:
             if eQTL[1] == BGC_region[0] and (BGC_region[1] < (eQTL[2]*1000000) < BGC_region[2]): #test if peak is within BGC boundaries
                 cis_xQTL_list.append((eQTL[0], eQTL[5]))
-            elif eQTL[1] == BGC_region[0] and (BGC_region[1] < (eQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30% for os, 0% for at
+            elif eQTL[1] == BGC_region[0] and (BGC_region[1] < (eQTL[3]*1000000) < (BGC_region[2]-(0.0*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30% for os, 0% for at
                 cis_xQTL_list.append((eQTL[0], eQTL[5]))
-            elif eQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) < (eQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30% for os, 0% for at
+            elif eQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.0*(BGC_region[2]-BGC_region[1]))) < (eQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30% for os, 0% for at
                 cis_xQTL_list.append((eQTL[0], eQTL[5]))
             else:
                 continue
         for mQTL in mQTL_list:
             if mQTL[1] == BGC_region[0] and (BGC_region[1] < (mQTL[2]*1000000) < BGC_region[2]): #test if peak is within BGC boundaries
                 cis_xQTL_list.append((mQTL[0], mQTL[5]))
-            elif mQTL[1] == BGC_region[0] and (BGC_region[1] < (mQTL[3]*1000000) < (BGC_region[2]-(0.3*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30% for os, 0% for at
+            elif mQTL[1] == BGC_region[0] and (BGC_region[1] < (mQTL[3]*1000000) < (BGC_region[2]-(0.0*(BGC_region[2]-BGC_region[1])))): #test if inf is within BGC start and BGC end-30% for os, 0% for at
                 cis_xQTL_list.append((mQTL[0], mQTL[5]))
-            elif mQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.3*(BGC_region[2]-BGC_region[1]))) < (mQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30% for os, 0% for at
+            elif mQTL[1] == BGC_region[0] and ((BGC_region[1]+(0.0*(BGC_region[2]-BGC_region[1]))) < (mQTL[4]*1000000) < BGC_region[2]): #test if sub is within BGC end and BGC start+30% for os, 0% for at
                 cis_xQTL_list.append((mQTL[0], mQTL[5]))
             else:
                 continue
@@ -309,7 +309,7 @@ def count(thedic):
             total +=1
     print "{}/{} have overlap in this dictionary".format(count, total)
 
-def shuffle_xQTL_data(xQTL_list, number_chr, max_chr_size):
+def shuffle_xQTL_data(xQTL_list, number_chr, chr_size_dic):
     """A function to shuffle the genomic regions of a xQTL dataset to achieve randomness.
 
     Keyword arguments:
@@ -335,7 +335,7 @@ def shuffle_xQTL_data(xQTL_list, number_chr, max_chr_size):
         xQTL_size = sup_bp - inf_bp
         shuffled_inf_bp = -1
         while shuffled_inf_bp < 0:
-            shuffled_sup_bp = random.randint(1, max_chr_size+1)
+            shuffled_sup_bp = random.randint(1, chr_size_dic[shuffled_chr]+1)
             shuffled_inf_bp = shuffled_sup_bp - xQTL_size
         shuffled_peak_bp = (shuffled_inf_bp + shuffled_sup_bp) / 2
         shuffled_xQTL[2] = shuffled_peak_bp / 1000000
@@ -344,7 +344,7 @@ def shuffle_xQTL_data(xQTL_list, number_chr, max_chr_size):
         shuffled_xQTL_list.append(shuffled_xQTL)
     return shuffled_xQTL_list
 
-def shuffle_BGC_data(BGC_dic, number_chr, max_chr_size):
+def shuffle_BGC_data(BGC_dic, number_chr, chr_size_dic):
     """A function to shuffle the genomic regions of a BGC dataset to achieve randomness.
 
     Keyword arguments:
@@ -369,14 +369,14 @@ def shuffle_BGC_data(BGC_dic, number_chr, max_chr_size):
         BGC_size = to_bp - from_bp
         shuffled_from_bp = -1
         while shuffled_from_bp < 0:
-            shuffled_to_bp = random.randint(1, max_chr_size+1)
+            shuffled_to_bp = random.randint(1, chr_size_dic[shuffled_chr]+1)
             shuffled_from_bp = shuffled_to_bp - BGC_size
         shuffled_values[2] = shuffled_from_bp
         shuffled_values[3] = shuffled_to_bp
         shuffled_BGC_dic[key] = shuffled_values
     return shuffled_BGC_dic
 
-def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, max_chr_size, cis_xQTL_dic, permutations, method):
+def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, chr_size_dic, cis_xQTL_dic, permutations, method):
     """A function to do a randomization test for finding random cis-xQTL overlapping with BGCs.
 
     Keyword arguments:
@@ -396,9 +396,9 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, max_ch
     permutations_finished = 1
     print "Permutation: {}/{}".format(permutations_finished, permutations)
     for i in range(permutations):
-        shuffled_BGC = shuffle_BGC_data(BGC_dic, number_chr, max_chr_size)
-        shuffled_eQTL = shuffle_xQTL_data(eQTL_list, number_chr, max_chr_size)
-        shuffled_mQTL = shuffle_xQTL_data(mQTL_list, number_chr, max_chr_size)
+        shuffled_BGC = shuffle_BGC_data(BGC_dic, number_chr, chr_size_dic)
+        shuffled_eQTL = shuffle_xQTL_data(eQTL_list, number_chr, chr_size_dic)
+        shuffled_mQTL = shuffle_xQTL_data(mQTL_list, number_chr, chr_size_dic)
         shuffled_cis_xQTL_dic = find_cis_xQTL(shuffled_BGC, shuffled_eQTL, shuffled_mQTL)
         for key in cis_xQTL_dic:
             real_overlap = set(QTL[0] for QTL in cis_xQTL_dic[key][3])
@@ -434,11 +434,13 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, max_ch
         max_p_value = overlap_count_list[-1][2]
         rank = 1
         for overlap in overlap_count_list:
-            if overlap[1].startswith("LOC"):
+            if overlap[1].startswith("LOC") or overlap[1].startswith("AT"):
                 q_value = (len(eQTL_list)*overlap[2])/rank
             else:
                 q_value = (len(mQTL_list)*overlap[2])/rank
+            print q_value, max_p_value
             q_value = min([q_value, max_p_value])
+            print q_value
             overlap[3] = q_value
             rank += 1
         overlap_count_dic = {}
@@ -546,7 +548,7 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
-    #BGC_dic_parsed = gene_ID_refseq_protein_ID_parser(BGC_dic) #at
+    BGC_dic_parsed = gene_ID_refseq_protein_ID_parser(BGC_dic) #at
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
@@ -561,7 +563,7 @@ if __name__ == "__main__":
     at_number_chr = max(at_chr_size_dic.keys())
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+    cis_xQTL_dic = find_cis_xQTL(BGC_dic_parsed, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
     count(cis_xQTL_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
@@ -583,6 +585,7 @@ if __name__ == "__main__":
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, os_number_chr, os_max_chr_size, cis_xQTL_dic, 1000, "BH") #os BGC_dic os_number_chr os_max_chr_size, at BGC_dic_parsed at_number_chr at_max_chr_size
-    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic, overlap_count_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic_parsed, eQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, cis_xQTL_dic, 1000, "Bonferroni") #os BGC_dic os_number_chr os_max_chr_size, at BGC_dic_parsed at_number_chr at_max_chr_size
+    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic_parsed, overlap_count_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+
 
