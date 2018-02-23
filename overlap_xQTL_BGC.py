@@ -198,24 +198,17 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
         xQTL.
     """
     if analysis == "eQTL_eQTL":
-        thedic = {}
+        overlap_list = []
         for i in range(len(eQTL_list)):
             for j in range(len(eQTL_list)):
-                if eQTL_list[i][0] not in thedic:
-                    thedic[eQTL_list[i][0]] = []
-                    if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                    if eQTL_list[i] == eQTL_list[j]:
+                        continue
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
+                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
                     elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
                     elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                else:
-                    if eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
-                        thedic[eQTL_list[i][0]].append(eQTL_list[j][0])
+                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
 
     elif analysis == "mQTL_mQTL":
         thedic = {}
@@ -258,7 +251,7 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
                         thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
     else:
         print "This analysis is invalid."
-    return thedic
+    return overlap_list
 
 #Statistics functions
 #################################################################################################################################################################
@@ -467,8 +460,8 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     with open(output_name, "w") as thefile:
-        for key in dic_overlap_xQTLs:
-                line = "\t".join(dic_overlap_xQTLs[key])
+        for alist in dic_overlap_xQTLs:
+                line = "\t".join([str(element) for element in alist])
                 thefile.write(line + "\n")
 
 def write_file_cis_xQTLs(overlap_dic, output_dir, output_name, locus_annotation_dic, BGC_dic, overlap_count_dic, eQTL_list, mQTL_list):
@@ -556,36 +549,36 @@ if __name__ == "__main__":
     #Make chromosome size dictionaries
     os_chr_size_dic = {1:43270923, 2:35937250, 3:36413819, 4:35502694, 5:29958434, 6:31248787,
                        7:29697621, 8:28443022, 9:23012720, 10:23207287, 11:29021106, 12:27531856}
-    os_max_chr_size = max(os_chr_size_dic.values())
     os_number_chr = max(os_chr_size_dic.keys())
     at_chr_size_dic = {1:30427671, 2:19698289, 3:23459830, 4:18585056, 5:26975502}
-    at_max_chr_size = max(at_chr_size_dic.values())
     at_number_chr = max(at_chr_size_dic.keys())
 
     #Find cis-xQTLs overlapping with BGC based on physical location and count how many BGCs have cis-xQTLs
-    cis_xQTL_dic = find_cis_xQTL(BGC_dic_parsed, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
-    count(cis_xQTL_dic)
+    #cis_xQTL_dic = find_cis_xQTL(BGC_dic_parsed, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+    #count(cis_xQTL_dic)
 
     #Find overlapping trans-xQTLs based on genes present in BGC
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
     #print trans_xQTL_dic
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    #dic_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    dic_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
+    write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
 
     #dic_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
     #write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
 
     #dic_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLs(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    #write_file_overlapping_xQTLss(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
     #print statistics_xQTL(eQTL_list)
     #print statistics_xQTL(mQTL_list)
 
     #Randomization test
-    overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic_parsed, eQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, cis_xQTL_dic, 1000, "Bonferroni") #os BGC_dic os_number_chr os_max_chr_size, at BGC_dic_parsed at_number_chr at_max_chr_size
-    write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic_parsed, overlap_count_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+    #overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic_parsed, eQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, cis_xQTL_dic, 1000, "Bonferroni") #os BGC_dic os_number_chr os_max_chr_size, at BGC_dic_parsed at_number_chr at_max_chr_size
+    #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic_parsed, overlap_count_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+
+
 
 
