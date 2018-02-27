@@ -375,6 +375,8 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, chr_si
         BGC_dic - a dictionary containing information per BGC with clusterID as key and randomly assigned chromosomes.
         eQTL_list - a list of lists containing the original rows of the eQTL input file but with randomly assigned chromosomes.
         mQTL_list - a list of lists containing the original rows of the mQTL input file but with randomly assigned chromosomes.
+        number_chr - the total number of chromosomes that the organism has.
+        chr_size_dic - a dictionary with chromosome number as key and its size in bp as value.
         cis_xQTL_dic - the real cis-xQTL overlap with BGCs that was found with the original datasets.
         permutations - the number of randomizations that should be performed.
     Returns:
@@ -448,6 +450,17 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, chr_si
 
 def randomization_overlapping_xQTLs(list_xQTL_xQTL, xQTL_list1, xQTL_list2, number_chr, chr_size_dic, permutations, overlap_method):
     """A function to do a randomization test for finding random overlapping xQTLs.
+
+    Keyword arguments:
+        list_xQTL_xQTL - the overlap list that was found with find_overlapping_xQTLs().
+        xQTL_list1 - a lists of lists containing the original rows of the xQTL input file.
+        xQTL_list2 - a lists of lists containing the original rows of the xQTL input file.
+        number_chr - the number of chromosomes the organism has.
+        chr_size_dic - a dictionary with chromosome numbers as keys and size in bp as value.
+        permutations - the number of permutations.
+        overlap_method - either eQTL_eQTL, mQTL_mQTL or mQTL_eQTL.
+    Returns:
+        count_dic - a dictionary with name and LOD-score of the overlap and p-values as values.
     """
     count_dic = {}
     for alist in list_xQTL_xQTL:
@@ -472,7 +485,7 @@ def randomization_overlapping_xQTLs(list_xQTL_xQTL, xQTL_list1, xQTL_list2, numb
     rank = 1
     number_test = len(xQTL_list1)
     for overlap in count_list:
-        q_value = (number_test*overlap[3]/rank
+        q_value = (number_test*overlap[3]/rank)
         overlap[4] = q_value
         rank += 1
     return count_list
@@ -593,12 +606,16 @@ if __name__ == "__main__":
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb + randomization test
     list_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    count_eQTL_eQTL = randomization
-    write_file_overlapping_xQTLs(list_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    count_eQTL_eQTL = randomization_overlapping_xQTLs(list_eQTL_eQTL, eQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "eQTL_eQTL")
+    write_file_overlapping_xQTLs(count_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+
     #list_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLs(list_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    #count_mQTL_mQTL = randomization_overlapping_xQTLs(list_mQTL_mQTL, mQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, 10, "mQTL_mQTL")
+    #write_file_overlapping_xQTLs(count_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+
     #list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLss(list_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    #count_mQTL_eQTL = randomization_overlapping_xQTLs(list_mQTL_eQTL, mQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "mQTL_eQTL")
+    #write_file_overlapping_xQTLss(count_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
     #print statistics_xQTL(eQTL_list)
