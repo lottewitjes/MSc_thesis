@@ -201,54 +201,53 @@ def find_overlapping_xQTL(analysis, eQTL_list, mQTL_list):
         overlap_list = []
         for i in range(len(eQTL_list)):
             for j in range(len(eQTL_list)):
+                    elements = [eQTL_list[i][0], eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][5]]
+                    elements_rev = [eQTL_list[j][0], eQTL_list[j][5], eQTL_list[i][0], eQTL_list[i][5]]
                     if eQTL_list[i] == eQTL_list[j]:
                         continue
+                    elif elements in overlap_list or elements_rev in overlap_list:
+                        continue
                     elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)):
-                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000)):
-                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
-                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
-                        overlap_list.append([eQTL_list[i][0], eQTL_list[i][1], eQTL_list[i][3],eQTL_list[i][4],eQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][1], eQTL_list[j][3], eQTL_list[j][4], eQTL_list[j][5]])
+                        overlap_list.append(elements)
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (eQTL_list[i][3]*1000000) < ((eQTL_list[j][4]*1000000)-(0.0*((eQTL_list[j][4]*1000000)-(eQTL_list[j][3]*1000000))))):
+                        overlap_list.append(elements)
+                    elif eQTL_list[i][1] == eQTL_list[j][1] and (((eQTL_list[j][4]*1000000)-(0.0*((eQTL_list[j][4]*1000000)-(eQTL_list[j][3]*1000000)))) < (eQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
+                        overlap_list.append(elements)
 
     elif analysis == "mQTL_mQTL":
-        thedic = {}
+        overlap_list = []
         for i in range(len(mQTL_list)):
             for j in range(len(mQTL_list)):
-                if mQTL_list[i][0] not in thedic:
-                    thedic[mQTL_list[i][0]] = []
-                    if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                else:
-                    if mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
-                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000)):
-                        thedic[mQTL_list[i][0]].append(mQTL_list[j][0])
+                    elements = [mQTL_list[i][0], mQTL_list[i][5], mQTL_list[j][0], mQTL_list[j][5]]
+                    elements_rev = [mQTL_list[j][0], mQTL_list[j][5], mQTL_list[i][0], mQTL_list[i][5]]
+                    if mQTL_list[i] == mQTL_list[j]:
+                        continue
+                    elif elements in overlap_list or elements_rev in overlap_list:
+                        continue
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (mQTL_list[j][4]*1000000)):
+                        overlap_list.append(elements)
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and ((mQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < ((mQTL_list[j][4]*1000000)-(0.0*((mQTL_list[j][4]*1000000)-(mQTL_list[j][3]*1000000))))):
+                        overlap_list.append(elements)
+                    elif mQTL_list[i][1] == mQTL_list[j][1] and (((mQTL_list[j][4]*1000000)+(0.0*((mQTL_list[j][4]*1000000)-(mQTL_list[j][3]*1000000)))) < (mQTL_list[i][4]*1000000) < (mQTL_list[j][4]*1000000)):
+                        overlap_list.append(elements)
 
     elif analysis == "mQTL_eQTL":
-        thedic = {}
+        overlap_list = []
         for i in range(len(mQTL_list)):
             for j in range(len(eQTL_list)):
-                if mQTL_list[i][0] not in thedic:
-                    thedic[mQTL_list[i][0]] = []
-                    if mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                else:
-                    if mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][2]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][3]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][3]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
-                    elif mQTL_list[i][1] == eQTL_list[j][1] and (mQTL_list[i][4]*1000000) > (eQTL_list[j][3]*1000000) and (mQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000):
-                        thedic[mQTL_list[i][0]].append(eQTL_list[j][0])
+                    elements = [mQTL_list[i][0], mQTL_list[i][5], eQTL_list[j][0], eQTL_list[j][5]]
+                    elements_rev = [eQTL_list[j][0], eQTL_list[j][5], mQTL_list[i][0], mQTL_list[i][5]]
+                    if mQTL_list[i] == mQTL_list[j]:
+                        continue
+                    elif elements in overlap_list or elements_rev in overlap_list:
+                        continue
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (mQTL_list[i][2]*1000000) < (eQTL_list[j][4]*1000000)): #test if peak is within other QTL region
+                        overlap_list.append(elements)
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and ((eQTL_list[j][3]*1000000) < (mQTL_list[i][3]*1000000) < ((eQTL_list[j][4]*1000000)-(0.0*((eQTL_list[j][4]*1000000)-(eQTL_list[j][3]*1000000))))):
+                        overlap_list.append(elements)
+                    elif mQTL_list[i][1] == eQTL_list[j][1] and (((eQTL_list[j][4]*1000000)+(0.0*((eQTL_list[j][4]*1000000)-(eQTL_list[j][3]*1000000)))) < (mQTL_list[i][4]*1000000) < (eQTL_list[j][4]*1000000)):
+                        overlap_list.append(elements)
+
     else:
         print "This analysis is invalid."
     return overlap_list
@@ -407,7 +406,7 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, chr_si
          for overlap in overlap_count_dic[key]:
             overlap[1] = overlap[1] / permutations
             if method == "Bonferroni":
-                if overlap[0].startswith("LOC"):
+                if overlap[0].startswith("LOC") or overlap[0].startswith("AT"):
                     p_adjust = overlap[1] * len(eQTL_list)
                 else:
                     p_adjust = overlap[1] * len(mQTL_list)
@@ -446,6 +445,37 @@ def randomization_cis_xQTL_BGC(BGC_dic, eQTL_list, mQTL_list, number_chr, chr_si
                 alist = overlap[1:]
                 overlap_count_dic[overlap[0]].append(alist)
     return overlap_count_dic
+
+def randomization_overlapping_xQTLs(list_xQTL_xQTL, xQTL_list1, xQTL_list2, number_chr, chr_size_dic, permutations, overlap_method):
+    """A function to do a randomization test for finding random overlapping xQTLs.
+    """
+    count_dic = {}
+    for alist in list_xQTL_xQTL:
+        count_dic[alist] = [0,0]
+    for i in range(permutations):
+        shuffled_xQTL_list1 = shuffle_xQTL_data(xQTL_list1, number_chr, chr_size_dic)
+        shuffled_xQTl_list2 = shuffle_xQTL_date(xQTL_list2, number_chr, chr_size_dic)
+        shuffled_list_xQTL_xQTL = find_overlapping_xQTL(overlap_method, shuffled_xQTL_list1, shuffled_xQTL_list2)
+        for key in count_dic:
+            if key in shuffled_list_xQTL_xQTL:
+                count_dic[key][0] += 1
+    for key in count_dic:
+        count_dic[key][0] = count_dic[key][0] / permutations
+    count_list = []
+    for key in count_dic:
+        for value in count_dic[key]:
+            alist = [key]
+            alist.extend(value)
+            count_list.append(alist)
+    count_list.sort(key=lambda x:x[3])
+    max_p_value = count_list[-1][3]
+    rank = 1
+    number_test = len(xQTL_list1)
+    for overlap in count_list:
+        q_value = (number_test*overlap[3]/rank
+        overlap[4] = q_value
+        rank += 1
+    return count_list
 
 #Write output files functions
 #################################################################################################################################################################
@@ -561,15 +591,14 @@ if __name__ == "__main__":
     #trans_xQTL_dic = find_trans_xQTL(BGC_dic, eQTL_list, mQTL_list)
     #print trans_xQTL_dic
 
-    #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb
-    dic_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    write_file_overlapping_xQTLs(dic_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
-
-    #dic_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLs(dic_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
-
-    #dic_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
-    #write_file_overlapping_xQTLss(dic_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb + randomization test
+    list_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
+    count_eQTL_eQTL = randomization
+    write_file_overlapping_xQTLs(list_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    #list_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
+    #write_file_overlapping_xQTLs(list_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    #list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
+    #write_file_overlapping_xQTLss(list_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
     #print statistics_xQTL(eQTL_list)
