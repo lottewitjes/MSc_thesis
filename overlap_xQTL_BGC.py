@@ -25,6 +25,7 @@ import os.path
 import re
 import random
 import copy
+import math
 
 __author__ = "Lotte Witjes"
 __email__ = "lottewitjes@outlook.com"
@@ -464,29 +465,37 @@ def randomization_overlapping_xQTLs(list_xQTL_xQTL, xQTL_list1, xQTL_list2, numb
     """
     count_dic = {}
     for alist in list_xQTL_xQTL:
-        count_dic[alist] = [0,0]
+        count_dic[tuple(alist)] = [0, 0, 0]
+    permutations_done = 0
     for i in range(permutations):
         shuffled_xQTL_list1 = shuffle_xQTL_data(xQTL_list1, number_chr, chr_size_dic)
-        shuffled_xQTl_list2 = shuffle_xQTL_date(xQTL_list2, number_chr, chr_size_dic)
+        shuffled_xQTL_list2 = shuffle_xQTL_data(xQTL_list2, number_chr, chr_size_dic)
         shuffled_list_xQTL_xQTL = find_overlapping_xQTL(overlap_method, shuffled_xQTL_list1, shuffled_xQTL_list2)
         for key in count_dic:
-            if key in shuffled_list_xQTL_xQTL:
+             if list(key) in shuffled_list_xQTL_xQTL:
                 count_dic[key][0] += 1
+        permutations_done += 1
+        print "Permutations done: {}".format(permutations_done)
     for key in count_dic:
         count_dic[key][0] = count_dic[key][0] / permutations
     count_list = []
     for key in count_dic:
-        for value in count_dic[key]:
-            alist = [key]
-            alist.extend(value)
-            count_list.append(alist)
-    count_list.sort(key=lambda x:x[3])
-    max_p_value = count_list[-1][3]
+        alist = list(key)
+        alist.extend(count_dic[key])
+        count_list.append(alist)
+    count_list.sort(key=lambda x:x[4])
+    max_p_value = count_list[-1][4]
     rank = 1
     number_test = len(xQTL_list1)
     for overlap in count_list:
-        q_value = (number_test*overlap[3]/rank)
-        overlap[4] = q_value
+        q_value = ((number_test*overlap[4])/rank)
+        q_value = min([q_value, max_p_value])
+        overlap[5] = q_value
+        if q_value == 0:
+            q_value = "inf"
+            overlap[6] = q_value
+        else:
+            overlap[6] = -1 * math.log10(q_value)
         rank += 1
     return count_list
 
@@ -503,6 +512,9 @@ def write_file_overlapping_xQTLs(dic_overlap_xQTLs, output_dir, output_name):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     with open(output_name, "w") as thefile:
+        line_elements = ["xQTL1", "LOD_xQTL1", "xQTL2", "LOD_xQTL2", "pval", "adj_pval_BH", "-log10(adj_pval_BH)"]
+        line = "\t".join(line_elements)
+        thefile.write(line + "\n") 
         for alist in dic_overlap_xQTLs:
                 line = "\t".join([str(element) for element in alist])
                 thefile.write(line + "\n")
@@ -605,17 +617,17 @@ if __name__ == "__main__":
     #print trans_xQTL_dic
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb + randomization test
-    list_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    count_eQTL_eQTL = randomization_overlapping_xQTLs(list_eQTL_eQTL, eQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "eQTL_eQTL")
-    write_file_overlapping_xQTLs(count_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
+    #list_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
+    #count_eQTL_eQTL = randomization_overlapping_xQTLs(list_eQTL_eQTL, eQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "eQTL_eQTL")
+    #write_file_overlapping_xQTLs(count_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
 
-    #list_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", eQTL_list, mQTL_list)
-    #count_mQTL_mQTL = randomization_overlapping_xQTLs(list_mQTL_mQTL, mQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, 10, "mQTL_mQTL")
-    #write_file_overlapping_xQTLs(count_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
+    list_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", mQTL_list, mQTL_list)
+    count_mQTL_mQTL = randomization_overlapping_xQTLs(list_mQTL_mQTL, mQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, 1000, "mQTL_mQTL")
+    write_file_overlapping_xQTLs(count_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
 
-    #list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", eQTL_list, mQTL_list)
-    #count_mQTL_eQTL = randomization_overlapping_xQTLs(list_mQTL_eQTL, mQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "mQTL_eQTL")
-    #write_file_overlapping_xQTLss(count_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", mQTL_list, eQTL_list)
+    count_mQTL_eQTL = randomization_overlapping_xQTLs(list_mQTL_eQTL, mQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 1000, "mQTL_eQTL")
+    write_file_overlapping_xQTLss(count_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
     #print statistics_xQTL(eQTL_list)
