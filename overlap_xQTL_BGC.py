@@ -71,8 +71,8 @@ def BGC_parser(BGC_dir):
         for line in thefile:
             elements = line.split("\t")
             chr, cluster_id = elements[0].split("_c")
-            #chr = chr[3:] #os
-            chr = chr[-1] #at
+            chr = chr[3:] #os
+            #chr = chr[-1] #at
             type = elements[1]
             from_bp, to_bp = elements[3].split(";")
             genes = elements[4].split(";")
@@ -98,16 +98,16 @@ def gff3_parser_annotation(gff3_file):
                 if (elements[2] == "gene" or elements[2] == "pseudogene") and (elements[0] != "ChrUn" and elements[0] != "ChrSy"):
                     from_bp, to_bp = elements[3], elements[4]
                     description = elements[-1].split(";")
-                    #locus = description[2].split("Alias=")[1] #os
-                    locus = description[1].split(",")[0] #at
-                    locus = re.findall("Dbxref=(.+):(.+)", locus)[0][1] #at
+                    locus = description[2].split("Alias=")[1] #os
+                    #locus = description[1].split(",")[0] #at
+                    #locus = re.findall("Dbxref=(.+):(.+)", locus)[0][1] #at
                     locus = locus.strip()
-                    annotation = re.findall("Name=(.+)", description[2])[0] #at
-                    #annotation = description[1].strip().split("Name=")[1].split("%20") #os
-                    #annotation = [element.replace("%2C", ",") for element in annotation] #os
-                    #annotation = [element.replace("%2", "-") for element in annotation] #os
-                    #annotation = [element.replace("%2F", "/") for element in annotation] #os
-                    #annotation = " ".join(annotation) #os
+                    #annotation = re.findall("Name=(.+)", description[2])[0] #at
+                    annotation = description[1].strip().split("Name=")[1].split("%20") #os
+                    annotation = [element.replace("%2C", ",") for element in annotation] #os
+                    annotation = [element.replace("%2", "-") for element in annotation] #os
+                    annotation = [element.replace("%2F", "/") for element in annotation] #os
+                    annotation = " ".join(annotation) #os
                     thedic[locus] = [from_bp, to_bp, annotation]
         return thedic
 
@@ -596,7 +596,7 @@ if __name__ == "__main__":
 
     #Parse the files
     BGC_dic = BGC_parser(BGC_dir)
-    BGC_dic_parsed = gene_ID_refseq_protein_ID_parser(BGC_dic) #at
+    #BGC_dic_parsed = gene_ID_refseq_protein_ID_parser(BGC_dic) #at
     eQTL_list = xQTL_parser(eQTL_file)
     mQTL_list = xQTL_parser(mQTL_file)
     locus_annotation_dic = gff3_parser_annotation(gff3_file)
@@ -618,16 +618,16 @@ if __name__ == "__main__":
 
     #Find overlapping xQTLs based on their peak_mb, inf_mb and sup_mb + randomization test
     #list_eQTL_eQTL = find_overlapping_xQTL("eQTL_eQTL", eQTL_list, mQTL_list)
-    #count_eQTL_eQTL = randomization_overlapping_xQTLs(list_eQTL_eQTL, eQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 10, "eQTL_eQTL")
+    #count_eQTL_eQTL = randomization_overlapping_xQTLs(list_eQTL_eQTL, eQTL_list, eQTL_list, os_number_chr, os_chr_size_dic, 1000, "eQTL_eQTL")
     #write_file_overlapping_xQTLs(count_eQTL_eQTL, output_dir, eQTL_eQTL_output_name)
 
     list_mQTL_mQTL = find_overlapping_xQTL("mQTL_mQTL", mQTL_list, mQTL_list)
-    count_mQTL_mQTL = randomization_overlapping_xQTLs(list_mQTL_mQTL, mQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, 1000, "mQTL_mQTL")
+    count_mQTL_mQTL = randomization_overlapping_xQTLs(list_mQTL_mQTL, mQTL_list, mQTL_list, os_number_chr, os_chr_size_dic, 1000, "mQTL_mQTL")
     write_file_overlapping_xQTLs(count_mQTL_mQTL, output_dir, mQTL_mQTL_output_name)
 
-    list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", mQTL_list, eQTL_list)
-    count_mQTL_eQTL = randomization_overlapping_xQTLs(list_mQTL_eQTL, mQTL_list, eQTL_list, at_number_chr, at_chr_size_dic, 1000, "mQTL_eQTL")
-    write_file_overlapping_xQTLss(count_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
+    #list_mQTL_eQTL = find_overlapping_xQTL("mQTL_eQTL", mQTL_list, eQTL_list)
+    #count_mQTL_eQTL = randomization_overlapping_xQTLs(list_mQTL_eQTL, mQTL_list, eQTL_list, os_number_chr, os_chr_size_dic, 1000, "mQTL_eQTL")
+    #write_file_overlapping_xQTLs(count_mQTL_eQTL, output_dir, mQTL_eQTL_output_name)
 
     #Calculate general statistics of xQTL and BGC datasets
     #print statistics_xQTL(eQTL_list)
@@ -636,6 +636,8 @@ if __name__ == "__main__":
     #Randomization test
     #overlap_count_dic = randomization_cis_xQTL_BGC(BGC_dic_parsed, eQTL_list, mQTL_list, at_number_chr, at_chr_size_dic, cis_xQTL_dic, 1000, "Bonferroni") #os BGC_dic os_number_chr os_max_chr_size, at BGC_dic_parsed at_number_chr at_max_chr_size
     #write_file_cis_xQTLs(cis_xQTL_dic, output_dir, cis_xQTL_output_name, locus_annotation_dic, BGC_dic_parsed, overlap_count_dic, eQTL_list, mQTL_list) #os BGC_dic, at BGC_dic_parsed
+
+
 
 
 
