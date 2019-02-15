@@ -1,0 +1,13 @@
+#                                                                                                                                     --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name                                                                                 accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------                                                                       -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      a_thaliana_all_mQTL_loci.fasta
+# Target file:     ../all_plant.hmm
+# Option settings: hmmscan --tblout a_thaliana_all_mQTL_loci_hits.txt --cpu 8 ../all_plant.hmm a_thaliana_all_mQTL_loci.fasta 
+# Current dir:     /home/witje010/mQTLs_other_overlap/a_thaliana
+# Date:            Fri Feb 15 12:47:03 2019
+# [ok]
