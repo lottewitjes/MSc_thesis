@@ -5627,5 +5627,5 @@ Chal_sti_synt_C      PF02797.12 LOC_Os07g11440_LPC(1-acyl-20:4)_7_4.0 -         
 # Target file:     ../all_scaffold_biosynthesis.hmm
 # Option settings: hmmscan --tblout o_sativa_all_mQTL_loci_hits.txt -E 0.001 --cpu 8 ../all_scaffold_biosynthesis.hmm o_sativa_all_mQTL_loci.fasta 
 # Current dir:     /home/witje010/mQTLs_other_overlap/o_sativa
-# Date:            Fri Feb 15 13:06:52 2019
+# Date:            Fri Feb 15 16:34:55 2019
 # [ok]
