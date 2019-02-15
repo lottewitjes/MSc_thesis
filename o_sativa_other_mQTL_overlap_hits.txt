@@ -1,0 +1,171 @@
+#                                                                           --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name                       accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------             -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+Epimerase            PF01370.18 LOC_Os01g21320_isogemichalcone_1 -            1.7e-47  153.8   0.0   2.2e-47  153.5   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os01g21320_isogemichalcone_1 -            7.1e-05   14.3   0.1   0.00017   13.1   0.0   1.6   2   0   0   2   2   2   1 short chain dehydrogenase
+Amino_oxidase        PF01593.21 LOC_Os01g21380_isogemichalcone_1 -            3.3e-05   15.3   0.1   4.8e-05   14.7   0.1   1.2   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Bet_v_1              PF00407.16 LOC_Os01g22510_isogemichalcone_1 -            2.6e-05   16.2   0.0   6.3e-05   14.9   0.0   1.5   1   1   0   1   1   1   1 Pathogenesis-related protein Bet v I family
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g22910_isogemichalcone_1 -              4e-23   73.9   0.0   6.2e-23   73.3   0.0   1.3   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g22920_isogemichalcone_1 -            4.9e-13   42.0   0.0   6.4e-13   41.6   0.0   1.2   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Peptidase_S10        PF00450.19 LOC_Os01g22954_isogemichalcone_1 -           1.2e-137  451.6   0.1  1.4e-137  451.4   0.1   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Peptidase_S10        PF00450.19 LOC_Os01g22980_isogemichalcone_1 -           4.5e-138  453.1   3.4  5.2e-138  452.9   3.4   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Terpene_synth_C      PF03936.13 LOC_Os01g23530_isogemichalcone_1 -             1e-103  338.3   2.3  1.6e-103  337.7   2.3   1.3   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 LOC_Os01g23530_isogemichalcone_1 -            1.3e-44  144.1   0.1   2.5e-44  143.2   0.1   1.5   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+AMP-binding          PF00501.25 LOC_Os01g24030_isogemichalcone_1 -            4.3e-73  238.2   0.4   5.4e-73  237.9   0.4   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+p450                 PF00067.19 LOC_Os01g24780_isogemichalcone_1 -              2e-85  279.2   0.0   2.6e-85  278.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Transferase          PF02458.12 LOC_Os01g24790_isogemichalcone_1 -            5.8e-73  237.9   0.0   7.1e-73  237.6   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+p450                 PF00067.19 LOC_Os01g24810_isogemichalcone_1 -            8.7e-82  267.2   0.0   1.1e-81  266.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Dirigent             PF03018.11 LOC_Os01g24960_isogemichalcone_1 -            4.5e-36  116.0   0.0   5.6e-36  115.7   0.0   1.0   1   0   0   1   1   1   1 Dirigent-like protein
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g24980_isogemichalcone_1 -            5.4e-29   92.8   0.0     2e-28   90.9   0.0   1.8   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g24980_isogemichalcone_1 -            1.8e-17   56.3   0.0   3.7e-17   55.2   0.0   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g25010_lehmbachol_1 -            1.2e-29   94.8   0.0   4.4e-29   93.0   0.0   1.9   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g25010_lehmbachol_1 -            5.8e-29   93.3   0.0     1e-28   92.5   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g25010_isogemichalcone_1 -            1.2e-29   94.8   0.0   4.4e-29   93.0   0.0   1.9   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g25010_isogemichalcone_1 -            5.8e-29   93.3   0.0     1e-28   92.5   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Dirigent             PF03018.11 LOC_Os01g25030_lehmbachol_1 -            1.3e-33  108.0   0.7   1.7e-33  107.7   0.7   1.0   1   0   0   1   1   1   1 Dirigent-like protein
+Dirigent             PF03018.11 LOC_Os01g25030_isogemichalcone_1 -            1.3e-33  108.0   0.7   1.7e-33  107.7   0.7   1.0   1   0   0   1   1   1   1 Dirigent-like protein
+ERG4_ERG24           PF01222.14 LOC_Os01g25189_lehmbachol_1 -            2.5e-55  179.9  11.7     3e-55  179.6  11.7   1.0   1   0   0   1   1   1   1 Ergosterol biosynthesis ERG4/ERG24 family
+ERG4_ERG24           PF01222.14 LOC_Os01g25189_isogemichalcone_1 -            2.5e-55  179.9  11.7     3e-55  179.6  11.7   1.0   1   0   0   1   1   1   1 Ergosterol biosynthesis ERG4/ERG24 family
+Dirigent             PF03018.11 LOC_Os01g26340_lehmbachol_1 -            4.4e-35  112.8   0.1   5.9e-35  112.4   0.1   1.1   1   0   0   1   1   1   1 Dirigent-like protein
+Amino_oxidase        PF01593.21 LOC_Os01g27050_lehmbachol_1 -            3.3e-09   28.5   0.4   6.4e-08   24.2   0.4   2.2   2   0   0   2   2   2   2 Flavin containing amine oxidoreductase
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g27490_lehmbachol_1 -            4.7e-25   80.1   0.0   8.5e-25   79.3   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g27490_lehmbachol_1 -              1e-24   79.6   0.0     2e-24   78.7   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+adh_short            PF00106.22 LOC_Os01g27750_lehmbachol_1 -            3.6e-05   15.3   3.9   6.3e-05   14.5   2.2   2.0   2   0   0   2   2   2   1 short chain dehydrogenase
+p450                 PF00067.19 LOC_Os01g27890_lehmbachol_1 -            3.5e-98  321.2   0.0   4.4e-98  320.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Transferase          PF02458.12 LOC_Os01g28474_lehmbachol_1 -            2.8e-61  199.4   0.0   3.7e-61  199.0   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+p450                 PF00067.19 LOC_Os01g29150_lehmbachol_1 -            6.8e-82  267.5   0.0   8.9e-82  267.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+SQS_PSY              PF00494.16 LOC_Os01g32730_lehmbachol_1 -            0.00029   12.4   0.0   0.00056   11.4   0.0   1.4   1   1   0   1   1   1   1 Squalene/phytoene synthase
+Glyco_transf_28      PF03033.17 LOC_Os01g33230_lehmbachol_1 -            5.8e-16   50.8   0.0   2.4e-13   42.4   0.0   2.7   2   1   0   2   2   2   1 Glycosyltransferase family 28 N-terminal domain
+UbiA                 PF01040.15 LOC_Os01g34390_lehmbachol_1 -            1.3e-51  167.3  20.5     2e-51  166.7  20.5   1.2   1   0   0   1   1   1   1 UbiA prenyltransferase family
+Epimerase            PF01370.18 LOC_Os01g34480_lehmbachol_1 -            2.4e-26   84.6   0.0   2.9e-26   84.3   0.0   1.0   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os01g34480_lehmbachol_1 -            2.5e-05   15.8   0.0   9.5e-05   13.9   0.0   1.8   2   0   0   2   2   2   1 short chain dehydrogenase
+Chal_sti_synt_C      PF02797.12 LOC_Os01g34560_lehmbachol_1 -            1.3e-11   36.7   0.0   2.1e-11   36.0   0.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os01g34560_lehmbachol_1 -            3.2e-08   25.2   0.1   1.3e-07   23.2   0.1   1.9   2   0   0   2   2   2   1 Chalcone and stilbene synthases, N-terminal domain
+Methyltransf_11      PF08241.9  LOC_Os01g35170_lehmbachol_1 -            8.3e-06   18.5   0.0   1.7e-05   17.5   0.0   1.5   1   0   0   1   1   1   1 Methyltransferase domain
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g35230_lehmbachol_1 -              2e-28   90.9   0.0   9.8e-28   88.7   0.0   2.0   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g35230_lehmbachol_1 -            8.7e-11   34.7   0.0   1.4e-10   34.0   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 LOC_Os01g36294_lehmbachol_1 -              5e-77  251.5   0.0     6e-77  251.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 LOC_Os01g36350_lehmbachol_1 -            8.2e-18   56.3   0.0   1.1e-17   55.9   0.0   1.1   1   0   0   1   1   1   1 Cytochrome P450
+Glycos_transf_1      PF00534.17 LOC_Os01g52250_isogemichalcone_2 -            8.7e-10   30.4   0.0   2.7e-09   28.8   0.0   1.8   1   0   0   1   1   1   1 Glycosyl transferases group 1
+p450                 PF00067.19 LOC_Os01g52790_isogemichalcone_2 -            3.7e-86  281.6   0.0   4.9e-86  281.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 LOC_Os01g52800_isogemichalcone_2 -            1.5e-17   55.4   0.1   1.9e-17   55.1   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Aminotran_1_2        PF00155.18 LOC_Os01g52900_isogemichalcone_2 -            1.4e-05   16.3   0.0   2.5e-05   15.5   0.0   1.3   1   0   0   1   1   1   1 Aminotransferase class I and II
+Lycopene_cycl        PF05834.9  LOC_Os01g53200_isogemichalcone_2 -            0.00059   10.9   0.5    0.0032    8.5   0.1   2.1   2   0   0   2   2   2   1 Lycopene cyclase protein
+NAD_binding_1        PF00175.18 LOC_Os01g53250_isogemichalcone_2 -            1.5e-13   43.5   0.0   3.8e-13   42.1   0.0   1.8   1   0   0   1   1   1   1 Oxidoreductase NAD-binding domain
+UDPGT_2              -          LOC_Os01g53330_isogemichalcone_2 -              4e-91  298.2   0.0   5.4e-91  297.8   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53330_isogemichalcone_2 -            4.1e-25   80.4   0.0   6.1e-25   79.8   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os01g53350_isogemichalcone_2 -            1.5e-66  217.3   0.0   2.1e-66  216.7   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53350_isogemichalcone_2 -            1.7e-28   91.6   0.1   3.6e-28   90.5   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 LOC_Os01g53350_isogemichalcone_2 -            3.3e-05   16.0   0.1   6.6e-05   15.0   0.1   1.5   1   0   0   1   1   1   1 Glycosyltransferase family 28 N-terminal domain
+UDPGT_2              -          LOC_Os01g53370_isogemichalcone_2 -            4.6e-76  248.6   0.0   7.1e-76  247.9   0.0   1.2   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53370_isogemichalcone_2 -            1.5e-24   78.6   0.0   2.2e-24   78.0   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os01g53380_isogemichalcone_2 -            6.7e-38  122.8   0.5   7.2e-38  122.7   0.5   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53380_isogemichalcone_2 -            2.6e-20   64.6   0.0   2.9e-20   64.4   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os01g53390_isogemichalcone_2 -            1.8e-71  233.4   0.0   2.2e-71  233.1   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53390_isogemichalcone_2 -            2.9e-20   64.4   0.0   4.6e-20   63.8   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os01g53420_isogemichalcone_2 -            9.2e-83  270.6   0.0   1.2e-82  270.2   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53420_isogemichalcone_2 -            5.4e-30   96.5   0.0   4.8e-28   90.1   0.0   2.2   2   0   0   2   2   2   2 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os01g53430_isogemichalcone_2 -            1.7e-87  286.3   0.0   5.3e-87  284.6   0.0   1.6   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53430_isogemichalcone_2 -            1.8e-26   84.9   0.0     8e-26   82.8   0.0   1.8   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Aminotran_1_2        PF00155.18 LOC_Os01g53450_isogemichalcone_2 -              4e-44  143.2   0.0   5.2e-44  142.8   0.0   1.1   1   0   0   1   1   1   1 Aminotransferase class I and II
+UDPGT_2              -          LOC_Os01g53460_isogemichalcone_2 -            1.1e-80  263.8   0.0   1.8e-80  263.1   0.0   1.2   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os01g53460_isogemichalcone_2 -            6.5e-28   89.7   0.0   1.3e-27   88.7   0.0   1.4   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Prenyltrans          PF00432.18 LOC_Os01g53600_isogemichalcone_2 -            7.5e-37  116.9  11.6   4.4e-10   31.2   0.1   5.7   6   0   0   6   6   6   5 Prenyltransferase and squalene oxidase repeat
+DIOX_N               PF14226.3  LOC_Os01g54090_isogemichalcone_2 -            1.7e-09   30.5   0.0     3e-09   29.7   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g54090_isogemichalcone_2 -            3.4e-05   16.4   0.0   7.6e-05   15.3   0.0   1.5   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+Cellulose_synt       PF03552.11 LOC_Os01g54620_isogemichalcone_2 -                  0 1351.8   0.0         0 1351.2   0.0   1.2   1   0   0   1   1   1   1 Cellulose synthase
+Glycos_transf_2      PF00535.23 LOC_Os01g54620_isogemichalcone_2 -            2.7e-06   19.3   0.1     3e-05   15.9   0.0   2.3   2   0   0   2   2   2   1 Glycosyl transferase family 2
+Methyltransf_2       PF00891.15 LOC_Os01g54969_isogemichalcone_2 -            9.2e-51  164.2   0.0   1.4e-50  163.6   0.0   1.2   1   0   0   1   1   1   1 O-methyltransferase
+2OG-FeII_Oxy         PF03171.17 LOC_Os01g55240_isogemichalcone_2 -            1.9e-25   81.4   0.0   3.6e-25   80.5   0.0   1.5   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os01g55240_isogemichalcone_2 -            5.9e-14   44.9   0.0   9.6e-14   44.2   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Aminotran_1_2        PF00155.18 LOC_Os01g55540_isogemichalcone_2 -            1.7e-97  318.8   0.0     2e-97  318.5   0.0   1.1   1   0   0   1   1   1   1 Aminotransferase class I and II
+AMP-binding          PF00501.25 LOC_Os01g55590_isogemichalcone_2 -            1.6e-86  282.5   0.0     2e-86  282.1   0.0   1.1   1   0   0   1   1   1   1 AMP-binding enzyme
+p450                 PF00067.19 LOC_Os06g01250_isogemichalcone_3 -            7.8e-97  316.8   0.0   9.2e-97  316.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Transferase          PF02458.12 LOC_Os06g01350_isogemichalcone_3 -            7.2e-81  263.9   0.0   8.4e-81  263.7   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+Methyltransf_11      PF08241.9  LOC_Os06g01450_isogemichalcone_3 -            7.4e-11   34.6   0.0     6e-08   25.3   0.0   2.4   2   0   0   2   2   2   2 Methyltransferase domain
+SQS_PSY              PF00494.16 LOC_Os06g01470_isogemichalcone_3 -            1.1e-53  174.3   0.2   1.4e-53  174.0   0.2   1.0   1   0   0   1   1   1   1 Squalene/phytoene synthase
+NAD_binding_1        PF00175.18 LOC_Os06g01850_isogemichalcone_3 -            5.6e-32  102.7   0.0   1.1e-31  101.7   0.0   1.5   1   0   0   1   1   1   1 Oxidoreductase NAD-binding domain
+p450                 PF00067.19 LOC_Os06g02019_isogemichalcone_3 -            5.6e-62  201.9   0.0   7.9e-62  201.4   0.0   1.1   1   0   0   1   1   1   1 Cytochrome P450
+AMP-binding          PF00501.25 LOC_Os06g02160_isogemichalcone_3 -            1.3e-61  200.4   0.0   3.6e-61  198.9   0.0   1.6   2   0   0   2   2   2   1 AMP-binding enzyme
+Cellulose_synt       PF03552.11 LOC_Os06g02180_isogemichalcone_3 -                  0 1284.4   0.0         0 1284.0   0.0   1.1   1   0   0   1   1   1   1 Cellulose synthase
+Methyltransf_11      PF08241.9  LOC_Os06g03750_isogemichalcone_3 -            1.4e-12   40.2   0.0   1.2e-07   24.3   0.0   2.4   2   0   0   2   2   2   2 Methyltransferase domain
+adh_short            PF00106.22 LOC_Os06g03830_isogemichalcone_3 -            4.3e-34  109.6   0.1   2.1e-27   87.8   0.1   2.2   2   0   0   2   2   2   2 short chain dehydrogenase
+adh_short_C2         PF13561.3  LOC_Os06g03830_isogemichalcone_3 -            4.5e-23   74.0   1.0   7.3e-17   53.7   0.1   2.1   1   1   1   2   2   2   2 Enoyl-(Acyl carrier protein) reductase
+Epimerase            PF01370.18 LOC_Os06g03830_isogemichalcone_3 -            3.2e-08   25.3   0.0   4.8e-07   21.4   0.0   2.0   1   1   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+p450                 PF00067.19 LOC_Os06g03930_isogemichalcone_3 -            3.9e-62  202.4   0.3   4.9e-62  202.1   0.3   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Aminotran_1_2        PF00155.18 LOC_Os06g03990_isogemichalcone_3 -            2.2e-88  288.8   0.0   2.6e-88  288.5   0.0   1.1   1   0   0   1   1   1   1 Aminotransferase class I and II
+Aminotran_3          PF00202.18 LOC_Os06g03990_isogemichalcone_3 -            0.00085   10.1   0.0    0.0013    9.5   0.0   1.2   1   0   0   1   1   1   1 Aminotransferase class-III
+UDPGT_2              -          LOC_Os09g03140_isogemichalcone_4 -             4e-100  327.9   0.0    5e-100  327.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os09g03140_isogemichalcone_4 -            1.1e-19   62.5   0.1   2.2e-19   61.5   0.0   1.4   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 LOC_Os09g03140_isogemichalcone_4 -            3.8e-05   15.8   0.1   0.00014   14.0   0.0   1.9   2   0   0   2   2   2   1 Glycosyltransferase family 28 N-terminal domain
+Epimerase            PF01370.18 LOC_Os09g04050_isogemichalcone_4 -            1.6e-30   98.3   0.0   2.2e-30   97.9   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os09g04050_isogemichalcone_4 -            2.1e-05   16.0   0.0   5.2e-05   14.8   0.0   1.7   1   0   0   1   1   1   1 short chain dehydrogenase
+adh_short_C2         PF13561.3  LOC_Os09g04730_isogemichalcone_4 -              3e-59  192.4   2.3   3.6e-59  192.1   2.3   1.0   1   0   0   1   1   1   1 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 LOC_Os09g04730_isogemichalcone_4 -            3.4e-42  136.1   1.0   4.3e-42  135.8   1.0   1.1   1   0   0   1   1   1   1 short chain dehydrogenase
+DIOX_N               PF14226.3  LOC_Os09g07020_isogemichalcone_4 -            2.8e-32  104.0   0.0   4.7e-32  103.3   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 LOC_Os09g07020_isogemichalcone_4 -            5.1e-23   73.6   0.0     1e-22   72.6   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+2OG-FeII_Oxy         PF03171.17 LOC_Os09g07440_isogemichalcone_4 -            4.6e-06   19.1   0.1   9.9e-06   18.1   0.1   1.5   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  LOC_Os09g07450_isogemichalcone_4 -            1.4e-33  108.2   0.0   1.8e-33  107.9   0.0   1.2   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Epimerase            PF01370.18 LOC_Os09g08720_isogemichalcone_4 -            1.8e-24   78.5   0.1   2.5e-24   78.0   0.1   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os09g08720_isogemichalcone_4 -            3.6e-07   21.8   0.1   3.7e-06   18.5   0.1   2.1   1   1   0   1   1   1   1 short chain dehydrogenase
+p450                 PF00067.19 LOC_Os09g08920_isogemichalcone_4 -            4.7e-54  175.8   0.0   5.2e-54  175.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 LOC_Os09g08990_isogemichalcone_4 -            2.5e-95  311.8   0.0     3e-95  311.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Epimerase            PF01370.18 LOC_Os09g09270_isogemichalcone_4 -            1.6e-15   49.2   0.0   1.8e-15   49.0   0.0   1.0   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os09g09270_isogemichalcone_4 -            0.00028   12.4   0.0   0.00032   12.2   0.0   1.1   1   0   0   1   1   1   1 short chain dehydrogenase
+p450                 PF00067.19 LOC_Os09g10340_isogemichalcone_4 -            3.4e-93  304.8   0.0   3.9e-93  304.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+adh_short_C2         PF13561.3  LOC_Os09g10600_isogemichalcone_4 -            1.8e-55  180.0   2.7   6.2e-52  168.4   0.1   2.3   2   0   0   2   2   2   2 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 LOC_Os09g10600_isogemichalcone_4 -            6.7e-13   40.5   0.7   7.4e-11   33.8   0.0   2.2   2   0   0   2   2   2   2 short chain dehydrogenase
+UDPGT_2              -          LOC_Os09g11290_isogemichalcone_4 -            7.4e-20   63.3   0.0   1.1e-19   62.8   0.0   1.3   1   1   1   2   2   2   1 -
+UDPGT                PF00201.15 LOC_Os09g11290_isogemichalcone_4 -            2.4e-05   15.2   0.0   2.9e-05   14.9   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Epimerase            PF01370.18 LOC_Os09g32020_isogemichalcone_5 -            2.3e-12   38.9   0.0   3.9e-12   38.1   0.0   1.3   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Amino_oxidase        PF01593.21 LOC_Os09g32290_isogemichalcone_5 -            1.3e-06   19.8   0.0   2.1e-06   19.2   0.0   1.2   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Epimerase            PF01370.18 LOC_Os09g32570_isogemichalcone_5 -            7.5e-05   14.2   0.2   0.00011   13.7   0.2   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 LOC_Os09g32670_isogemichalcone_5 -            3.3e-46  149.7   0.0   4.5e-46  149.2   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os09g32670_isogemichalcone_5 -            0.00017   13.1   0.1   0.00076   11.0   0.1   2.1   2   1   0   2   2   2   1 short chain dehydrogenase
+AMP-binding          PF00501.25 LOC_Os09g33740_isogemichalcone_5 -              3e-10   31.2   0.0   5.1e-10   30.4   0.0   1.3   1   0   0   1   1   1   1 AMP-binding enzyme
+Epimerase            PF01370.18 LOC_Os09g34090_isogemichalcone_5 -            7.1e-23   73.3   0.0   1.1e-22   72.7   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+PRISE                -          LOC_Os09g34090_isogemichalcone_5 -            3.4e-07   21.5   0.0    0.0012    9.8   0.0   2.5   2   1   1   3   3   3   2 -
+HMGL-like            PF00682.16 LOC_Os09g34100_isogemichalcone_5 -            0.00053   11.6   0.1   0.00089   10.8   0.1   1.3   1   0   0   1   1   1   1 HMGL-like
+UDPGT_2              -          LOC_Os09g34214_isogemichalcone_5 -            3.8e-77  252.1   0.0   1.7e-76  250.0   0.0   1.8   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os09g34214_isogemichalcone_5 -              4e-30   97.0   0.2   5.5e-30   96.5   0.2   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os09g34230_isogemichalcone_5 -              5e-79  258.3   0.0   6.9e-79  257.9   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os09g34230_isogemichalcone_5 -            7.8e-30   96.0   0.0   1.1e-29   95.5   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os09g34250_isogemichalcone_5 -            1.5e-81  266.7   0.0   1.8e-81  266.4   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os09g34250_isogemichalcone_5 -            1.3e-32  105.2   0.0   6.4e-32  102.9   0.0   1.8   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          LOC_Os09g34270_isogemichalcone_5 -            7.9e-68  221.4   0.0   6.1e-67  218.5   0.0   2.0   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 LOC_Os09g34270_isogemichalcone_5 -            1.5e-27   88.4   0.1   2.2e-27   87.9   0.1   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Chal_sti_synt_N      PF00195.16 LOC_Os09g34930_isogemichalcone_5 -            3.3e-06   18.6   0.6     6e-06   17.8   0.6   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+COesterase           PF00135.25 LOC_Os10g28020_lehmbachol_2 -            1.8e-08   25.6   0.4   2.8e-08   25.0   0.4   1.2   1   0   0   1   1   1   1 Carboxylesterase family
+COesterase           PF00135.25 LOC_Os10g28030_lehmbachol_2 -            6.7e-06   17.1   0.0     1e-05   16.6   0.0   1.2   1   0   0   1   1   1   1 Carboxylesterase family
+Acetyltransf_1       PF00583.22 LOC_Os10g28040_lehmbachol_2 -            4.5e-12   38.2   0.1   9.8e-12   37.1   0.1   1.6   1   0   0   1   1   1   1 Acetyltransferase (GNAT) family
+Chal_sti_synt_C      PF02797.12 LOC_Os10g28060_lehmbachol_2 -            1.7e-10   33.1   0.0   3.1e-10   32.3   0.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os10g28060_lehmbachol_2 -            1.6e-07   22.9   0.1   2.9e-07   22.1   0.1   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Epimerase            PF01370.18 LOC_Os10g28200_lehmbachol_2 -              1e-49  161.1   0.0   1.3e-49  160.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 LOC_Os10g28200_lehmbachol_2 -            0.00037   12.0   0.0   0.00057   11.4   0.0   1.2   1   0   0   1   1   1   1 short chain dehydrogenase
+Aminotran_1_2        PF00155.18 LOC_Os11g31640_isogemichalcone_6 -            1.4e-56  184.2   0.0   1.6e-56  184.0   0.0   1.0   1   0   0   1   1   1   1 Aminotransferase class I and II
+Peptidase_S10        PF00450.19 LOC_Os11g31980_isogemichalcone_6 -           1.1e-123  405.7   0.0  1.2e-123  405.5   0.0   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+adh_short_C2         PF13561.3  LOC_Os11g32030_isogemichalcone_6 -            3.8e-58  188.8  11.9     5e-58  188.4  11.9   1.1   1   0   0   1   1   1   1 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 LOC_Os11g32030_isogemichalcone_6 -            1.4e-49  160.2   4.0   2.1e-49  159.6   4.0   1.3   1   0   0   1   1   1   1 short chain dehydrogenase
+Epimerase            PF01370.18 LOC_Os11g32030_isogemichalcone_6 -            4.2e-08   24.9   2.8   2.2e-06   19.3   0.6   2.1   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+Prenyltrans          PF00432.18 LOC_Os11g32090_isogemichalcone_6 -            5.6e-06   18.1   3.2   2.1e-05   16.3   0.5   2.9   2   1   0   2   2   2   1 Prenyltransferase and squalene oxidase repeat
+p450                 PF00067.19 LOC_Os11g32240_isogemichalcone_6 -            1.5e-66  217.0   0.0   1.7e-66  216.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Acetyltransf_1       PF00583.22 LOC_Os11g32280_isogemichalcone_6 -            2.8e-11   35.6   0.1     4e-11   35.1   0.1   1.3   1   0   0   1   1   1   1 Acetyltransferase (GNAT) family
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32540_isogemichalcone_6 -            5.2e-42  135.7   1.0   7.8e-42  135.2   1.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32540_isogemichalcone_6 -            1.2e-37  121.2   0.0   1.7e-37  120.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32550_isogemichalcone_6 -            3.2e-13   41.6   0.0   3.2e-13   41.6   0.0   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32580_isogemichalcone_6 -              2e-86  281.0   0.8   2.9e-86  280.5   0.8   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32580_isogemichalcone_6 -              1e-44  144.2   0.0   1.5e-44  143.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32610_isogemichalcone_6 -            1.9e-85  277.8   0.7   3.3e-85  277.0   0.4   1.5   2   0   0   2   2   2   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32610_isogemichalcone_6 -            4.2e-44  142.2   0.0     6e-44  141.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32620_isogemichalcone_6 -            1.7e-86  281.2   0.0   3.4e-86  280.3   0.0   1.4   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32620_isogemichalcone_6 -            4.5e-48  155.1   0.0     7e-48  154.5   0.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      o_sativa_other_mQTL_overlap_loci.fasta
+# Target file:     ../all_plant.hmm
+# Option settings: hmmscan --tblout o_sativa_other_mQTL_overlap_hits.txt -E 0.001 --cpu 8 ../all_plant.hmm o_sativa_other_mQTL_overlap_loci.fasta 
+# Current dir:     /home/witje010/mQTLs_other_overlap/o_sativa
+# Date:            Fri Feb 15 12:55:51 2019
+# [ok]
