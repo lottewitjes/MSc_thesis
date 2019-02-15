@@ -1,13 +1,491 @@
-#                                                                                                                                     --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
-# target name        accession  query name                                                                                 accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
-#------------------- ----------                                                                       -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+#                                                                                                                       --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name                                                                   accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------                                                         -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+Terpene_synth_C      PF03936.13 AT3G29410_"1,5-Naphthyridin-4-amine-C8H7N3"_3_4.96297267 -            7.9e-90  292.8   0.5   1.1e-89  292.4   0.5   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT3G29410_"1,5-Naphthyridin-4-amine-C8H7N3"_3_4.96297267 -              9e-52  167.5   0.1   1.5e-51  166.8   0.1   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Peptidase_S10        PF00450.19 AT3G10450_1_399_3_10.96232017 -           3.1e-128  420.6   0.6  3.8e-128  420.4   0.6   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Transferase          PF02458.12 AT3G29590_5-Ethyl-2(5H)-furanone-C6H8O2_3_4.330603708 -            3.6e-52  169.4   0.0   5.7e-52  168.7   0.0   1.2   1   0   0   1   1   1   1 Transferase family
+UDPGT_2              -          AT5G17030_1_377_5_5.033823384 -            1.7e-81  266.5   0.0     2e-81  266.3   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G17030_1_377_5_5.033823384 -            1.9e-37  121.1   0.0   2.4e-37  120.8   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G73880_2_134_1_4.14748646 -            5.7e-64  208.7   0.2   4.8e-63  205.7   0.2   1.9   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G73880_2_134_1_4.14748646 -              8e-23   72.9   0.0   1.2e-22   72.3   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT3G48310_"Acetic-acid,-butyl-ester-C6H12O2"_3_4.704629532 -            6.2e-98  320.4   0.0   7.5e-98  320.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Chalcone             PF02431.12 AT3G55120_Cyclopropene-C3H4_3_4.316083262 -           1.9e-108  352.4   0.3  2.2e-108  352.2   0.3   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT3G55120_Cyclopropene-C3H4_3_4.316083262 -            1.1e-07   23.8   0.0   3.5e-07   22.2   0.0   1.7   2   0   0   2   2   2   1 Chalcone isomerase like
+Terpene_synth_C      PF03936.13 AT1G79460_1_435_1_5.125274199 -            2.5e-76  248.5   0.0   7.8e-76  246.9   0.0   1.8   2   0   0   2   2   2   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G79460_1_435_1_5.125274199 -            1.2e-41  134.5   0.2   7.7e-41  131.9   0.0   2.2   2   0   0   2   2   2   1 Terpene synthase, N-terminal domain
+SQHop_cyclase_C      PF13243.3  AT1G79460_1_435_1_5.125274199 -            4.3e-06   18.0   0.0   1.8e-05   15.9   0.0   1.8   2   0   0   2   2   2   1 Squalene-hopene cyclase C-terminal domain
+Prenyltrans          PF00432.18 AT1G79460_1_435_1_5.125274199 -            5.4e-05   15.0   0.1   0.00015   13.6   0.1   1.7   1   0   0   1   1   1   1 Prenyltransferase and squalene oxidase repeat
+SQHop_cyclase_N      PF13249.3  AT1G79460_1_435_1_5.125274199 -            0.00025   12.2   0.0   0.00055   11.1   0.0   1.5   1   0   0   1   1   1   1 Squalene-hopene cyclase N-terminal domain
+AMP-binding          PF00501.25 AT1G20500_1_89_1_4.213605527 -            9.1e-99  322.8   0.0   1.1e-98  322.5   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+UDPGT_2              -          AT1G07260_"Silane,-dimethyl(3-methylbut-2-enyloxy)hexyloxy-C13H28O2Si"_1_4.72333566 -            1.8e-65  213.7   0.0   2.4e-65  213.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07260_"Silane,-dimethyl(3-methylbut-2-enyloxy)hexyloxy-C13H28O2Si"_1_4.72333566 -            1.3e-24   78.8   0.0   1.9e-24   78.3   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G07260_"3-Dodecanol,-TMS-derivative-C15H34OSi"_1_4.786756408 -            1.8e-65  213.7   0.0   2.4e-65  213.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07260_"3-Dodecanol,-TMS-derivative-C15H34OSi"_1_4.786756408 -            1.3e-24   78.8   0.0   1.9e-24   78.3   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G05870_1_254_5_4.335726015 -           2.1e-172  566.1   0.0  2.5e-172  565.8   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05870_1_254_5_4.335726015 -            4.1e-27   87.0   0.0   7.1e-27   86.2   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+adh_short_C2         PF13561.3  AT2G29310_2_3_2_7.679001754 -            3.2e-55  179.2   0.0     4e-55  178.9   0.0   1.0   1   0   0   1   1   1   1 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 AT2G29310_2_3_2_7.679001754 -            1.7e-39  127.3   0.0   2.1e-39  127.0   0.0   1.0   1   0   0   1   1   1   1 short chain dehydrogenase
+adh_short_C2         PF13561.3  AT2G29310_"Benzenemethanol,-phenyl-C13H12O"_2_5.352099413 -            3.2e-55  179.2   0.0     4e-55  178.9   0.0   1.0   1   0   0   1   1   1   1 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 AT2G29310_"Benzenemethanol,-phenyl-C13H12O"_2_5.352099413 -            1.7e-39  127.3   0.0   2.1e-39  127.0   0.0   1.0   1   0   0   1   1   1   1 short chain dehydrogenase
+adh_short_C2         PF13561.3  AT2G29310_2_2_2_8.033820098 -            3.2e-55  179.2   0.0     4e-55  178.9   0.0   1.0   1   0   0   1   1   1   1 Enoyl-(Acyl carrier protein) reductase
+adh_short            PF00106.22 AT2G29310_2_2_2_8.033820098 -            1.7e-39  127.3   0.0   2.1e-39  127.0   0.0   1.0   1   0   0   1   1   1   1 short chain dehydrogenase
+Amino_oxidase        PF01593.21 AT1G62560_"Propane,-1-isothiocyanato-3-(methylthio)-C5H9NS2"_1_5.281508608 -            6.9e-09   27.4   0.0   1.6e-07   22.9   0.0   2.6   3   0   0   3   3   3   2 Flavin containing amine oxidoreductase
+Amino_oxidase        PF01593.21 AT1G62560_"Methane,-(methylsulfinyl)(methylthio)-C3H8OS2"_1_4.737607532 -            6.9e-09   27.4   0.0   1.6e-07   22.9   0.0   2.6   3   0   0   3   3   3   2 Flavin containing amine oxidoreductase
+Amino_oxidase        PF01593.21 AT1G62560_"Butanenitrile,-4-(methylthio)-C5H9NS"_1_6.554021904 -            6.9e-09   27.4   0.0   1.6e-07   22.9   0.0   2.6   3   0   0   3   3   3   2 Flavin containing amine oxidoreductase
+UDPGT_2              -          AT2G43820_1_480_2_4.443742982 -            2.1e-87  286.0   0.0   2.7e-87  285.6   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G43820_1_480_2_4.443742982 -            1.2e-25   82.2   0.0   4.8e-25   80.2   0.1   1.7   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT5G06900_"1,2-Dimethyl-5-nitroadamantane-C12H19NO2"_5_4.600189091 -           6.7e-101  330.2   0.0  7.7e-101  330.0   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT5G06905_2_73_5_4.466717148 -            2.4e-95  311.9   0.0     3e-95  311.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT5G06905_"1,2-Dimethyl-5-nitroadamantane-C12H19NO2"_5_4.600189091 -            2.4e-95  311.9   0.0     3e-95  311.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Terpene_synth_C      PF03936.13 AT4G20210_Cyclotetradecane-C14H28_4_4.19625677 -            7.5e-86  279.7   0.9   1.5e-85  278.8   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G20210_Cyclotetradecane-C14H28_4_4.19625677 -            7.9e-50  161.2   1.2   1.3e-49  160.5   0.1   1.9   2   1   0   2   2   2   1 Terpene synthase, N-terminal domain
+UDPGT_2              -          AT1G24100_1_9_1_4.027134466 -            5.1e-81  264.9   0.0   6.8e-81  264.5   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G24100_1_9_1_4.027134466 -            2.3e-28   91.1   0.0   4.6e-28   90.2   0.0   1.4   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 AT1G24100_1_9_1_4.027134466 -            0.00016   13.8   0.0   0.00062   11.8   0.0   1.9   2   0   0   2   2   2   1 Glycosyltransferase family 28 N-terminal domain
+p450                 PF00067.19 AT3G26310_"Urea,-(2-hydroxyethyl)-C3H8N2O2"_3_4.354106158 -           3.4e-103  337.8   0.0  3.9e-103  337.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G26310_3_12_3_4.894226593 -           3.4e-103  337.8   0.0  3.9e-103  337.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+SQS_PSY              PF00494.16 AT4G34650_"Cyclohexane,-1,1,3,5-tetramethyl-,-cis-C10H20"_4_4.609053771 -              3e-42  136.9   0.0   7.3e-42  135.6   0.0   1.5   2   0   0   2   2   2   1 Squalene/phytoene synthase
+UbiA                 PF01040.15 AT4G23660_"Propanoic-acid,-2-methyl-,-3-hydroxy-2,2,4-trimethylpentyl-ester-C12H24O3"_4_4.329891695 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Pentanoic-acid,-2,2,4-trimethyl-3-hydroxy-,-isobutyl-ester-C12H24O3"_4_4.223933655 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_trans-(2-Chlorovinyl)dimethylethoxysilane-C6H13ClOSi_4_5.806535616 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Thiophene,-2-(1,1-dimethylethyl)-C8H12S"_4_7.113335479 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Formic-acid,-TBDMS-derivative-C7H16O2Si"_4_6.055379955 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Pyrrole-2,5-dicarboxylic-acid,-4-(2-diethylamino)ethyl-3-methyl-,-2-ethyl-ester-C15H24N2O4"_4_5.77666062 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_2_114_4_4.742980084 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"2-Propanol,-1-(2-butoxy-1-methylethoxy)-C10H22O3"_4_5.982931584 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_4-Bromoheptane-C7H15Br_4_5.254342504 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_1_436_4_4.334532803 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_2_102_4_4.006810925 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Cyclohexane,-[(1-methylpropyl)thio]-C10H20S"_4_5.059239592 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+UbiA                 PF01040.15 AT4G23660_"Ether,-tert-butyl-3,3-dimethylbutyl-C10H22O"_4_4.390532697 -            8.7e-51  164.6  12.2   1.9e-49  160.2  12.2   2.0   1   1   0   1   1   1   1 UbiA prenyltransferase family
+TPMT                 PF05724.8  AT2G43910_1_73_2_4.243642355 -            7.4e-46  148.5   0.0   8.7e-46  148.3   0.0   1.0   1   0   0   1   1   1   1 Thiopurine S-methyltransferase (TPMT)
+Methyltransf_11      PF08241.9  AT2G43910_1_73_2_4.243642355 -              3e-09   29.5   0.0   4.2e-09   29.0   0.0   1.2   1   0   0   1   1   1   1 Methyltransferase domain
+Transferase          PF02458.12 AT3G29670_1_451_3_4.25757183 -            1.3e-55  180.7   0.0   1.6e-55  180.4   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT3G29670_1_452_3_4.07091924 -            1.3e-55  180.7   0.0   1.6e-55  180.4   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT3G29670_2_115_3_4.780922359 -            1.3e-55  180.7   0.0   1.6e-55  180.4   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+p450                 PF00067.19 AT2G27010_2_129_2_4.806193872 -            4.5e-83  271.4   0.1   1.4e-80  263.2   0.1   2.0   1   1   0   1   1   1   1 Cytochrome P450
+Methyltransf_11      PF08241.9  AT5G65810_1_448_5_6.116032566 -            1.5e-05   17.7   0.0   2.2e-05   17.1   0.0   1.3   1   0   0   1   1   1   1 Methyltransferase domain
+UDPGT_2              -          AT3G21800_ferulic-acid+coniferyl-alcohol+glucose_3_4.865110813 -              2e-73  239.9   0.0   2.6e-73  239.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT3G21800_ferulic-acid+coniferyl-alcohol+glucose_3_4.865110813 -            2.4e-24   77.9   0.0   3.6e-24   77.3   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT3G21800_3_44_3_5.273379952 -              2e-73  239.9   0.0   2.6e-73  239.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT3G21800_3_44_3_5.273379952 -            2.4e-24   77.9   0.0   3.6e-24   77.3   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Epimerase            PF01370.18 AT1G61720_Methylene-chloride-CH2Cl2_1_4.149929939 -            5.5e-30   96.5   0.0     7e-30   96.2   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G61720_Methylene-chloride-CH2Cl2_1_4.149929939 -            2.6e-06   19.0   0.1   3.5e-05   15.3   0.0   2.3   2   1   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G61720_1_69_1_4.101057945 -            5.5e-30   96.5   0.0     7e-30   96.2   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G61720_1_69_1_4.101057945 -            2.6e-06   19.0   0.1   3.5e-05   15.3   0.0   2.3   2   1   0   2   2   2   1 short chain dehydrogenase
+p450                 PF00067.19 AT4G12310_1_448_4_6.856735318 -           2.1e-104  341.7   0.0  2.4e-104  341.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12310_Ara_13_4_26.27596052 -           2.1e-104  341.7   0.0  2.4e-104  341.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12310_1_347_4_8.580922314 -           2.1e-104  341.7   0.0  2.4e-104  341.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12310_1_439_4_6.191645643 -           2.1e-104  341.7   0.0  2.4e-104  341.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12310_1_355_4_10.71862456 -           2.1e-104  341.7   0.0  2.4e-104  341.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Epimerase            PF01370.18 AT3G44540_"Cyclobutanone,-2-methyl-C5H8O"_3_4.463021858 -            2.3e-06   19.2   0.0    0.0002   12.8   0.0   2.9   2   2   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+p450                 PF00067.19 AT1G64900_2_112_1_4.806188313 -            2.9e-98  321.5   0.1   3.7e-98  321.1   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT1G64900_2_119_1_4.898839826 -            2.9e-98  321.5   0.1   3.7e-98  321.1   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Dirigent             PF03018.11 AT4G11180_1_386_4_4.408045556 -            1.7e-36  117.4   0.0     2e-36  117.1   0.0   1.1   1   0   0   1   1   1   1 Dirigent-like protein
+Dirigent             PF03018.11 AT4G11180_"2,4,4-Trimethyl-3-(3-methylbutyl)cyclohex-2-enone-C14H24O"_4_4.600087569 -            1.7e-36  117.4   0.0     2e-36  117.1   0.0   1.1   1   0   0   1   1   1   1 Dirigent-like protein
+p450                 PF00067.19 AT3G20130_2_6_3_5.934700445 -            2.9e-83  272.1   0.4   7.3e-83  270.7   0.1   1.6   1   1   1   2   2   2   1 Cytochrome P450
+2OG-FeII_Oxy         PF03171.17 AT4G03050_1_159_4_5.162433277 -            3.5e-21   67.7   0.0   6.5e-21   66.8   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G03050_1_159_4_5.162433277 -            5.8e-05   15.9   0.0   0.00012   14.9   0.0   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G03050_Benzonitrile-C7H5N_4_9.103607005 -            3.5e-21   67.7   0.0   6.5e-21   66.8   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G03050_Benzonitrile-C7H5N_4_9.103607005 -            5.8e-05   15.9   0.0   0.00012   14.9   0.0   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 AT4G37330_1_140_4_4.118813703 -            3.2e-90  295.0   0.0     4e-90  294.7   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G37330_1_212_4_5.360222949 -            3.2e-90  295.0   0.0     4e-90  294.7   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G37330_2_42_4_5.134900173 -            3.2e-90  295.0   0.0     4e-90  294.7   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G37330_2_40_4_4.762777075 -            3.2e-90  295.0   0.0     4e-90  294.7   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT5G59580_1_391_5_4.745928047 -           6.3e-161  528.3   0.0  7.5e-161  528.0   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G59580_1_391_5_4.745928047 -            2.3e-33  107.6   0.0   2.9e-31  100.7   0.0   2.1   2   0   0   2   2   2   2 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G22400_1_413_1_5.432919262 -           6.1e-129  422.8   0.0  7.6e-129  422.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22400_1_413_1_5.432919262 -            1.2e-32  105.3   0.0   1.5e-32  104.9   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G22400_2_150_1_5.324675706 -           6.1e-129  422.8   0.0  7.6e-129  422.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22400_2_150_1_5.324675706 -            1.2e-32  105.3   0.0   1.5e-32  104.9   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+DIOX_N               PF14226.3  AT5G63580_1_334_5_5.564743475 -            4.8e-23   74.2   0.0   6.8e-23   73.7   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT5G63580_1_334_5_5.564743475 -            6.6e-16   50.7   0.1   1.2e-15   49.9   0.1   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G63580_1_93_5_6.508320967 -            4.8e-23   74.2   0.0   6.8e-23   73.7   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT5G63580_1_93_5_6.508320967 -            6.6e-16   50.7   0.1   1.2e-15   49.9   0.1   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+p450                 PF00067.19 AT2G02580_"Tridecane,-5-methyl-C14H30"_2_4.022050209 -           5.8e-103  337.0   0.0  6.7e-103  336.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G02580_1_469_2_4.656674334 -           5.8e-103  337.0   0.0  6.7e-103  336.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G02580_"1,4-Dichlorobenzene-KI=1014-C6H4Cl2"_2_4.294839422 -           5.8e-103  337.0   0.0  6.7e-103  336.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G02580_"L-Alanine,-N-[N-[N-(3-pyridinylmethylene)-L-valyl]-L-isoleucyl]-,-ethyl-ester-C22H34N4O4"_2_4.054429845 -           5.8e-103  337.0   0.0  6.7e-103  336.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G02580_"Cyclohexa-1,3-diene,-5,6-diethyl-C10H16"_2_5.082616551 -           5.8e-103  337.0   0.0  6.7e-103  336.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G15330_2_58_4_9.266883259 -            2.9e-89  291.8   0.0   3.5e-89  291.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT4G15480_hydroxyferulic-acid-glucoside_4_4.359952279 -            3.9e-89  291.7   0.0   4.8e-89  291.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15480_hydroxyferulic-acid-glucoside_4_4.359952279 -            1.4e-26   85.3   0.0   2.2e-26   84.6   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT3G20960_"1-Butene,-4-isothiocyanato-C5H7NS"_3_5.434906951 -            1.6e-77  253.1   0.0     2e-77  252.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G20960_2_13_3_4.134439575 -            1.6e-77  253.1   0.0     2e-77  252.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G20960_2_58_3_7.097977789 -            1.6e-77  253.1   0.0     2e-77  252.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G39480_"Cyclohexane,-octyl-C14H28"_4_4.424782472 -            6.1e-59  191.9   0.0   7.2e-59  191.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Amino_oxidase        PF01593.21 AT1G12140_"Benzene,-(1-butylheptyl)-C17H28"_1_5.230426695 -            2.5e-08   25.6   0.0   7.8e-08   23.9   0.0   1.7   1   1   1   2   2   2   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12140_"Benzene,-(1-butylheptyl)-C17H28"_1_5.230426695 -            0.00019   12.5   0.0   0.00081   10.4   0.0   1.9   2   0   0   2   2   2   1 Lycopene cyclase protein
+UDPGT_2              -          AT2G36750_Pentanal-C5H10O_2_5.552157099 -            1.2e-84  276.9   0.0   1.4e-84  276.6   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G36750_Pentanal-C5H10O_2_5.552157099 -            6.3e-24   76.5   0.0   1.4e-23   75.4   0.0   1.6   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT2G36750_"2-Octen-1-ol,-(Z)-C8H16O"_2_5.186435023 -            1.2e-84  276.9   0.0   1.4e-84  276.6   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G36750_"2-Octen-1-ol,-(Z)-C8H16O"_2_5.186435023 -            6.3e-24   76.5   0.0   1.4e-23   75.4   0.0   1.6   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT2G36750_"1,5-Octadien-3-ol,-(Z)-KI=975-C8H14O"_2_6.476594862 -            1.2e-84  276.9   0.0   1.4e-84  276.6   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G36750_"1,5-Octadien-3-ol,-(Z)-KI=975-C8H14O"_2_6.476594862 -            6.3e-24   76.5   0.0   1.4e-23   75.4   0.0   1.6   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Epimerase            PF01370.18 AT1G80820_flavonoid_1_4.62321051 -            1.1e-27   89.1   0.0   1.4e-27   88.7   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G80820_flavonoid_1_4.62321051 -            3.3e-06   18.7   0.0     4e-05   15.1   0.0   2.1   2   0   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G80820_2_97_1_4.85610407 -            1.1e-27   89.1   0.0   1.4e-27   88.7   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G80820_2_97_1_4.85610407 -            3.3e-06   18.7   0.0     4e-05   15.1   0.0   2.1   2   0   0   2   2   2   1 short chain dehydrogenase
+UDPGT_2              -          AT2G15480_1_428_2_4.034772609 -              2e-82  269.5   0.0   7.1e-82  267.7   0.0   1.7   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G15480_1_428_2_4.034772609 -            3.5e-24   77.3   0.0   4.9e-24   76.9   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT2G45560_1_143_2_4.506838597 -            1.5e-37  121.3   0.0   1.8e-37  121.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Chalcone             PF02431.12 AT5G66220_1_448_5_4.11448262 -            1.2e-79  258.4   0.7   1.3e-79  258.2   0.7   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT5G66220_1_448_5_4.11448262 -            1.2e-07   23.7   0.0   1.5e-07   23.4   0.0   1.2   1   1   0   1   1   1   1 Chalcone isomerase like
+Chalcone             PF02431.12 AT5G66220_1_129_5_5.134670227 -            1.2e-79  258.4   0.7   1.3e-79  258.2   0.7   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT5G66220_1_129_5_5.134670227 -            1.2e-07   23.7   0.0   1.5e-07   23.4   0.0   1.2   1   1   0   1   1   1   1 Chalcone isomerase like
+Chalcone             PF02431.12 AT5G66220_1_201_5_6.008818508 -            1.2e-79  258.4   0.7   1.3e-79  258.2   0.7   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT5G66220_1_201_5_6.008818508 -            1.2e-07   23.7   0.0   1.5e-07   23.4   0.0   1.2   1   1   0   1   1   1   1 Chalcone isomerase like
+Chalcone             PF02431.12 AT5G66220_"2,4-Difluorobenzoic-acid,-2-formyl-4,6-dichlorophenyl-ester-C14H6Cl2F2O3"_5_4.534648798 -            1.2e-79  258.4   0.7   1.3e-79  258.2   0.7   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT5G66220_"2,4-Difluorobenzoic-acid,-2-formyl-4,6-dichlorophenyl-ester-C14H6Cl2F2O3"_5_4.534648798 -            1.2e-07   23.7   0.0   1.5e-07   23.4   0.0   1.2   1   1   0   1   1   1   1 Chalcone isomerase like
+Chalcone             PF02431.12 AT5G66220_"Cyclohexane,-octyl-C14H28"_5_4.05928275 -            1.2e-79  258.4   0.7   1.3e-79  258.2   0.7   1.0   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone_2           PF16035.2  AT5G66220_"Cyclohexane,-octyl-C14H28"_5_4.05928275 -            1.2e-07   23.7   0.0   1.5e-07   23.4   0.0   1.2   1   1   0   1   1   1   1 Chalcone isomerase like
+Epimerase            PF01370.18 AT1G66800_"alpha-Hexylcinnamaldehyde,-(Z)-KI=1774-C15H20O"_1_4.081030076 -            2.3e-25   81.4   0.0   3.5e-25   80.8   0.0   1.3   1   1   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G66800_"alpha-Hexylcinnamaldehyde,-(Z)-KI=1774-C15H20O"_1_4.081030076 -            5.9e-07   21.1   0.2   4.8e-06   18.1   0.2   2.4   1   1   0   1   1   1   1 short chain dehydrogenase
+Lyase_aromatic       PF00221.16 AT3G53260_"Decane,-4-methyl-C11H24"_3_4.391678539 -           4.2e-152  499.0   2.1  5.3e-152  498.6   2.1   1.1   1   0   0   1   1   1   1 Aromatic amino acid lyase
+HMGL-like            PF00682.16 AT5G23010_Octanenitrile-C8H15N_5_31.64560954 -            7.2e-92  299.6   0.2     9e-92  299.3   0.2   1.1   1   0   0   1   1   1   1 HMGL-like
+HMGL-like            PF00682.16 AT5G23010_1_21_5_5.730523665 -            7.2e-92  299.6   0.2     9e-92  299.3   0.2   1.1   1   0   0   1   1   1   1 HMGL-like
+Terpene_synth_C      PF03936.13 AT1G61120_"Cyclohexene,-1,6-dimethyl-C8H14"_1_4.512333719 -            2.3e-67  219.1   0.2   3.8e-67  218.4   0.2   1.4   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G61120_"Cyclohexene,-1,6-dimethyl-C8H14"_1_4.512333719 -            4.4e-35  113.1   0.3   4.4e-35  113.1   0.3   2.2   3   0   0   3   3   3   1 Terpene synthase, N-terminal domain
+adh_short            PF00106.22 AT4G34230_1_93_4_4.30925245 -            9.3e-06   17.2   0.1    0.0035    8.8   0.0   2.5   2   0   0   2   2   2   2 short chain dehydrogenase
+Peptidase_S10        PF00450.19 AT2G22990_Dibutyl-adipate-C14H26O4_2_4.265345439 -            7.2e-96  314.0   0.3   8.1e-96  313.9   0.3   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+DAHP_synth_1         PF00793.17 AT1G16340_Indole-C8H7N_1_8.003472042 -            3.4e-62  201.7   0.0   4.2e-62  201.4   0.0   1.0   1   0   0   1   1   1   1 DAHP synthetase I family
+UDPGT_2              -          AT2G43840_1_144_2_4.340181503 -            9.9e-84  273.8   0.0   1.3e-83  273.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G43840_1_144_2_4.340181503 -              2e-26   84.8   0.0   3.1e-26   84.1   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Peptidase_S10        PF00450.19 AT5G22980_2_87_5_9.188114263 -           6.9e-132  432.7   2.8  8.9e-132  432.3   2.8   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Peptidase_S10        PF00450.19 AT5G22980_1_212_5_23.82437629 -           6.9e-132  432.7   2.8  8.9e-132  432.3   2.8   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Peptidase_S10        PF00450.19 AT5G22980_"Calycanthidine,-1-demethyl-C22H26N4"_5_11.04422866 -           6.9e-132  432.7   2.8  8.9e-132  432.3   2.8   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Peptidase_S10        PF00450.19 AT5G22980_1_340_5_11.40803133 -           6.9e-132  432.7   2.8  8.9e-132  432.3   2.8   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+p450                 PF00067.19 AT3G19270_Glucosinolate-(Progoitrin?)_3_5.637196422 -            1.4e-81  266.5   0.1   1.7e-81  266.2   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Epimerase            PF01370.18 AT1G09500_1_364_1_20.47216614 -            2.7e-25   81.2   0.0   3.6e-25   80.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G09500_1_364_1_20.47216614 -              2e-05   16.1   0.1   0.00014   13.3   0.1   2.4   2   1   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G09500_1_414_1_5.052283344 -            2.7e-25   81.2   0.0   3.6e-25   80.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G09500_1_414_1_5.052283344 -              2e-05   16.1   0.1   0.00014   13.3   0.1   2.4   2   1   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G09500_2_94_1_25.59281907 -            2.7e-25   81.2   0.0   3.6e-25   80.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G09500_2_94_1_25.59281907 -              2e-05   16.1   0.1   0.00014   13.3   0.1   2.4   2   1   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G09500_2_98_1_20.24990164 -            2.7e-25   81.2   0.0   3.6e-25   80.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G09500_2_98_1_20.24990164 -              2e-05   16.1   0.1   0.00014   13.3   0.1   2.4   2   1   0   2   2   2   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G09500_1_449_1_17.03202739 -            2.7e-25   81.2   0.0   3.6e-25   80.8   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G09500_1_449_1_17.03202739 -              2e-05   16.1   0.1   0.00014   13.3   0.1   2.4   2   1   0   2   2   2   1 short chain dehydrogenase
+DIOX_N               PF14226.3  AT4G16770_Octanenitrile-C8H15N_4_4.728544282 -            1.4e-28   92.0   0.0   2.6e-28   91.2   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G16770_Octanenitrile-C8H15N_4_4.728544282 -            8.4e-22   69.7   0.0   1.5e-21   68.8   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G16770_Glucosinolate-(Glucohesperin?)_4_5.855492109 -            1.4e-28   92.0   0.0   2.6e-28   91.2   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G16770_Glucosinolate-(Glucohesperin?)_4_5.855492109 -            8.4e-22   69.7   0.0   1.5e-21   68.8   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G16770_Benzenepropanenitrile-C9H9N_4_4.150370922 -            1.4e-28   92.0   0.0   2.6e-28   91.2   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G16770_Benzenepropanenitrile-C9H9N_4_4.150370922 -            8.4e-22   69.7   0.0   1.5e-21   68.8   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+p450                 PF00067.19 AT2G22330_Geranyl-isobutyrate-C14H24O2_2_4.444187443 -            1.1e-82  270.2   0.0   1.3e-82  269.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT2G16890_2_109_2_13.76361719 -            1.4e-70  230.5   0.0   1.7e-70  230.2   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G16890_2_109_2_13.76361719 -            1.5e-21   68.7   0.0   2.4e-21   68.0   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G07240_1_463_1_5.099605121 -            1.1e-59  194.6   0.0   1.4e-59  194.2   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07240_1_463_1_5.099605121 -            5.8e-26   83.2   0.0   1.2e-25   82.2   0.0   1.4   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT3G44250_1_363_3_4.164609163 -           4.6e-104  340.6   0.0  5.3e-104  340.4   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G44250_2_83_3_4.328080332 -           4.6e-104  340.6   0.0  5.3e-104  340.4   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT1G22380_2_160_1_5.757371125 -             2e-127  417.8   0.0  2.4e-127  417.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22380_2_160_1_5.757371125 -              1e-29   95.6   0.0   1.3e-29   95.3   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+AMP-binding          PF00501.25 AT1G20480_"2-Heptenal,-(Z)-C7H12O"_1_4.040993878 -           6.5e-100  326.5   0.0  8.2e-100  326.2   0.0   1.1   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20480_"4-(2,6,6-Trimethylcyclohexa-1,3-dienyl)but-3-en-2-one-C13H18O"_1_4.253117492 -           6.5e-100  326.5   0.0  8.2e-100  326.2   0.0   1.1   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20480_"2-Butenal,-(E)-C4H8O"_1_4.305145965 -           6.5e-100  326.5   0.0  8.2e-100  326.2   0.0   1.1   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20480_2_122_1_4.045468732 -           6.5e-100  326.5   0.0  8.2e-100  326.2   0.0   1.1   1   0   0   1   1   1   1 AMP-binding enzyme
+2OG-FeII_Oxy         PF03171.17 AT1G55290_1_64_1_4.923682576 -            1.8e-28   91.1   0.0   4.5e-28   89.8   0.0   1.7   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT1G55290_1_64_1_4.923682576 -            9.7e-26   82.9   0.1     2e-25   81.9   0.1   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 AT4G39950_"1,3,6,10-Cyclotetradecatetraene,-3,7,11-trimethyl-14-(1-methylethyl)-,-[S-(E,Z,E,E)]-C20H32"_4_4.222365216 -            1.9e-81  266.1   0.1   2.4e-81  265.7   0.1   1.1   1   0   0   1   1   1   1 Cytochrome P450
+Chal_sti_synt_N      PF00195.16 AT4G34850_5-Cyano-1-pentene-C6H9N_4_5.623378521 -           1.1e-102  334.2   0.0  1.5e-102  333.7   0.0   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 AT4G34850_5-Cyano-1-pentene-C6H9N_4_5.623378521 -            4.4e-64  207.1   0.1   2.1e-63  204.9   0.0   1.9   2   0   0   2   2   2   1 Chalcone and stilbene synthases, C-terminal domain
+p450                 PF00067.19 AT4G36220_1_385_4_5.256856718 -           5.2e-102  333.9   0.0    6e-102  333.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT1G63710_"2,4-Difluorobenzoic-acid,-2-formyl-4,6-dichlorophenyl-ester-C14H6Cl2F2O3"_1_4.156344184 -            1.2e-73  240.3   0.0   1.5e-73  240.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+HMGL-like            PF00682.16 AT5G23020_Kaempferitrin_5_4.567850552 -            7.2e-91  296.3   0.2   9.2e-91  296.0   0.2   1.1   1   0   0   1   1   1   1 HMGL-like
+UDPGT_2              -          AT4G27560_1_198_4_4.707195203 -            6.6e-48  155.8   0.0   8.4e-48  155.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G27560_1_198_4_4.707195203 -            3.2e-12   37.9   0.0   6.5e-12   36.9   0.0   1.5   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 AT4G27560_1_198_4_4.707195203 -            6.4e-06   18.3   0.0   1.2e-05   17.4   0.0   1.4   1   0   0   1   1   1   1 Glycosyltransferase family 28 N-terminal domain
+Amino_oxidase        PF01593.21 AT1G12130_"2-Propenoic-acid,-butyl-ester-C7H12O2"_1_4.72796405 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"2-Propenoic-acid,-butyl-ester-C7H12O2"_1_4.72796405 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+Amino_oxidase        PF01593.21 AT1G12130_"Benzene,-(1-butylheptyl)-C17H28"_1_5.230426695 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"Benzene,-(1-butylheptyl)-C17H28"_1_5.230426695 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+Amino_oxidase        PF01593.21 AT1G12130_"4-Imidazolidinecarboxylic-acid,-4-hydroxy-2,5-dioxo-C4H4N2O5"_1_5.574647554 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"4-Imidazolidinecarboxylic-acid,-4-hydroxy-2,5-dioxo-C4H4N2O5"_1_5.574647554 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+Amino_oxidase        PF01593.21 AT1G12130_"Propanoic-acid,-butyl-ester-C7H14O2"_1_4.384387315 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"Propanoic-acid,-butyl-ester-C7H14O2"_1_4.384387315 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+Amino_oxidase        PF01593.21 AT1G12130_"Ethane,-1,1,2-trichloro-1,2,2-trifluoro-C2Cl3F3"_1_4.322743179 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"Ethane,-1,1,2-trichloro-1,2,2-trifluoro-C2Cl3F3"_1_4.322743179 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+Amino_oxidase        PF01593.21 AT1G12130_"Acetic-acid,-butyl-ester-C6H12O2"_1_4.698110951 -            4.8e-09   27.9   0.0   9.2e-09   27.0   0.0   1.5   1   0   0   1   1   1   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT1G12130_"Acetic-acid,-butyl-ester-C6H12O2"_1_4.698110951 -            0.00028   12.0   0.1    0.0005   11.1   0.1   1.4   1   0   0   1   1   1   1 Lycopene cyclase protein
+UDPGT_2              -          AT4G14090_1_422_4_4.126044177 -            2.6e-80  262.6   0.0   3.3e-80  262.2   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G14090_1_422_4_4.126044177 -            6.9e-28   89.6   0.0   9.8e-28   89.1   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 AT4G14090_1_422_4_4.126044177 -            5.7e-05   15.2   0.0   0.00013   14.1   0.0   1.5   1   0   0   1   1   1   1 Glycosyltransferase family 28 N-terminal domain
+UDPGT_2              -          AT4G14090_flavonoid_4_4.321114128 -            2.6e-80  262.6   0.0   3.3e-80  262.2   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G14090_flavonoid_4_4.321114128 -            6.9e-28   89.6   0.0   9.8e-28   89.1   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Glyco_transf_28      PF03033.17 AT4G14090_flavonoid_4_4.321114128 -            5.7e-05   15.2   0.0   0.00013   14.1   0.0   1.5   1   0   0   1   1   1   1 Glycosyltransferase family 28 N-terminal domain
+Methyltransf_3       PF01596.14 AT1G67980_2_22_1_4.067468299 -            8.3e-69  222.9   0.1   9.5e-69  222.8   0.1   1.0   1   0   0   1   1   1   1 O-methyltransferase
+oMT                  -          AT1G67980_2_22_1_4.067468299 -            0.00048   10.2   0.0   0.00073    9.6   0.0   1.2   1   0   0   1   1   1   1 -
+Methyltransf_3       PF01596.14 AT1G67980_Anthocyanidin-Cyanidin?-like-structure_1_4.491589072 -            8.3e-69  222.9   0.1   9.5e-69  222.8   0.1   1.0   1   0   0   1   1   1   1 O-methyltransferase
+oMT                  -          AT1G67980_Anthocyanidin-Cyanidin?-like-structure_1_4.491589072 -            0.00048   10.2   0.0   0.00073    9.6   0.0   1.2   1   0   0   1   1   1   1 -
+p450                 PF00067.19 AT3G26270_1_420_3_4.642979848 -           2.2e-106  348.2   0.1  2.8e-106  347.9   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G61880_1_58_3_4.00264206 -            3.5e-87  285.0   0.0   4.4e-87  284.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Peptidase_S10        PF00450.19 AT5G36180_"1-Propanone,-1-(4-chlorophenyl)-C9H9ClO"_5_4.081990801 -             7e-131  429.4   1.0    8e-131  429.2   1.0   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+2OG-FeII_Oxy         PF03171.17 AT1G80340_2_13_1_4.2148009 -            9.2e-30   95.2   0.1   1.9e-29   94.2   0.0   1.6   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT1G80340_2_13_1_4.2148009 -            2.5e-19   62.2   0.0   4.2e-19   61.5   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 AT3G48300_4-Hydroxy-3-methylbenzaldehyde-C8H8O2_3_4.125723201 -            4.4e-99  324.2   0.0   5.4e-99  323.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12330_2_76_4_6.11385747 -             5e-101  330.6   0.0  6.3e-101  330.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12330_"Butanenitrile,-4-chloro-C4H6ClN"_4_5.095759187 -             5e-101  330.6   0.0  6.3e-101  330.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12330_1_465_4_4.122776535 -             5e-101  330.6   0.0  6.3e-101  330.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Terpene_synth_C      PF03936.13 AT4G16740_"Methanamine,-N,N-difluoro-CH3F2N"_4_4.039339516 -            7.8e-58  187.9   0.4   1.6e-57  186.8   0.4   1.5   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G16740_"Methanamine,-N,N-difluoro-CH3F2N"_4_4.039339516 -            7.3e-46  148.2   3.5   7.3e-46  148.2   3.5   1.5   2   0   0   2   2   2   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT4G16740_"1-Butene,-4-chloro-2-methyl-C5H9Cl"_4_4.269303216 -            7.8e-58  187.9   0.4   1.6e-57  186.8   0.4   1.5   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G16740_"1-Butene,-4-chloro-2-methyl-C5H9Cl"_4_4.269303216 -            7.3e-46  148.2   3.5   7.3e-46  148.2   3.5   1.5   2   0   0   2   2   2   1 Terpene synthase, N-terminal domain
+Epimerase            PF01370.18 AT4G13660_2_6_4_4.522956201 -            6.6e-11   34.1   0.1   1.1e-08   26.8   0.1   2.3   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT4G13660_2_6_4_4.522956201 -            2.2e-05   16.0   0.1   3.6e-05   15.3   0.1   1.3   1   0   0   1   1   1   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT4G13660_Cyclopropene-C3H4_4_4.379696404 -            6.6e-11   34.1   0.1   1.1e-08   26.8   0.1   2.3   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT4G13660_Cyclopropene-C3H4_4_4.379696404 -            2.2e-05   16.0   0.1   3.6e-05   15.3   0.1   1.3   1   0   0   1   1   1   1 short chain dehydrogenase
+Terpene_synth_C      PF03936.13 AT4G20200_"3,5-Dimethylphenylacetic-acid-C10H12O2"_4_4.279560357 -            1.6e-89  291.8   1.5   2.3e-89  291.3   1.5   1.3   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G20200_"3,5-Dimethylphenylacetic-acid-C10H12O2"_4_4.279560357 -            7.9e-50  161.2   0.1   1.6e-49  160.2   0.1   1.5   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT4G20200_1_141_4_4.934554739 -            1.6e-89  291.8   1.5   2.3e-89  291.3   1.5   1.3   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G20200_1_141_4_4.934554739 -            7.9e-50  161.2   0.1   1.6e-49  160.2   0.1   1.5   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+2OG-FeII_Oxy         PF03171.17 AT4G25310_1_93_4_4.239100733 -            6.1e-33  105.4   0.0   1.1e-32  104.6   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G25310_1_93_4_4.239100733 -            2.5e-26   84.8   0.1     5e-26   83.9   0.1   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G25310_1_169_4_6.285875363 -            6.1e-33  105.4   0.0   1.1e-32  104.6   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G25310_1_169_4_6.285875363 -            2.5e-26   84.8   0.1     5e-26   83.9   0.1   1.5   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 AT3G26300_"Urea,-(2-hydroxyethyl)-C3H8N2O2"_3_4.354106158 -           6.1e-105  343.5   0.0    7e-105  343.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G26300_3_12_3_4.894226593 -           6.1e-105  343.5   0.0    7e-105  343.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Transferase          PF02458.12 AT1G27620_"Cyclobutanol,-TMS-derivative-C7H16OSi"_1_4.74995077 -            8.1e-78  253.9   0.0   1.1e-77  253.5   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT1G27620_"Naphthalene,-1,2,3,4-tetrahydro-1,6-dimethyl-4-(1-methylethyl)-,-(1S-cis)-C15H22"_1_4.781543504 -            8.1e-78  253.9   0.0   1.1e-77  253.5   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT1G27620_2-Ethyl-hexoic-acid-C8H16O2_1_5.198486055 -            8.1e-78  253.9   0.0   1.1e-77  253.5   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+p450                 PF00067.19 AT4G37310_"2,6-Diisopropylnaphthalene-C16H20"_4_4.270408337 -              2e-94  308.9   0.0   2.4e-94  308.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT4G15500_Flavonoid-glycoside?_4_4.11457104 -            2.7e-88  288.9   0.0   3.7e-88  288.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15500_Flavonoid-glycoside?_4_4.11457104 -            6.6e-24   76.4   0.0   1.2e-23   75.6   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15500_1_434_4_4.240647303 -            2.7e-88  288.9   0.0   3.7e-88  288.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15500_1_434_4_4.240647303 -            6.6e-24   76.4   0.0   1.2e-23   75.6   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G05880_1_254_5_4.335726015 -           1.1e-177  583.5   0.0  1.3e-177  583.3   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05880_1_254_5_4.335726015 -            1.2e-29   95.3   0.0   5.4e-29   93.2   0.0   1.8   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G05880_3-Buten-2-one-C4H6O_5_4.227943499 -           1.1e-177  583.5   0.0  1.3e-177  583.3   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05880_3-Buten-2-one-C4H6O_5_4.227943499 -            1.2e-29   95.3   0.0   5.4e-29   93.2   0.0   1.8   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G05880_2_136_5_5.082249265 -           1.1e-177  583.5   0.0  1.3e-177  583.3   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05880_2_136_5_5.082249265 -            1.2e-29   95.3   0.0   5.4e-29   93.2   0.0   1.8   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+2OG-FeII_Oxy         PF03171.17 AT5G07480_Methoxyglucobrassicin_5_5.885243608 -            8.4e-25   79.3   0.0   2.2e-24   78.0   0.0   1.7   2   0   0   2   2   2   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G07480_Methoxyglucobrassicin_5_5.885243608 -            3.4e-12   39.2   0.1   1.7e-11   37.0   0.0   2.0   1   1   1   2   2   2   1 non-haem dioxygenase in morphine synthesis N-terminal
+UDPGT_2              -          AT3G55700_1_109_3_13.3981973 -           6.1e-185  607.4   0.0  7.1e-185  607.2   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT3G55700_1_109_3_13.3981973 -            1.2e-30   98.7   0.0   2.6e-30   97.6   0.0   1.5   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT2G23260_"2-Cyclohexen-1-one,-3-[(2,3,4,9-tetrahydro-1H-pyrido[3,4-b]indol-1-yl)methyl]-C18H20N2O"_2_4.097287937 -            8.9e-81  264.1   0.0   1.1e-80  263.8   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G23260_"2-Cyclohexen-1-one,-3-[(2,3,4,9-tetrahydro-1H-pyrido[3,4-b]indol-1-yl)methyl]-C18H20N2O"_2_4.097287937 -            1.2e-23   75.6   0.0   1.8e-23   75.0   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT3G26220_1_299_3_4.159609762 -             2e-106  348.4   0.0  2.4e-106  348.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Terpene_synth_C      PF03936.13 AT3G14540_3_28_3_4.16017296 -            1.1e-88  289.1   0.0   1.5e-88  288.6   0.0   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT3G14540_3_28_3_4.16017296 -            3.9e-48  155.6   1.3   7.4e-48  154.7   1.3   1.5   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+DIOX_N               PF14226.3  AT5G63590_2_83_5_5.983164226 -            1.7e-26   85.4   0.0   2.9e-26   84.6   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT5G63590_2_83_5_5.983164226 -            1.6e-23   75.2   0.0   2.7e-23   74.5   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G63590_1_289_5_4.967168173 -            1.7e-26   85.4   0.0   2.9e-26   84.6   0.0   1.3   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT5G63590_1_289_5_4.967168173 -            1.6e-23   75.2   0.0   2.7e-23   74.5   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+p450                 PF00067.19 AT4G13770_1_212_4_4.305809202 -           8.5e-110  359.5   0.0    1e-109  359.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G13770_"Cyclohexane,-1,1,3,5-tetramethyl-,-cis-C10H20"_4_4.121652417 -           8.5e-110  359.5   0.0    1e-109  359.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G13770_"2-Propenoic-acid,-butyl-ester-C7H12O2"_4_4.434777165 -           8.5e-110  359.5   0.0    1e-109  359.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+2OG-FeII_Oxy         PF03171.17 AT5G51310_4-Propylcyclohexylamine-C9H19N_5_5.128124153 -            4.2e-21   67.4   0.0   9.4e-21   66.3   0.0   1.5   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G51310_4-Propylcyclohexylamine-C9H19N_5_5.128124153 -              1e-18   60.3   0.0   4.3e-18   58.2   0.0   1.9   2   0   0   2   2   2   1 non-haem dioxygenase in morphine synthesis N-terminal
+DAHP_synth_1         PF00793.17 AT1G79500_1_279_1_5.06462662 -            5.5e-56  181.4   0.0   7.8e-56  180.9   0.0   1.2   1   0   0   1   1   1   1 DAHP synthetase I family
+p450                 PF00067.19 AT4G12300_1_453_4_18.5875786 -           3.8e-108  354.1   0.0  4.7e-108  353.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G12300_1_423_4_6.819753342 -           3.8e-108  354.1   0.0  4.7e-108  353.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Aminotran_1_2        PF00155.18 AT2G20610_2_69_2_4.454468123 -            7.8e-50  162.0   0.0   9.7e-50  161.6   0.0   1.0   1   0   0   1   1   1   1 Aminotransferase class I and II
+Aminotran_3          PF00202.18 AT2G20610_2_69_2_4.454468123 -            0.00035   11.3   0.0   0.00053   10.7   0.0   1.2   1   0   0   1   1   1   1 Aminotransferase class-III
+Aminotran_1_2        PF00155.18 AT2G20610_1_349_2_4.554846358 -            7.8e-50  162.0   0.0   9.7e-50  161.6   0.0   1.0   1   0   0   1   1   1   1 Aminotransferase class I and II
+Aminotran_3          PF00202.18 AT2G20610_1_349_2_4.554846358 -            0.00035   11.3   0.0   0.00053   10.7   0.0   1.2   1   0   0   1   1   1   1 Aminotransferase class-III
+UDPGT_2              -          AT1G05560_1_469_1_7.146383241 -            1.8e-82  269.7   0.0   2.7e-82  269.1   0.0   1.2   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G05560_1_469_1_7.146383241 -            8.4e-28   89.3   0.0   1.9e-27   88.2   0.0   1.5   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT2G24180_"4a(2H)-Naphthalenemethanol,-octahydro-C11H20O"_2_4.262159255 -           4.6e-103  337.3   0.0  5.4e-103  337.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G24180_"Propanamide,-3-(2-ethylpiperid-1yl)-N-(3-chlorophenyl)-C16H23ClN2O"_2_4.192757644 -           4.6e-103  337.3   0.0  5.4e-103  337.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT5G07990_Anthocyanidin-Cyanidin?-like-structure_5_4.131455655 -           4.9e-107  350.4   0.0    6e-107  350.1   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G14640_1_467_3_7.374486709 -            7.4e-92  300.4   0.0     1e-91  299.9   0.0   1.1   1   0   0   1   1   1   1 Cytochrome P450
+SQHop_cyclase_C      PF13243.3  AT4G15340_3_32_4_4.03844579 -            9.7e-50  161.4   0.0   2.1e-43  140.6   0.0   2.3   2   0   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+SQHop_cyclase_N      PF13249.3  AT4G15340_3_32_4_4.03844579 -            1.3e-38  124.7   0.0   2.5e-35  113.9   0.0   2.8   2   1   1   3   3   3   2 Squalene-hopene cyclase N-terminal domain
+Prenyltrans          PF00432.18 AT4G15340_3_32_4_4.03844579 -            1.3e-24   77.8   4.6   9.4e-10   30.2   0.4   5.1   4   0   0   4   4   4   3 Prenyltransferase and squalene oxidase repeat
+p450                 PF00067.19 AT3G20950_Benzenepropanenitrile-C9H9N_3_4.123837951 -            9.3e-89  290.2   0.0   1.1e-88  289.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G20950_1_363_3_4.667675077 -            9.3e-89  290.2   0.0   1.1e-88  289.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G28860_"3-Butenenitrile,-3-chloro-C4H4ClN"_2_4.144665322 -            1.6e-53  174.0   0.0   1.9e-53  173.7   0.0   1.1   1   0   0   1   1   1   1 Cytochrome P450
+Terpene_synth_C      PF03936.13 AT4G13300_1_54_4_4.17234039 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G13300_1_54_4_4.17234039 -            1.2e-48  157.3   0.0   2.7e-48  156.2   0.0   1.6   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT4G13300_2_40_4_6.068260031 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G13300_2_40_4_6.068260031 -            1.2e-48  157.3   0.0   2.7e-48  156.2   0.0   1.6   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT4G13300_2_42_4_4.364436841 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT4G13300_2_42_4_4.364436841 -            1.2e-48  157.3   0.0   2.7e-48  156.2   0.0   1.6   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+p450                 PF00067.19 AT2G45550_1_143_2_4.506838597 -           2.8e-110  361.1   0.0  3.5e-110  360.8   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Chalcone             PF02431.12 AT5G66230_1_448_5_4.11448262 -            2.7e-98  319.3   0.8   4.3e-98  318.6   0.8   1.3   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone             PF02431.12 AT5G66230_1_129_5_5.134670227 -            2.7e-98  319.3   0.8   4.3e-98  318.6   0.8   1.3   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Chalcone             PF02431.12 AT5G66230_1_201_5_6.008818508 -            2.7e-98  319.3   0.8   4.3e-98  318.6   0.8   1.3   1   0   0   1   1   1   1 Chalcone-flavanone isomerase
+Terpene_synth_C      PF03936.13 AT1G33750_"2H-1,2-Oxazine,-6-(4-chlorophenyl)tetrahydro-2-methyl-C11H14ClNO"_1_4.283063092 -            1.2e-90  295.4   0.1   1.8e-90  294.9   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G33750_"2H-1,2-Oxazine,-6-(4-chlorophenyl)tetrahydro-2-methyl-C11H14ClNO"_1_4.283063092 -            9.8e-52  167.4   0.9   1.7e-51  166.6   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT1G33750_"1-Cyano-4,5-epithiopentane-C6H9NS"_1_4.844568613 -            1.2e-90  295.4   0.1   1.8e-90  294.9   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G33750_"1-Cyano-4,5-epithiopentane-C6H9NS"_1_4.844568613 -            9.8e-52  167.4   0.9   1.7e-51  166.6   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Methyltransf_2       PF00891.15 AT1G77530_Tetradecane-C14H30_1_4.356244114 -              4e-69  224.2   0.0   5.5e-69  223.8   0.0   1.1   1   0   0   1   1   1   1 O-methyltransferase
+p450                 PF00067.19 AT3G28740_"2,4,4-Trimethyl-3-(3-methylbutyl)cyclohex-2-enone-C14H24O"_3_4.229740284 -            7.9e-93  303.6   0.0   9.5e-93  303.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G28740_2_94_3_4.119450207 -            7.9e-93  303.6   0.0   9.5e-93  303.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Peptidase_S10        PF00450.19 AT1G61130_"Cyclohexene,-1,6-dimethyl-C8H14"_1_4.512333719 -           1.7e-143  471.0   1.3    2e-143  470.7   1.3   1.0   1   0   0   1   1   1   1 Serine carboxypeptidase
+Epimerase            PF01370.18 AT3G56700_gamma-Valerolactone-KI=941-C5H8O2_3_4.818041282 -            6.1e-07   21.1   0.0   0.00059   11.3   0.0   2.4   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT3G56700_"Propane,-1,3-dichloro-C3H6Cl2"_3_5.231347502 -            6.1e-07   21.1   0.0   0.00059   11.3   0.0   2.4   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+Aminotran_1_2        PF00155.18 AT5G11520_"Naphthalene,-1,2,3,4-tetrahydro-2,6-dimethyl-C12H16"_5_4.79655677 -              2e-96  315.2   0.0   2.3e-96  315.0   0.0   1.0   1   0   0   1   1   1   1 Aminotransferase class I and II
+UDPGT_2              -          AT2G30140_"2-Propanol,-1-butoxy-C7H16O2"_2_4.053528281 -            9.9e-93  303.5   0.0   1.2e-92  303.2   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G30140_"2-Propanol,-1-butoxy-C7H16O2"_2_4.053528281 -            1.1e-22   72.5   0.0   1.5e-22   72.0   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT1G64940_"Cyclotetrasiloxane,-2,4,6,8-tetramethyl-C4H16O4Si4"_1_4.011468957 -            1.4e-98  322.5   0.1   1.8e-98  322.2   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT1G64940_"1,4-Dioxane-2,5-dione,-3,6-diethyl-C8H12O4"_1_4.819132671 -            1.4e-98  322.5   0.1   1.8e-98  322.2   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Dirigent             PF03018.11 AT2G39430_Fertaric-acid?_2_4.483209148 -            5.5e-37  118.9   1.3     3e-33  106.8   0.9   2.2   2   0   0   2   2   2   2 Dirigent-like protein
+p450                 PF00067.19 AT3G48320_Methanethiol-CH4S_3_4.378561232 -            1.2e-96  316.2   0.0   1.4e-96  315.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G48320_2_47_3_4.379021689 -            1.2e-96  316.2   0.0   1.4e-96  315.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G48320_"Pentanenitrile,-5-(methylthio)-C6H11NS"_3_4.760511145 -            1.2e-96  316.2   0.0   1.4e-96  315.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G48320_"1,2,5-Thiadiazole-C2H2N2S"_3_4.503029276 -            1.2e-96  316.2   0.0   1.4e-96  315.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT5G17050_flavonoid-glycoside-(Kaempferol-7-O-rhamnoside-3-O-glucosylglucoside-)+FA_5_14.79126383 -              5e-84  274.8   0.0   6.2e-84  274.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G17050_flavonoid-glycoside-(Kaempferol-7-O-rhamnoside-3-O-glucosylglucoside-)+FA_5_14.79126383 -            1.9e-40  131.0   0.0   2.4e-40  130.7   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT5G57220_"Benzene,-1,4-dimethoxy-C8H10O2"_5_4.221475851 -            5.3e-94  307.4   0.0   6.5e-94  307.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT5G57220_"2,4-Dimethoxyamphetamine-C11H17NO2"_5_4.611426023 -            5.3e-94  307.4   0.0   6.5e-94  307.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT5G57220_Methoxyglucobrassicin_5_7.463211594 -            5.3e-94  307.4   0.0   6.5e-94  307.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+SQHop_cyclase_C      PF13243.3  AT4G15370_1_190_4_4.130069453 -            2.3e-52  170.0   0.4   1.1e-46  151.3   0.1   2.6   2   1   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+SQHop_cyclase_N      PF13249.3  AT4G15370_1_190_4_4.130069453 -            2.5e-44  143.5   0.0   1.7e-40  130.9   0.0   3.7   4   0   0   4   4   4   2 Squalene-hopene cyclase N-terminal domain
+Prenyltrans          PF00432.18 AT4G15370_1_190_4_4.130069453 -            6.7e-28   88.3   2.1   5.1e-10   31.0   0.2   5.1   4   0   0   4   4   4   3 Prenyltransferase and squalene oxidase repeat
+UDPGT_2              -          AT5G26310_Tetrachloroethylene-C2Cl4_5_4.411647942 -            8.3e-86  280.7   0.0   1.3e-85  280.1   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G26310_Tetrachloroethylene-C2Cl4_5_4.411647942 -            1.1e-23   75.7   0.0   1.7e-23   75.1   0.0   1.2   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+AMP-binding          PF00501.25 AT1G20490_"2-Heptenal,-(Z)-C7H12O"_1_4.040993878 -            2.7e-84  275.1   0.1   3.5e-84  274.7   0.1   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20490_"4-(2,6,6-Trimethylcyclohexa-1,3-dienyl)but-3-en-2-one-C13H18O"_1_4.253117492 -            2.7e-84  275.1   0.1   3.5e-84  274.7   0.1   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20490_"2-Butenal,-(E)-C4H8O"_1_4.305145965 -            2.7e-84  275.1   0.1   3.5e-84  274.7   0.1   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G20490_2_122_1_4.045468732 -            2.7e-84  275.1   0.1   3.5e-84  274.7   0.1   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+polyprenyl_synt      PF00348.14 AT1G17050_3_3_1_4.0764309 -            3.1e-75  244.5   0.0   3.9e-75  244.2   0.0   1.1   1   0   0   1   1   1   1 Polyprenyl synthetase
+SQHop_cyclase_C      PF13243.3  AT1G66960_"(1R)-2,6,6-Trimethylbicyclo[3.1.1]hept-2-ene-C10H16"_1_4.587189134 -            3.3e-62  202.4   0.6   1.9e-55  180.1   0.9   2.5   2   1   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+SQHop_cyclase_N      PF13249.3  AT1G66960_"(1R)-2,6,6-Trimethylbicyclo[3.1.1]hept-2-ene-C10H16"_1_4.587189134 -              2e-47  153.7   0.1   3.3e-42  136.5   0.0   3.5   2   1   1   3   3   3   3 Squalene-hopene cyclase N-terminal domain
+Prenyltrans          PF00432.18 AT1G66960_"(1R)-2,6,6-Trimethylbicyclo[3.1.1]hept-2-ene-C10H16"_1_4.587189134 -            7.4e-35  110.5   7.9   9.2e-16   49.4   1.3   5.7   7   0   0   7   7   7   3 Prenyltransferase and squalene oxidase repeat
+p450                 PF00067.19 AT3G53305_"Androst-16-en-3-one,-(5)-C19H28O"_3_4.51242341 -            7.9e-60  194.8   0.0   6.4e-45  145.6   0.0   2.0   2   0   0   2   2   2   2 Cytochrome P450
+p450                 PF00067.19 AT3G53305_2_37_3_4.005805057 -            7.9e-60  194.8   0.0   6.4e-45  145.6   0.0   2.0   2   0   0   2   2   2   2 Cytochrome P450
+p450                 PF00067.19 AT3G53300_"Cyclotetrasiloxane,-octamethyl-C8H24O4Si4"_3_4.614628988 -           2.1e-102  335.1   0.0  2.5e-102  334.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+SQS_PSY              PF00494.16 AT4G34640_1_463_4_4.664112831 -            7.3e-48  155.3   0.0     5e-47  152.5   0.0   1.9   2   0   0   2   2   2   1 Squalene/phytoene synthase
+UDPGT_2              -          AT5G05890_1_150_5_4.763767154 -           7.4e-174  570.9   0.0  8.4e-174  570.7   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05890_1_150_5_4.763767154 -            8.8e-27   85.9   0.0     6e-26   83.2   0.0   1.9   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G05890_3-Buten-2-one-C4H6O_5_4.227943499 -           7.4e-174  570.9   0.0  8.4e-174  570.7   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G05890_3-Buten-2-one-C4H6O_5_4.227943499 -            8.8e-27   85.9   0.0     6e-26   83.2   0.0   1.9   2   0   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Dirigent             PF03018.11 AT1G13280_2-Methyl-1-nonene-3-yne-C10H16_1_4.878885154 -            3.1e-07   22.4   0.0   5.3e-07   21.7   0.0   1.4   1   0   0   1   1   1   1 Dirigent-like protein
+p450                 PF00067.19 AT2G30490_Benzyl-chloride-C7H7Cl_2_5.192429188 -           6.4e-115  376.4   0.0  7.3e-115  376.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+SQHop_cyclase_C      PF13243.3  AT3G45130_"Benzamide,-2-amino-N-(1,3-benzodioxol-5-yl)-C14H12N2O3"_3_4.335440703 -            5.9e-57  185.1   0.0   3.5e-52  169.4   0.0   2.2   2   0   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+SQHop_cyclase_N      PF13249.3  AT3G45130_"Benzamide,-2-amino-N-(1,3-benzodioxol-5-yl)-C14H12N2O3"_3_4.335440703 -            3.3e-49  159.5   0.0   7.4e-46  148.5   0.0   3.8   3   1   1   4   4   4   2 Squalene-hopene cyclase N-terminal domain
+Prenyltrans          PF00432.18 AT3G45130_"Benzamide,-2-amino-N-(1,3-benzodioxol-5-yl)-C14H12N2O3"_3_4.335440703 -            2.5e-36  115.2  10.9   6.8e-13   40.2   0.2   5.3   5   0   0   5   5   5   4 Prenyltransferase and squalene oxidase repeat
+p450                 PF00067.19 AT3G26190_"Ethanone,-1-(5,6,7,8-tetrahydro-2,8,8-trimethyl-4H-cyclohepta[b]furan-5-yl)-C14H20O2"_3_4.071236075 -           8.8e-104  339.7   0.0    1e-103  339.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G26190_p-Chloro-N-ethylaniline-C8H10ClN_3_4.446295823 -           8.8e-104  339.7   0.0    1e-103  339.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G26190_1_377_3_6.111896472 -           8.8e-104  339.7   0.0    1e-103  339.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT5G38010_1_93_5_7.813476198 -             2e-155  510.1   0.0  2.4e-155  509.9   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G38010_1_93_5_7.813476198 -            3.2e-30   97.3   0.0     9e-28   89.2   0.0   2.3   2   1   0   2   2   2   2 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT5G38010_1_151_5_12.89307581 -             2e-155  510.1   0.0  2.4e-155  509.9   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT5G38010_1_151_5_12.89307581 -            3.2e-30   97.3   0.0     9e-28   89.2   0.0   2.3   2   1   0   2   2   2   2 UDP-glucoronosyl and UDP-glucosyl transferase
+Acetyltransf_1       PF00583.22 AT2G04845_Methanethiol-CH4S_2_6.929190405 -            5.9e-08   25.0   0.0   9.5e-08   24.3   0.0   1.3   1   0   0   1   1   1   1 Acetyltransferase (GNAT) family
+polyprenyl_synt      PF00348.14 AT3G29430_1_273_3_4.394602716 -            3.2e-61  198.6   0.0   4.2e-61  198.2   0.0   1.1   1   0   0   1   1   1   1 Polyprenyl synthetase
+UDPGT_2              -          AT4G15280_2_35_4_4.220366646 -            6.2e-75  244.8   0.0   7.7e-75  244.5   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15280_2_35_4_4.220366646 -              1e-28   92.3   0.0   1.9e-28   91.4   0.0   1.4   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G22340_2_31_1_4.916864105 -           7.9e-131  429.1   0.0  9.7e-131  428.8   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22340_2_31_1_4.916864105 -            3.6e-27   87.2   0.0   4.9e-27   86.8   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G22340_1_133_1_5.316821252 -           7.9e-131  429.1   0.0  9.7e-131  428.8   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22340_1_133_1_5.316821252 -            3.6e-27   87.2   0.0   4.9e-27   86.8   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G22340_"5-Hepten-2-one,-6-methyl-C8H14O"_1_4.30414933 -           7.9e-131  429.1   0.0  9.7e-131  428.8   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G22340_"5-Hepten-2-one,-6-methyl-C8H14O"_1_4.30414933 -            3.6e-27   87.2   0.0   4.9e-27   86.8   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT1G01190_2_37_1_5.353103046 -            4.8e-77  251.5   0.0     6e-77  251.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G20140_2_6_3_5.934700445 -            2.9e-88  288.5   0.0   3.5e-88  288.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+polyprenyl_synt      PF00348.14 AT1G49530_"7-Oxabicyclo[4.2.1]nona-2,4-dien-8-one-C8H8O2"_1_4.087331334 -            7.7e-57  184.2   0.1   1.1e-56  183.7   0.1   1.1   1   0   0   1   1   1   1 Polyprenyl synthetase
+p450                 PF00067.19 AT3G26280_1_20_3_4.485142906 -           5.2e-106  347.0   0.1  6.2e-106  346.8   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G26280_"1-Decene,-2-methyl-C11H22"_3_4.428721758 -           5.2e-106  347.0   0.1  6.2e-106  346.8   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT2G05180_2_53_2_4.259152908 -            6.3e-77  251.2   0.0     7e-77  251.0   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Methyltransf_2       PF00891.15 AT1G21100_2_41_1_6.02080383 -            4.7e-64  207.7   0.2   6.4e-64  207.2   0.2   1.1   1   0   0   1   1   1   1 O-methyltransferase
+Epimerase            PF01370.18 AT2G45400_1-Phenylbicyclo(4.1.0)heptane-C13H16_2_4.157004182 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_"3-Buten-2-one,-4-(2,6,6-trimethyl-1-cyclohexen-1-yl)-C13H20O"_2_4.321753573 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_"Heptane,-2,4,6-trimethyl-C10H22"_2_5.786736519 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_"3H-Cyclopenta[c]pyridazin-3-one,-2,5,6,7-tetrahydro-C7H8N2O"_2_4.94579884 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_3-Chloropropyl-isothiocyanate-C4H6ClNS_2_4.311620673 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_"2(4H)-Benzofuranone,-5,6,7,7a-tetrahydro-4,4,7a-trimethyl-,-(R)-C11H16O2"_2_4.044276661 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT2G45400_"3,4-Dimethylcyclohexanol-C8H16O"_2_4.059943304 -            1.3e-27   88.7   0.0   1.9e-27   88.3   0.0   1.2   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+Epimerase            PF01370.18 AT3G47520_1_438_3_4.668181104 -            0.00025   12.5   0.0    0.0004   11.9   0.0   1.3   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+2OG-FeII_Oxy         PF03171.17 AT4G25300_Heptanonitrile-C7H13N_4_4.73713783 -            2.1e-30   97.3   0.0     3e-30   96.8   0.0   1.2   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+2OG-FeII_Oxy         PF03171.17 AT4G25300_1_377_4_6.218719235 -            2.1e-30   97.3   0.0     3e-30   96.8   0.0   1.2   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+Epimerase            PF01370.18 AT1G32100_2_6_1_4.804651449 -            5.9e-12   37.5   0.2   6.2e-10   30.9   0.1   2.3   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G32100_2_6_1_4.804651449 -              6e-05   14.6   0.1   9.1e-05   14.0   0.1   1.3   1   0   0   1   1   1   1 short chain dehydrogenase
+Epimerase            PF01370.18 AT1G32100_1_140_1_4.644795103 -            5.9e-12   37.5   0.2   6.2e-10   30.9   0.1   2.3   2   0   0   2   2   2   2 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT1G32100_1_140_1_4.644795103 -              6e-05   14.6   0.1   9.1e-05   14.0   0.1   1.3   1   0   0   1   1   1   1 short chain dehydrogenase
+p450                 PF00067.19 AT4G37320_"2,6-Diisopropylnaphthalene-C16H20"_4_4.270408337 -            6.9e-89  290.6   0.0   8.5e-89  290.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G37320_1_140_4_4.118813703 -            6.9e-89  290.6   0.0   8.5e-89  290.3   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G10560_Glucosinolate-(1-or-4-Methoxyglucobrassicin?)_3_4.367412439 -           2.6e-105  344.8   0.0    3e-105  344.5   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT4G15490_1_428_4_4.486933897 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_1_428_4_4.486933897 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15490_ferulic-acid+coniferyl-alcohol+glucose_4_6.384353219 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_ferulic-acid+coniferyl-alcohol+glucose_4_6.384353219 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15490_ferulic-acid+coniferyl-alcohol+glucose_4_9.902434177 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_ferulic-acid+coniferyl-alcohol+glucose_4_9.902434177 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15490_1_334_4_7.712569594 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_1_334_4_7.712569594 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15490_"2-Hexenal,-(E)-C6H10O"_4_4.093503987 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_"2-Hexenal,-(E)-C6H10O"_4_4.093503987 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT4G15490_1_312_4_7.126769231 -            1.2e-87  286.8   0.0     2e-87  286.0   0.0   1.3   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT4G15490_1_312_4_7.126769231 -            6.6e-26   83.1   0.1   1.4e-25   82.0   0.1   1.5   1   1   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Methyltransf_7       PF03492.12 AT5G38020_1_454_5_7.043851555 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+Methyltransf_7       PF03492.12 AT5G38020_1_452_5_6.23239693 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+Methyltransf_7       PF03492.12 AT5G38020_1_468_5_7.967144013 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+Methyltransf_7       PF03492.12 AT5G38020_2_92_5_5.275236765 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+Methyltransf_7       PF03492.12 AT5G38020_1_279_5_11.87583598 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+Methyltransf_7       PF03492.12 AT5G38020_1_451_5_7.973368285 -           1.2e-121  397.9   0.0  1.3e-121  397.7   0.0   1.0   1   0   0   1   1   1   1 SAM dependent carboxyl methyltransferase
+UDPGT_2              -          AT2G15490_1_428_2_4.034772609 -            9.8e-83  270.6   0.0   5.1e-82  268.2   0.0   1.8   1   1   0   1   1   1   1 -
+UDPGT                PF00201.15 AT2G15490_1_428_2_4.034772609 -            5.6e-25   80.0   0.0   6.6e-25   79.7   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+Cu_amine_oxid        PF01179.17 AT4G12280_2_98_4_6.69798614 -            1.2e-91  299.5   0.2   1.4e-91  299.4   0.2   1.0   1   0   0   1   1   1   1 Copper amine oxidase, enzyme domain
+p450                 PF00067.19 AT4G13290_1_54_4_4.17234039 -            7.6e-94  306.9   0.0   9.6e-94  306.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G13290_2_40_4_6.068260031 -            7.6e-94  306.9   0.0   9.6e-94  306.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G13290_2_42_4_4.364436841 -            7.6e-94  306.9   0.0   9.6e-94  306.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Terpene_synth_C      PF03936.13 AT5G23960_2-Benzyloxyethylamine-C9H13NO_5_5.557477431 -              3e-91  297.4   6.5   4.3e-91  296.9   6.5   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT5G23960_2-Benzyloxyethylamine-C9H13NO_5_5.557477431 -            3.5e-49  159.1   0.2   9.1e-49  157.7   0.1   1.8   2   0   0   2   2   2   1 Terpene synthase, N-terminal domain
+Glycos_transf_1      PF00534.17 AT4G19460_Hydrogen-azide-(Azoimide)-HN3_4_4.089839642 -            1.1e-22   72.4   0.0   1.8e-22   71.7   0.0   1.3   1   0   0   1   1   1   1 Glycosyl transferases group 1
+Epimerase            PF01370.18 AT5G42800_1_405_5_4.070718129 -              1e-28   92.3   0.0   1.4e-28   91.9   0.0   1.1   1   0   0   1   1   1   1 NAD dependent epimerase/dehydratase family
+adh_short            PF00106.22 AT5G42800_1_405_5_4.070718129 -            9.3e-07   20.5   0.0   1.6e-06   19.7   0.0   1.5   1   1   0   1   1   1   1 short chain dehydrogenase
+AMP-binding          PF00501.25 AT2G17650_1_148_2_13.96468716 -            1.8e-92  302.0   0.0   2.2e-92  301.8   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+Methyltransf_2       PF00891.15 AT1G51990_1_472_1_5.774923438 -            4.6e-69  224.0   0.0   6.4e-69  223.6   0.0   1.1   1   0   0   1   1   1   1 O-methyltransferase
+Methyltransf_2       PF00891.15 AT1G51990_1_270_1_10.23220245 -            4.6e-69  224.0   0.0   6.4e-69  223.6   0.0   1.1   1   0   0   1   1   1   1 O-methyltransferase
+Methyltransf_2       PF00891.15 AT1G51990_2_22_1_4.077081617 -            4.6e-69  224.0   0.0   6.4e-69  223.6   0.0   1.1   1   0   0   1   1   1   1 O-methyltransferase
+Amino_oxidase        PF01593.21 AT5G61290_"Decane,-2,5-dimethyl-C12H26"_5_4.5699293 -            1.6e-06   19.6   0.0   2.4e-05   15.7   0.0   2.1   2   0   0   2   2   2   1 Flavin containing amine oxidoreductase
+Lycopene_cycl        PF05834.9  AT5G61290_"Decane,-2,5-dimethyl-C12H26"_5_4.5699293 -             0.0002   12.4   0.0   0.00065   10.8   0.0   1.7   2   0   0   2   2   2   1 Lycopene cyclase protein
+p450                 PF00067.19 AT1G13100_1_310_1_4.220917608 -            4.2e-97  317.7   0.0   5.1e-97  317.4   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Epimerase            PF01370.18 AT5G22420_1_121_5_4.3328706 -            8.9e-07   20.6   0.1    0.0022    9.5   0.0   3.2   2   2   1   3   3   3   3 NAD dependent epimerase/dehydratase family
+p450                 PF00067.19 AT3G25180_3_42_3_4.594121132 -            2.5e-50  163.5   0.0   3.1e-50  163.2   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Cellulose_synt       PF03552.11 AT2G25540_"Cyclopropane,-ethenylmethylene-C6H8"_2_4.068741218 -                  0 1332.1   0.0         0 1331.5   0.0   1.3   1   0   0   1   1   1   1 Cellulose synthase
+Cu_amine_oxid        PF01179.17 AT4G14940_3-Methoxyhex-1-ene-C7H14O_4_5.719525208 -           2.8e-130  426.8   0.2  3.6e-130  426.4   0.2   1.1   1   0   0   1   1   1   1 Copper amine oxidase, enzyme domain
+2OG-FeII_Oxy         PF03171.17 AT4G03070_"2-Propanol,-1-butoxy-C7H16O2"_4_4.690920927 -            1.8e-21   68.6   0.1     3e-21   67.9   0.1   1.3   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G03070_"2-Propanol,-1-butoxy-C7H16O2"_4_4.690920927 -            1.5e-12   40.4   0.0   2.5e-12   39.6   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT4G03070_"Ethanol,-2-(2-butoxyethoxy)-,-acetate-C10H20O4"_4_4.200774726 -            1.8e-21   68.6   0.1     3e-21   67.9   0.1   1.3   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT4G03070_"Ethanol,-2-(2-butoxyethoxy)-,-acetate-C10H20O4"_4_4.200774726 -            1.5e-12   40.4   0.0   2.5e-12   39.6   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+p450                 PF00067.19 AT4G37410_Glucosinolate-(1-or-4-Methoxyglucobrassicin?)_4_4.879909655 -            7.3e-98  320.2   0.0   8.7e-98  319.9   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+Cellulose_synt       PF03552.11 AT4G24010_1_99_4_16.68708167 -           4.3e-140  460.4   4.8   7.5e-87  284.4   0.2   2.3   1   1   1   2   2   2   2 Cellulose synthase
+UDPGT_2              -          AT1G07250_"Silane,-dimethyl(3-methylbut-2-enyloxy)hexyloxy-C13H28O2Si"_1_4.72333566 -            5.5e-64  208.8   0.0   7.6e-64  208.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07250_"Silane,-dimethyl(3-methylbut-2-enyloxy)hexyloxy-C13H28O2Si"_1_4.72333566 -            1.3e-22   72.1   0.0   1.8e-22   71.7   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G07250_"3-Dodecanol,-TMS-derivative-C15H34OSi"_1_4.786756408 -            5.5e-64  208.8   0.0   7.6e-64  208.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07250_"3-Dodecanol,-TMS-derivative-C15H34OSi"_1_4.786756408 -            1.3e-22   72.1   0.0   1.8e-22   71.7   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT1G07250_1_463_1_5.099605121 -            5.5e-64  208.8   0.0   7.6e-64  208.3   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G07250_1_463_1_5.099605121 -            1.3e-22   72.1   0.0   1.8e-22   71.7   0.0   1.1   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+p450                 PF00067.19 AT4G22690_2_16_4_4.17171902 -            1.7e-99  325.6   0.0   2.1e-99  325.2   0.0   1.1   1   0   0   1   1   1   1 Cytochrome P450
+Transferase          PF02458.12 AT5G63560_"2-Butene,-1,4-diethoxy-C8H16O2"_5_5.027345416 -            8.3e-93  303.3   0.0     1e-92  303.0   0.0   1.0   1   0   0   1   1   1   1 Transferase family
+p450                 PF00067.19 AT4G15350_1_41_4_4.263639677 -           4.5e-100  327.5   0.1  5.1e-100  327.3   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT3G20940_1_377_3_4.255592863 -            5.4e-93  304.1   0.1   6.5e-93  303.9   0.1   1.0   1   0   0   1   1   1   1 Cytochrome P450
+p450                 PF00067.19 AT4G13310_1_79_4_4.765992983 -           2.5e-102  334.9   0.0  3.2e-102  334.6   0.0   1.0   1   0   0   1   1   1   1 Cytochrome P450
+UDPGT_2              -          AT3G21760_3_32_3_13.96881904 -            5.4e-71  231.8   0.0   7.6e-71  231.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT3G21760_3_32_3_13.96881904 -            3.1e-25   80.8   0.0     5e-25   80.2   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+UDPGT_2              -          AT3G21760_3_31_3_15.09326883 -            5.4e-71  231.8   0.0   7.6e-71  231.4   0.0   1.1   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT3G21760_3_31_3_15.09326883 -            3.1e-25   80.8   0.0     5e-25   80.2   0.0   1.3   1   0   0   1   1   1   1 UDP-glucoronosyl and UDP-glucosyl transferase
+2OG-FeII_Oxy         PF03171.17 AT5G07200_"Oxazole,-5-phenyl-C9H7NO"_5_4.211243767 -            1.9e-32  103.8   0.0   3.3e-32  103.1   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G07200_"Oxazole,-5-phenyl-C9H7NO"_5_4.211243767 -            2.7e-22   71.8   0.0   6.4e-22   70.6   0.0   1.6   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+2OG-FeII_Oxy         PF03171.17 AT5G07200_"Undecane,-2,6-dimethyl-C13H28"_5_4.555051469 -            1.9e-32  103.8   0.0   3.3e-32  103.1   0.0   1.4   1   0   0   1   1   1   1 2OG-Fe(II) oxygenase superfamily
+DIOX_N               PF14226.3  AT5G07200_"Undecane,-2,6-dimethyl-C13H28"_5_4.555051469 -            2.7e-22   71.8   0.0   6.4e-22   70.6   0.0   1.6   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Methyltransf_2       PF00891.15 AT1G77520_"2,4-Hexadienal,-(E,E)-C6H8O"_1_4.121094517 -            9.3e-70  226.3   0.0   1.4e-69  225.8   0.0   1.1   1   0   0   1   1   1   1 O-methyltransferase
+Methyltransf_11      PF08241.9  AT1G77520_"2,4-Hexadienal,-(E,E)-C6H8O"_1_4.121094517 -            0.00018   14.2   0.0   0.00035   13.3   0.0   1.5   1   0   0   1   1   1   1 Methyltransferase domain
+Transferase          PF02458.12 AT5G39050_2_118_5_11.54508337 -            7.5e-54  174.9   0.0     1e-53  174.4   0.0   1.1   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT5G39050_1_68_5_4.210913861 -            7.5e-54  174.9   0.0     1e-53  174.4   0.0   1.1   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT5G39050_1_457_5_6.561008559 -            7.5e-54  174.9   0.0     1e-53  174.4   0.0   1.1   1   0   0   1   1   1   1 Transferase family
+Transferase          PF02458.12 AT5G39050_1_377_5_5.445101815 -            7.5e-54  174.9   0.0     1e-53  174.4   0.0   1.1   1   0   0   1   1   1   1 Transferase family
+UDPGT_2              -          AT1G05680_6-hydroxyindole-3-carboxylic-acid-beta-D-glucopyranosyl-ester+FA_1_4.202898104 -            8.9e-94  306.9   0.0     1e-93  306.7   0.0   1.0   1   0   0   1   1   1   1 -
+UDPGT                PF00201.15 AT1G05680_6-hydroxyindole-3-carboxylic-acid-beta-D-glucopyranosyl-ester+FA_1_4.202898104 -            1.2e-32  105.3   0.0   6.3e-32  102.9   0.0   1.9   2   1   0   2   2   2   1 UDP-glucoronosyl and UDP-glucosyl transferase
+AMP-binding          PF00501.25 AT1G65060_Longiborneol-acetate-KI=1686-C17H28O2_1_4.673304356 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"Benzoic-acid,-3-methoxy-4-methyl-C9H10O3"_1_5.0236497 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"Benzenemethanol,-butyl-methyl-C12H18O"_1_4.94527628 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"1,3-Dioxolane-2-heptanenitrile,-methyl-oxo-2-phenyl-C17H21NO3"_1_4.4748165 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"4-(2,4,4-Trimethyl-cyclohexa-1,5-dienyl)-but-3-en-2-one-C13H18O"_1_5.411068107 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"1-Propanone,-1-(4-chlorophenyl)-C9H9ClO"_1_5.507379697 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
+AMP-binding          PF00501.25 AT1G65060_"Methanone,-(4-methylphenyl)phenyl-C14H12O"_1_5.121482398 -           6.4e-110  359.5   0.0  7.8e-110  359.2   0.0   1.0   1   0   0   1   1   1   1 AMP-binding enzyme
 #
 # Program:         hmmscan
 # Version:         3.1b2 (February 2015)
 # Pipeline mode:   SCAN
 # Query file:      a_thaliana_all_mQTL_loci.fasta
 # Target file:     ../all_plant.hmm
-# Option settings: hmmscan --tblout a_thaliana_all_mQTL_loci_hits.txt --cpu 8 ../all_plant.hmm a_thaliana_all_mQTL_loci.fasta 
+# Option settings: hmmscan --tblout a_thaliana_all_mQTL_loci_hits.txt -E 0.001 --cpu 8 ../all_plant.hmm a_thaliana_all_mQTL_loci.fasta 
 # Current dir:     /home/witje010/mQTLs_other_overlap/a_thaliana
-# Date:            Fri Feb 15 12:47:03 2019
+# Date:            Fri Feb 15 16:09:43 2019
 # [ok]
