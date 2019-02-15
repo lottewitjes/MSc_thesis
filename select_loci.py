@@ -7,9 +7,9 @@ def make_mQTL_dic(mQTL_file):
     with open(mQTL_file, "r") as f1:
         next(f1)
         for line in f1:
-            elements = line.split("\t")
+            elements = line.split("  ") #"  " for O. sativa, "\t" for A. thaliana
             key = elements[0] + "_" + elements[1] + "_" + elements[5].strip()
-            dic[key] = [int(elements[1]), float(elements[3])*1000000, float(elements[4])*1000000, elements[5].strip()]
+            dic[key] = [float(elements[1]), float(elements[3])*1000000, float(elements[4])*1000000, elements[5].strip()]
     return dic
 
 def select_loci(dic, input):
@@ -23,12 +23,14 @@ def select_loci(dic, input):
                 if elements[2] == "gene":
                     print(elements)
                     for mQTL in dic:
-					    if int(elements[0].split("Chr")[1]) == dic[mQTL][0] and int(elements[3]) >= dic[mQTL][1] and int(elements[4]) <= dic[mQTL][2]:
-						    try:
-							    dic_loci[elements[-1].split(";")[2].split("Name=")[1].strip()].append(mQTL) #Name= for A. thaliana TAIR10, Alias= for O. sativa MSUv6.1
-						    except KeyError:
-							    dic_loci[elements[-1].split(";")[2].split("Name=")[1].strip()] = [mQTL] #Name= for A. thaliana TAIR10, Alias= for O. sativa MSUv6.1
-	return dic_loci
+                        if float(elements[0].split("Chr")[1]) == dic[mQTL][0] and ((dic[mQTL][1] < float(elements[3]) < dic[mQTL][2]) or (dic[mQTL][1] < float(elements[4]) < dic[mQTL][2])) :
+                            #print(elements)
+                            #print(dic[mQTL])
+                            try:
+                                dic_loci[elements[-1].split(";")[2].split("Alias=")[1].strip()].append(mQTL) #Name= for A. thaliana TAIR10, Alias= for O. sativa MSUv6
+                            except KeyError:
+                                dic_loci[elements[-1].split(";")[2].split("Alias=")[1].strip()] = [mQTL] #Name= for A. thaliana TAIR10, Alias= for O. sativa MSUv6.1
+    return dic_loci
 
 def write_loci(dic, fasta,  output):
 	fasta_dic = {}
@@ -50,10 +52,10 @@ def write_loci(dic, fasta,  output):
 					f2.write(">" + gene + "_" + element + "\n" + fasta_dic[gene] + "\n")
 
 if __name__ == "__main__":
-	#mQTL_dic = {"lehmbachol_1":[1, 14100000, 20600000, 3.3], "lehmbachol_2":[10, 14400000, 15600000, 3.7],
-	#			"isogemichalcone_1":[1, 11600000, 14500000, 4.6], "isogemichalcone_2":[1, 30000000, 32100000, 6.7],
-    #			"isogemichalcone_3":[6, 0, 1700000, 6.9], "isogemichalcone_4":[9, 0, 6800000, 7.4],
-	#			"isogemichalcone_5":[9, 19100000, 20600000, 4.3], "isogemichalcone_6":[11, 17900000, 18800000, 4.5]}
+    #mQTL_dic = {"lehmbachol_1":[1, 14100000, 20600000, 3.3], "lehmbachol_2":[10, 14400000, 15600000, 3.7],
+    #            "isogemichalcone_1":[1, 11600000, 14500000, 4.6], "isogemichalcone_2":[1, 30000000, 32100000, 6.7],
+    #            "isogemichalcone_3":[6, 0, 1700000, 6.9], "isogemichalcone_4":[9, 0, 6800000, 7.4],
+    #            "isogemichalcone_5":[9, 19100000, 20600000, 4.3], "isogemichalcone_6":[11, 17900000, 18800000, 4.5]}
     mQTLs = argv[1]
     gff3 = argv[2]
     cds_fasta = argv[3]
