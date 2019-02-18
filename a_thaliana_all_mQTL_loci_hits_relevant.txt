@@ -1,0 +1,35 @@
+#                                                                                                                       --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name                                                                   accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------                                                         -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+Terpene_synth_C      PF03936.13 AT3G29410_"1,5-Naphthyridin-4-amine-C8H7N3"_3_4.96297267 -            7.9e-90  292.8   0.5   1.1e-89  292.4   0.5   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT3G29410_"1,5-Naphthyridin-4-amine-C8H7N3"_3_4.96297267 -              9e-52  167.5   0.1   1.5e-51  166.8   0.1   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT1G79460_1_435_1_5.125274199 -            2.5e-76  248.5   0.0   7.8e-76  246.9   0.0   1.8   2   0   0   2   2   2   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G20210_Cyclotetradecane-C14H28_4_4.19625677 -            7.5e-86  279.7   0.9   1.5e-85  278.8   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT1G61120_"Cyclohexene,-1,6-dimethyl-C8H14"_1_4.512333719 -            2.3e-67  219.1   0.2   3.8e-67  218.4   0.2   1.4   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Chal_sti_synt_N      PF00195.16 AT4G34850_5-Cyano-1-pentene-C6H9N_4_5.623378521 -           1.1e-102  334.2   0.0  1.5e-102  333.7   0.0   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 AT4G34850_5-Cyano-1-pentene-C6H9N_4_5.623378521 -            4.4e-64  207.1   0.1   2.1e-63  204.9   0.0   1.9   2   0   0   2   2   2   1 Chalcone and stilbene synthases, C-terminal domain
+Terpene_synth_C      PF03936.13 AT4G16740_"Methanamine,-N,N-difluoro-CH3F2N"_4_4.039339516 -            7.8e-58  187.9   0.4   1.6e-57  186.8   0.4   1.5   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G16740_"1-Butene,-4-chloro-2-methyl-C5H9Cl"_4_4.269303216 -            7.8e-58  187.9   0.4   1.6e-57  186.8   0.4   1.5   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G20200_"3,5-Dimethylphenylacetic-acid-C10H12O2"_4_4.279560357 -            1.6e-89  291.8   1.5   2.3e-89  291.3   1.5   1.3   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G20200_1_141_4_4.934554739 -            1.6e-89  291.8   1.5   2.3e-89  291.3   1.5   1.3   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT3G14540_3_28_3_4.16017296 -            1.1e-88  289.1   0.0   1.5e-88  288.6   0.0   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G13300_1_54_4_4.17234039 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G13300_2_40_4_6.068260031 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT4G13300_2_42_4_4.364436841 -            2.3e-78  255.2   0.1   3.3e-78  254.7   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth_C      PF03936.13 AT1G33750_"2H-1,2-Oxazine,-6-(4-chlorophenyl)tetrahydro-2-methyl-C11H14ClNO"_1_4.283063092 -            1.2e-90  295.4   0.1   1.8e-90  294.9   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G33750_"2H-1,2-Oxazine,-6-(4-chlorophenyl)tetrahydro-2-methyl-C11H14ClNO"_1_4.283063092 -            9.8e-52  167.4   0.9   1.7e-51  166.6   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+Terpene_synth_C      PF03936.13 AT1G33750_"1-Cyano-4,5-epithiopentane-C6H9NS"_1_4.844568613 -            1.2e-90  295.4   0.1   1.8e-90  294.9   0.1   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+Terpene_synth        PF01397.18 AT1G33750_"1-Cyano-4,5-epithiopentane-C6H9NS"_1_4.844568613 -            9.8e-52  167.4   0.9   1.7e-51  166.6   0.9   1.4   1   0   0   1   1   1   1 Terpene synthase, N-terminal domain
+SQHop_cyclase_C      PF13243.3  AT1G66960_"(1R)-2,6,6-Trimethylbicyclo[3.1.1]hept-2-ene-C10H16"_1_4.587189134 -            3.3e-62  202.4   0.6   1.9e-55  180.1   0.9   2.5   2   1   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+SQHop_cyclase_C      PF13243.3  AT3G45130_"Benzamide,-2-amino-N-(1,3-benzodioxol-5-yl)-C14H12N2O3"_3_4.335440703 -            5.9e-57  185.1   0.0   3.5e-52  169.4   0.0   2.2   2   0   0   2   2   2   2 Squalene-hopene cyclase C-terminal domain
+Terpene_synth_C      PF03936.13 AT5G23960_2-Benzyloxyethylamine-C9H13NO_5_5.557477431 -              3e-91  297.4   6.5   4.3e-91  296.9   6.5   1.2   1   0   0   1   1   1   1 Terpene synthase family, metal binding domain
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      a_thaliana_all_mQTL_loci.fasta
+# Target file:     ../all_plant.hmm
+# Option settings: hmmscan --tblout a_thaliana_all_mQTL_loci_hits.txt -E 0.001 --cpu 8 ../all_plant.hmm a_thaliana_all_mQTL_loci.fasta 
+# Current dir:     /home/witje010/mQTLs_other_overlap/a_thaliana
+# Date:            Fri Feb 15 16:09:43 2019
+# [ok]
