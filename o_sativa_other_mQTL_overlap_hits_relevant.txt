@@ -1,0 +1,28 @@
+#                                                                      --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name                  accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------        -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32540_isogemichalcone_6 -            5.2e-42  135.7   1.0   7.8e-42  135.2   1.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32540_isogemichalcone_6 -            1.2e-37  121.2   0.0   1.7e-37  120.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os09g34930_isogemichalcone_5 -            3.3e-06   18.6   0.6     6e-06   17.8   0.6   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Dirigent             PF03018.11 LOC_Os01g25030_lehmbachol_1 -            1.3e-33  108.0   0.7   1.7e-33  107.7   0.7   1.0   1   0   0   1   1   1   1 Dirigent-like protein
+Dirigent             PF03018.11 LOC_Os01g26340_lehmbachol_1 -            4.4e-35  112.8   0.1   5.9e-35  112.4   0.1   1.1   1   0   0   1   1   1   1 Dirigent-like protein
+DIOX_N               PF14226.3  LOC_Os01g25010_lehmbachol_1 -            5.8e-29   93.3   0.0     1e-28   92.5   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32580_isogemichalcone_6 -              2e-86  281.0   0.8   2.9e-86  280.5   0.8   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32580_isogemichalcone_6 -              1e-44  144.2   0.0   1.5e-44  143.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32550_isogemichalcone_6 -            3.2e-13   41.6   0.0   3.2e-13   41.6   0.0   1.1   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+DIOX_N               PF14226.3  LOC_Os01g27490_lehmbachol_1 -              1e-24   79.6   0.0     2e-24   78.7   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32620_isogemichalcone_6 -            1.7e-86  281.2   0.0   3.4e-86  280.3   0.0   1.4   1   0   0   1   1   1   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32620_isogemichalcone_6 -            4.5e-48  155.1   0.0     7e-48  154.5   0.0   1.3   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+DIOX_N               PF14226.3  LOC_Os01g35230_lehmbachol_1 -            8.7e-11   34.7   0.0   1.4e-10   34.0   0.0   1.4   1   0   0   1   1   1   1 non-haem dioxygenase in morphine synthesis N-terminal
+Chal_sti_synt_N      PF00195.16 LOC_Os11g32610_isogemichalcone_6 -            1.9e-85  277.8   0.7   3.3e-85  277.0   0.4   1.5   2   0   0   2   2   2   1 Chalcone and stilbene synthases, N-terminal domain
+Chal_sti_synt_C      PF02797.12 LOC_Os11g32610_isogemichalcone_6 -            4.2e-44  142.2   0.0     6e-44  141.7   0.0   1.2   1   0   0   1   1   1   1 Chalcone and stilbene synthases, C-terminal domain
+#
+# Program:         hmmscan
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SCAN
+# Query file:      o_sativa_other_mQTL_overlap_loci.fasta
+# Target file:     ../all_plant.hmm
+# Option settings: hmmscan --tblout o_sativa_other_mQTL_overlap_hits.txt -E 0.001 --cpu 8 ../all_plant.hmm o_sativa_other_mQTL_overlap_loci.fasta 
+# Current dir:     /home/witje010/mQTLs_other_overlap/o_sativa
+# Date:            Fri Feb 15 16:11:37 2019
+# [ok]
