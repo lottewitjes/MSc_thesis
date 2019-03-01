@@ -26,7 +26,7 @@ def parse_soft(dic, input, output):
                 elif len(elements) == 1:
                     locus = dic[elements[0]].split(".")[0]
                     if locus.startswith("LOC_Os"):
-                        new_line = locus + "\t" + "0"
+                        new_line = locus + "\t" + "null"
                         f2.write(new_line + "\n")
             else:
                 f2.write(line)
