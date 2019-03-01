@@ -19,13 +19,15 @@ def parse_soft(dic, input, output):
                 if len(elements) > 2:
                     f2.write(line)
                 elif len(elements) == 2:
-                    locus = dic[elements[0]]
-                    new_line = locus + "\t" + elements[1]
-                    f2.write(new_line + "\n")
+                    locus = dic[elements[0]].split(".")[0]
+                    if locus.startswith("LOC_Os"):
+                        new_line = locus + "\t" + elements[1]
+                        f2.write(new_line + "\n")
                 elif len(elements) == 1:
-                    locus = dic[elements[0]]
-                    new_line = locus + "\t" + "0"
-                    f2.write(new_line + "\n")
+                    locus = dic[elements[0]].split(".")[0]
+                    if locus.startswith("LOC_Os"):
+                        new_line = locus + "\t" + "0"
+                        f2.write(new_line + "\n")
             else:
                 f2.write(line)
 
